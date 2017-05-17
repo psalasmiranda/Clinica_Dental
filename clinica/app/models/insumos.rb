@@ -1,0 +1,2 @@
+class Insumos < ApplicationRecord
+end
