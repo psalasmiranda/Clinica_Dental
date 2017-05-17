@@ -1,4 +1,5 @@
 class Personal < ApplicationRecord
+  has_many :agendas
   VALIDATES :nombres, PRESENCE: {:MESSAGE => "INGRESE NOMBRES"}
   VALIDATES :rut, PRESENCE: {:MESSAGE => "INGRESE RUT"}
   VALIDATES :correo, PRESENCE: {:MESSAGE => "INGRESE CORREO"}
