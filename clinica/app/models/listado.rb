@@ -1,0 +1,2 @@
+class Listado < ApplicationRecord
+end
