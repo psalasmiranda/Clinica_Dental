@@ -1,8 +1,8 @@
 class Personal < ApplicationRecord
   has_many :agendas
-  VALIDATES :nombres, PRESENCE: {:MESSAGE => "INGRESE NOMBRES"}
-  VALIDATES :rut, PRESENCE: {:MESSAGE => "INGRESE RUT"}
-  VALIDATES :correo, PRESENCE: {:MESSAGE => "INGRESE CORREO"}
-  VALIDATES :telefono, PRESENCE: {:MESSAGE => "INGRESE TELEFONO"}
-  VALIDATES :profesion, PRESENCE: {:MESSAGE => "INGRESE PROFESION O CARGO"}
+  validates :nombres, presence: {:message => "INGRESE NOMBRES"}
+  validates :rut, presence: {:message => "INGRESE RUT"}
+  validates :correo, presence: {:message => "INGRESE CORREO"}
+  validates :telefono, presence: {:message => "INGRESE TELEFONO"}
+  validates :profesion, presence: {:message => "INGRESE PROFESION O CARGO"}
 end

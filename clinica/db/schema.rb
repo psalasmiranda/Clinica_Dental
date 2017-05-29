@@ -57,16 +57,6 @@ ActiveRecord::Schema.define(version: 20170517023532) do
     t.integer "agenda_id"
   end
 
-  create_table "personal", force: :cascade do |t|
-    t.string "rut"
-    t.string "nombre"
-    t.string "especialidad"
-    t.string "telefono"
-    t.string "correo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "personals", force: :cascade do |t|
     t.string "nombres"
     t.string "rut"

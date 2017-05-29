@@ -1,6 +1,6 @@
 class Agenda < ApplicationRecord
-  VALIDATES :fecha, PRESENCE: {:MESSAGE => "INGRESE FECHA"}
-  VALIDATES :hora, PRESENCE: {:MESSAGE => "INGRESE HORA"}
-  VALIDATES :estado, PRESENCE: {:MESSAGE => "INGRESE ESTADO"}
-  VALIDATES :descripcion, PRESENCE: {:MESSAGE => "INGRESE DESCRIPCION"}
+  validates :fecha, presence: {:message => "INGRESE FECHA"}
+  validates :hora, presence: {:message => "INGRESE HORA"}
+  validates :estado, presence: {:message => "INGRESE ESTADO"}
+  validates :descripcion, presence: {:message => "INGRESE DESCRIPCION"}
 end

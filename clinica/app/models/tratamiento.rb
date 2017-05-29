@@ -1,6 +1,6 @@
 class Tratamiento < ApplicationRecord
    has_many :materials
-  VALIDATES :nombre, PRESENCE: {:MESSAGE => "INGRESE NOMBRE"}
-  VALIDATES :costo, PRESENCE: {:MESSAGE => "INGRESE COSTO"}
-  VALIDATES :descripcion, PRESENCE: {:MESSAGE => "INGRESE DESCRIPCION"}
+  validates :nombre, presence: {:message => "INGRESE NOMBRE"}
+  validates :costo, presence: {:message => "INGRESE COSTO"}
+  validates :descripcion, presence: {:message => "INGRESE DESCRIPCION"}
 end

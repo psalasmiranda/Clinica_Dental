@@ -1,8 +1,8 @@
 class Paciente < ApplicationRecord
   has_many :pacientes
-  VALIDATES :nombres, PRESENCE: {:MESSAGE => "INGRESE NOMBRES"}
-  VALIDATES :rut, PRESENCE: {:MESSAGE => "INGRESE RUT"}
-  VALIDATES :correo, PRESENCE: {:MESSAGE => "INGRESE CORREO"}
-  VALIDATES :direccion, PRESENCE: {:MESSAGE => "INGRESE DIRECCION"}
-  VALIDATES :telefono, PRESENCE: {:MESSAGE => "INGRESE TELEFONO"}
+  validates :nombres, presence: {:message => "INGRESE NOMBRES"}
+  validates :rut, presence: {:message => "INGRESE RUT"}
+  validates :correo, presence: {:message => "INGRESE CORREO"}
+  validates :direccion, presence: {:message => "INGRESE DIRECCION"}
+  validates :telefono, presence: {:message => "INGRESE TELEFONO"}
 end
