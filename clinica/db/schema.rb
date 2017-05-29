@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517003957) do
+ActiveRecord::Schema.define(version: 20170517023532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,17 +35,32 @@ ActiveRecord::Schema.define(version: 20170517003957) do
   create_table "listados", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "proveedor_id"
+    t.integer "insumo_id"
   end
 
   create_table "materials", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "insumos_id"
+    t.integer "tratamiento_id"
   end
 
   create_table "pacientes", force: :cascade do |t|
     t.string "nombres"
     t.string "rut"
     t.string "direccion"
+    t.string "telefono"
+    t.string "correo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "agenda_id"
+  end
+
+  create_table "personal", force: :cascade do |t|
+    t.string "rut"
+    t.string "nombre"
+    t.string "especialidad"
     t.string "telefono"
     t.string "correo"
     t.datetime "created_at", null: false
@@ -60,6 +75,7 @@ ActiveRecord::Schema.define(version: 20170517003957) do
     t.string "profesion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "agendas_id"
   end
 
   create_table "proveedors", force: :cascade do |t|
@@ -77,6 +93,14 @@ ActiveRecord::Schema.define(version: 20170517003957) do
     t.string "descripcion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "agendas_id"
   end
 
+  add_foreign_key "listados", "insumos"
+  add_foreign_key "listados", "proveedors"
+  add_foreign_key "materials", "insumos", column: "insumos_id"
+  add_foreign_key "materials", "tratamientos"
+  add_foreign_key "pacientes", "agendas"
+  add_foreign_key "personals", "agendas", column: "agendas_id"
+  add_foreign_key "tratamientos", "agendas", column: "agendas_id"
 end
