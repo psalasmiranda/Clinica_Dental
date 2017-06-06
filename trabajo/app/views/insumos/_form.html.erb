@@ -1,0 +1,37 @@
+<%= form_with(model: insumo, local: true) do |form| %>
+  <% if insumo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(insumo.errors.count, "error") %> prohibited this insumo from being saved:</h2>
+
+      <ul>
+      <% insumo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :cantidad %>
+    <%= form.number_field :cantidad, id: :insumo_cantidad %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :insumo_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ingreso %>
+    <%= form.datetime_select :ingreso, id: :insumo_ingreso %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vencimiento %>
+    <%= form.datetime_select :vencimiento, id: :insumo_vencimiento %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

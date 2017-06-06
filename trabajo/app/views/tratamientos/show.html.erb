@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @tratamiento.nombre %>
+</p>
+
+<p>
+  <strong>Costo:</strong>
+  <%= @tratamiento.costo %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @tratamiento.descripcion %>
+</p>
+
+<%= link_to 'Edit', edit_tratamiento_path(@tratamiento) %> |
+<%= link_to 'Back', tratamientos_path %>
