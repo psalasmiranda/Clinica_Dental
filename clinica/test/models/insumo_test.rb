@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AgendaTest < ActiveSupport::TestCase
+class InsumoTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

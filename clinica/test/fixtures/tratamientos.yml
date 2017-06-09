@@ -2,10 +2,8 @@
 
 one:
   nombre: MyString
-  costo: 1
-  descripcion: MyString
+  descripcion: MyText
 
 two:
   nombre: MyString
-  costo: 1
-  descripcion: MyString
+  descripcion: MyText

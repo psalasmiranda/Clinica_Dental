@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nomre: MyString
+  nombre: MyString
   cantidad: 1
-  fecha_ing: 2017-05-16
+  ingreso: 2017-06-09 12:44:33
+  vencimiento: 2017-06-09 12:44:33
+  costo: 1
 
 two:
-  nomre: MyString
+  nombre: MyString
   cantidad: 1
-  fecha_ing: 2017-05-16
+  ingreso: 2017-06-09 12:44:33
+  vencimiento: 2017-06-09 12:44:33
+  costo: 1

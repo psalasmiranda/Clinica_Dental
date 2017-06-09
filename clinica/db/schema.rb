@@ -15,22 +15,9 @@ ActiveRecord::Schema.define(version: 20170517023532) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "agendas", force: :cascade do |t|
-    t.date "fecha"
-    t.time "hora"
-    t.string "estado"
-    t.string "descripcion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
-  create_table "insumos", force: :cascade do |t|
-    t.string "nomre"
-    t.integer "cantidad"
-    t.date "fecha_ing"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+
+
 
   create_table "listados", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -46,45 +33,13 @@ ActiveRecord::Schema.define(version: 20170517023532) do
     t.integer "tratamiento_id"
   end
 
-  create_table "pacientes", force: :cascade do |t|
-    t.string "nombres"
-    t.string "rut"
-    t.string "direccion"
-    t.string "telefono"
-    t.string "correo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "agenda_id"
-  end
 
-  create_table "personals", force: :cascade do |t|
-    t.string "nombres"
-    t.string "rut"
-    t.string "correo"
-    t.string "telefono"
-    t.string "profesion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "agendas_id"
-  end
 
-  create_table "proveedors", force: :cascade do |t|
-    t.string "nomre"
-    t.string "rut"
-    t.string "correo"
-    t.string "telefono"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
-  create_table "tratamientos", force: :cascade do |t|
-    t.string "nombre"
-    t.integer "costo"
-    t.string "descripcion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "agendas_id"
-  end
+
+
+
+
 
   add_foreign_key "listados", "insumos"
   add_foreign_key "listados", "proveedors"
