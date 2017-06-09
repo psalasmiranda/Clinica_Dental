@@ -17,8 +17,6 @@ ActiveRecord::Schema.define(version: 20170517023532) do
 
 
 
-
-
   create_table "listados", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -32,7 +30,6 @@ ActiveRecord::Schema.define(version: 20170517023532) do
     t.integer "insumos_id"
     t.integer "tratamiento_id"
   end
-
 
 
 
