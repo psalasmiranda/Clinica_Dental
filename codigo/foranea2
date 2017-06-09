@@ -1,0 +1,27 @@
+RELACION ENTRE AGENDA Y TRATAMIENTO - PACIENTE - FUNCIONARIO
+
+add_colum :agendas, :paciente_id, :integer
+add_foreign_key :agendas, :pacientes, colum: :paciente_id, primary_key: id
+
+add_colum :agendas, :tratamiento_id, :integer
+add_foreign_key :agendas, :tratamientos, colum: :tratamiento_id, primary_key: id
+
+add_colum :agendas, :funcionario_id, :integer
+add_foreign_key :agendas, :funcionarios, colum: :funcionario_id, primary_key: id
+
+
+RELACION ENTRE FUNCIONARIO Y CATEGORIA, ESPECIALIDAD
+
+add_colum :categorias, :especialista_id, :string
+add_foreign_key :categorias, :especialistas, colum: :especialista_id, primary_key: id
+
+add_colum :categorias, :funcionario_id, :integer
+add_foreign_key :categorias, :funcionarios, colum: :auto_id, primary_key: id
+
+RELACION ENTRE INSUMO Y AGENTE, LISTADO
+
+add_colum :listados, :agente_id, :integer
+add_foreign_key :listados, :agentes, colum: :agente_id, primary_key: id
+
+add_colum :listados, :insumo_id, :integer
+add_foreign_key :listados, :insumos, colum: :insumo_id, primary_key: id

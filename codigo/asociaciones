@@ -1,0 +1,33 @@
+Asociaciones
+
+Agenda:
+has_many :pacientes
+has_many :tratamientos
+has_many :funcionarios
+
+categoria:
+has_many :especialistas
+has_many :funcionarios
+
+listados:
+has_many :insumos
+has_many :agentes
+
+especialista:
+belongs_to :categoria, foreign_key: :categoria_id
+
+tratamiento:
+belongs_to :agenda, foreign_key: :agenda_id
+
+insumo:
+belongs_to :listado, foreign_key: :listado_id
+
+funcionario:
+
+belongs_to :categoria, foreign_key: :categoria_id
+
+agente:
+belongs_to :listado, foreign_key: :listado_id
+
+paciente:
+belongs_to :agenda, foreign_key: :agenda_id

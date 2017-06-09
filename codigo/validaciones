@@ -1,0 +1,58 @@
+VALIDACION agenda
+
+validates :hora, presence: {:message => "Llenado Obligatorio"}
+
+VALIDACION paciente
+
+  validates :rut, presence: {:message => "Llenado Obligatorio"}
+  validates :digito, presence: {:message => "Llenado Obligatorio"}
+  validates :nombre, presence: {:message => "Llenado Obligatorio"}
+  validates :paterno, presence: {:message => "Llenado Obligatorio"}
+  validates :materno, presence: {:message => "Llenado Obligatorio"}
+  validates :apellido, presence: {:message => "Llenado Obligatorio"}
+  validates :sexo, presence: {:message => "Llenado Obligatorio"}
+  validates :telefono, presence: {:message => "Llenado Obligatorio"}
+  validates :comuna, presence: {:message => "Llenado Obligatorio"}
+  validates :direccion, presence: {:message => "Llenado Obligatorio"}
+  validates :edad, presence: {:message => "Llenado Obligatorio"}
+
+VALIDACION funcionario
+
+  validates :rut, presence: {:message => "Llenado Obligatorio"}
+  validates :digito, presence: {:message => "Llenado Obligatorio"}
+  validates :nombre, presence: {:message => "Llenado Obligatorio"}
+  validates :paterno, presence: {:message => "Llenado Obligatorio"}
+  validates :materno, presence: {:message => "Llenado Obligatorio"}
+  validates :sexo, presence: {:message => "Llenado Obligatorio"}
+  validates :telefono, presence: {:message => "Llenado Obligatorio"}
+  validates :correo, presence: {:message => "Llenado Obligatorio"}
+  validates :cargo, presence: {:message => "Llenado Obligatorio"}
+  validates :contraseña, presence: {:message => "Llenado Obligatorio"}
+
+VALIDACION tratamiento
+
+  validates :nombre, presence: {:message => "Llenado Obligatorio"}
+  validates :descripcion, presence: {:message => "Llenado Obligatorio"}
+
+VALIDACION especialista
+
+ validates :nombre, presence: {:message => "Llenado Obligatorio"}
+
+
+VALIDACION insumo
+
+    validates :cantidad, presence: {:message => "Llenado Obligatorio"}
+    validates :nombre, presence: {:message => "Llenado Obligatorio"}
+    validates :ingreso, presence: {:message => "Llenado Obligatorio"}
+    validates :vencimiento, presence: {:message => "Llenado Obligatorio"}
+
+VALIDACION agente
+
+  validates :nombre, presence: {:message => "Llenado Obligatorio"}
+  validates :apellido, presence: {:message => "Llenado Obligatorio"}
+  validates :empresa, presence: {:message => "Llenado Obligatorio"}
+  validates :telefono, presence: {:message => "Llenado Obligatorio"}
+  validates :correo, presence: {:message => "Llenado Obligatorio"}
+
+VALIDACION profesion
+

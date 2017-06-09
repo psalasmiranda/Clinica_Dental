@@ -1,0 +1,8 @@
+psql
+create database cdental;
+create user pcj with password '123456789';
+grant all privileges on database cdental to pcj;
+\q
+exit
+
+

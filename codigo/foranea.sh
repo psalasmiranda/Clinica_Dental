@@ -1,0 +1,10 @@
+rails g migration addForeignToPacienteAndAgenda
+rails g migration addForeignToFuncionarioAndAgenda
+rails g migration addForeignToTratamientoAndAgenda
+
+rails g migration addForeignToEspecialidadAndCategoria
+rails g migration addForeignToFuncionarioAndCategoria
+
+rails g migration addForeignToInsumoAndListado
+rails g migration addForeignToAgenteAndListado
+
