@@ -10,16 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517023532) do
+ActiveRecord::Schema.define(version: 20170609171918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "agendas", force: :cascade do |t|
-    t.date "fecha"
-    t.time "hora"
-    t.string "estado"
-    t.string "descripcion"
+    t.datetime "hora"
+    t.integer "costo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "grados", force: :cascade do |t|
+    t.string "rol"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,32 +31,37 @@ ActiveRecord::Schema.define(version: 20170517023532) do
   create_table "listados", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "proveedor_id"
-    t.integer "insumo_id"
   end
 
   create_table "materials", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "insumos_id"
-    t.integer "tratamiento_id"
   end
 
-
-  create_table "tratamientos", force: :cascade do |t|
+  create_table "pacientes", force: :cascade do |t|
     t.string "nombre"
-    t.integer "costo"
-    t.string "descripcion"
+    t.string "apellidos"
+    t.string "sexo"
+    t.string "rut"
+    t.integer "edad"
+    t.string "comuna"
+    t.string "direccion"
+    t.string "telefono"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "agendas_id"
   end
 
-  add_foreign_key "listados", "insumos"
-  add_foreign_key "listados", "proveedors"
-  add_foreign_key "materials", "insumos", column: "insumos_id"
-  add_foreign_key "materials", "tratamientos"
-  add_foreign_key "pacientes", "agendas"
-  add_foreign_key "personals", "agendas", column: "agendas_id"
-  add_foreign_key "tratamientos", "agendas", column: "agendas_id"
+  create_table "personals", force: :cascade do |t|
+    t.string "nombre"
+    t.string "apellidos"
+    t.string "telefono"
+    t.string "rut"
+    t.integer "edad"
+    t.string "correo"
+    t.string "contraseña"
+    t.string "cargo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
