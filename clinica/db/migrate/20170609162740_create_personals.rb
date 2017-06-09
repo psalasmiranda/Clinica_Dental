@@ -1,11 +1,14 @@
 class CreatePersonals < ActiveRecord::Migration[5.1]
   def change
     create_table :personals do |t|
-      t.string :nombres
-      t.string :rut
-      t.string :correo
+      t.string :nombre
+      t.string :apellidos
       t.string :telefono
-      t.string :profesion
+      t.string :rut
+      t.integer :edad
+      t.string :correo
+      t.string :contraseña
+      t.string :cargo
 
       t.timestamps
     end
