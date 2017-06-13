@@ -33,7 +33,12 @@ before_action :set_insumo, only: [:mostrar, :editar, :update, :eliminar]
         end
       end
   end
-
+  def eliminar
+      @insumo.destroy
+      respond_to do |format|
+        format.html {redirect_to insumos_url, notice: 'fue eliminado'}
+      end
+  end
   private
 
   def  set_insumo
