@@ -13,7 +13,6 @@ before_action :set_insumo, only: [:mostrar, :editar, :update, :eliminar]
 
   def editar
   end
-
   def crear
       @insumo = Insumo.create(insumo_params)
       respond_to do |format|
