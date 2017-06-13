@@ -1,0 +1,21 @@
+
+  <%= form_for(@insumo, :html => {:role => 'form'}) do |f| %>
+      <% if @insumo.errors.any? %>
+          <%= pluralize(@insumo.errors.count, "error") %>
+
+          <% @insumo.errors.full_messages.each do |actual| %>
+              <%= actual %>
+          <% end %>
+      <% end %>
+      <%= f.label :nombre %>
+      <%= f.text_field :nombre %>
+      <%= f.label :cantidad %>
+      <%= f.text_field :cantidad %>
+      <%= f.label :costo %>
+      <%= f.text_field :costo %>
+      <%= f.label :ingreso %>
+      <%= f.datetime_field :ingreso %>
+      <%= f.label :vencimiento %>
+      <%= f.datetime_field :vencimiento %>
+      <%= f.submit %>
+  <% end %>
