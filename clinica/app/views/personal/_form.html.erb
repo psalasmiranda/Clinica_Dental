@@ -1,0 +1,27 @@
+
+  <%= form_for(@personal, :html => {:role => 'form'}) do |f| %>
+      <% if @personal.errors.any? %>
+          <%= pluralize(@personal.errors.count, "error") %>
+
+          <% @personal.errors.full_messages.each do |actual| %>
+              <%= actual %>
+          <% end %>
+      <% end %>
+      <%= f.label :nombre %>
+      <%= f.text_field :nombre %>
+      <%= f.label :apellidos %>
+      <%= f.text_field :apellidos %>
+      <%= f.label :telefono %>
+      <%= f.text_field :telefono %>
+      <%= f.label :rut %>
+      <%= f.datetime_field :rut %>
+      <%= f.label :edad %>
+      <%= f.datetime_field :edad %>
+      <%= f.label :correo %>
+      <%= f.datetime_field :correo %>
+      <%= f.label :contraseña %>
+      <%= f.datetime_field :contraseña %>
+      <%= f.label :cargo %>
+      <%= f.datetime_field :cargo %>
+      <%= f.submit %>
+  <% end %>

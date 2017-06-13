@@ -1,0 +1,34 @@
+
+
+<h1> <%= link_to 'CREAR NUEVO personal', nuevo_personal_path %> </h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th>nombre</th>
+    <th>apellidos</th>
+    <th>telefono</th>
+    <th>rut</th>
+    <th>edad</th>
+    <th>correo</th>
+    <th>contraseña</th>
+    <th>cargo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @personals.each do |a| %>
+        <tr>
+          <td><%= a.nombre %></td>
+          <td><%= a.apellidos%></td>
+          <td><%= a.telefono %></td>
+          <td><%= a.rut %></td>
+          <td><%= a.edad %></td>
+          <td><%= a.correo %></td>
+          <td><%= a.contraseña %></td>
+          <td><%= a.cargo %></td>
+          <td><%= link_to 'Mostrar', personal_url(a) %></td>
+          <td> <%= link_to 'Editar', editar_personal_path(a) %></td>
+          <td><%= link_to 'Eliminar', a, method: :delete, data: {confirm: 'segurito?'} %></td>
+        </tr>
+  <% end %>
+  </tbody>
+</table>
