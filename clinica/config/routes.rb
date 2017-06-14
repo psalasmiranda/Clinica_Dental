@@ -16,4 +16,15 @@ Rails.application.routes.draw do
     patch 'personals/:id' ,to: 'personal#update'
     post 'personals/', to: 'personal#crear'
     delete 'personals/:id',to: 'personal#eliminar'
+
+
+      get 'proveedors/', to: 'proveedor#index'
+      get 'proveedors/nuevo', to: 'proveedor#nuevo', as: 'nuevo_proveedor'
+      get 'proveedors/:id',to:'proveedor#mostrar', as: 'proveedor'
+      get 'proveedors/:id/editar',to: 'proveedor#editar', as: 'editar_proveedor'
+      put 'proveedors/:id' ,to: 'proveedor#update'
+      patch 'proveedors/:id' ,to: 'proveedor#update'
+      post 'proveedors/', to: 'proveedor#crear'
+      delete 'proveedors/:id',to: 'proveedor#eliminar'
+
 end
