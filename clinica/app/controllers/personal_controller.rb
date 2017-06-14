@@ -13,7 +13,6 @@ class PersonalController < ApplicationController
 
     def editar
     end
-
     def crear
         @personal = Personal.create(personal_params)
         respond_to do |format|
@@ -36,7 +35,7 @@ class PersonalController < ApplicationController
     def eliminar
         @personal.destroy
         respond_to do |format|
-          format.html {redirect_to Personals_url, notice: 'fue eliminado'}
+          format.html {redirect_to personals_url, notice: 'fue eliminado'}
         end
     end
     private
@@ -46,6 +45,6 @@ class PersonalController < ApplicationController
     end
 
     def personal_params
-      params.require(:personal).permit(:nombre, :apellidos, :telefono, :rut, :edad, :contraseña, :cargo)
+      params.require(:personal).permit(:nombre, :apellidos, :telefono, :rut, :edad, :correo, :contraseña, :cargo)
     end
   end
