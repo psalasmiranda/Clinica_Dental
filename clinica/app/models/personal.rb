@@ -1,4 +1,6 @@
 class Personal < ApplicationRecord
+  belongs_to :agenda, foreign_key: :agenda_id
+  belongs_to :grado, foreign_key: :grado_id
   validates :rut, presence: {:message => "Llenado Obligatorio"}
   validates :nombre, presence: {:message => "Llenado Obligatorio"}
   validates :apellidos, presence: {:message => "Llenado Obligatorio"}
