@@ -1,0 +1,28 @@
+
+
+<h1> <%= link_to 'CREAR NUEVO proveedor', nuevo_proveedor_path %> </h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th>nombre</th>
+    <th>rut</th>
+    <th>correo</th>
+    <th>telefono</th>
+    <th>direccion</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @proveedors.each do |a| %>
+        <tr>
+          <td><%= a.nombre %></td>
+          <td><%= a.rut%></td>
+          <td><%= a.correo %></td>
+          <td><%= a.telefono %></td>
+          <td><%= a.direccion %></td>
+          <td><%= link_to 'Mostrar', proveedor_url(a) %></td>
+          <td> <%= link_to 'Editar', editar_proveedor_path(a) %></td>
+          <td><%= link_to 'Eliminar', a, method: :delete, data: {confirm: 'segurito?'} %></td>
+        </tr>
+  <% end %>
+  </tbody>
+</table>
