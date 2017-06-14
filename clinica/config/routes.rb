@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'pacientes/', to: 'pacientes#index'
+  get 'pacientes/nuevo', to: 'pacientes#nuevo', as: 'nuevo_paciente'
+  get 'pacientes/:id',to:'pacientes#mostrar', as: 'paciente'
+  get 'pacientes/:id/editar',to: 'pacientes#editar', as: 'editar_paciente'
+  put 'pacientes/:id' ,to: 'pacientes#update'
+  patch 'pacientes/:id' ,to: 'pacientes#update'
+  post 'pacientes/', to: 'pacientes#crear'
+  delete 'pacientes/:id',to: 'pacientes#eliminar'
+
   get 'agendas/', to: 'agendas#index'
   get 'agendas/nuevo', to: 'agendas#nuevo', as: 'nuevo_agenda'
   get 'agendas/:id',to:'agendas#mostrar', as: 'agenda'
@@ -44,7 +53,6 @@ Rails.application.routes.draw do
   patch 'tratamientos/:id' ,to: 'tratamientos#update'
   post 'tratamientos/', to: 'tratamientos#crear'
   delete 'tratamientos/:id',to: 'tratamientos#eliminar'
-
 
 
 end

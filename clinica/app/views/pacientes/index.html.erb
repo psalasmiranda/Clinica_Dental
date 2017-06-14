@@ -1,0 +1,36 @@
+
+
+<h1> <%= link_to 'CREAR NUEVO paciente', nuevo_paciente_path %> </h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th>nombre</th>
+    <th>apellidos</th>
+    <th>telefono</th>
+    <th>rut</th>
+    <th>edad</th>
+    <th>sexo</th>
+    <th>comuna</th>
+    <th>direccion</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <% @pacientes.each do |a| %>
+        <tr>
+          <td><%= a.nombre %></td>
+          <td><%= a.apellidos%></td>
+          <td><%= a.telefono %></td>
+          <td><%= a.rut %></td>
+          <td><%= a.edad %></td>
+          <td><%= a.sexo %></td>
+          <td><%= a.comuna %></td>
+          <td><%= a.direccion%></td>
+
+          <td><%= link_to 'Mostrar', paciente_url(a) %></td>
+          <td> <%= link_to 'Editar', editar_paciente_path(a) %></td>
+          <td><%= link_to 'Eliminar', a, method: :delete, data: {confirm: 'segurito?'} %></td>
+        </tr>
+  <% end %>
+  </tbody>
+</table>
