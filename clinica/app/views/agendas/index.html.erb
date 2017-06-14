@@ -1,0 +1,20 @@
+<h1> <%= link_to 'CREAR NUEVA HORA', nuevo_agenda_path %> </h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th>hora</th>
+    <th>costo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @agendas.each do |a| %>
+        <tr>
+          <td><%= a.hora%></td>
+          <td><%= a.costo %></td>
+          <td><%= link_to 'Mostrar', agenda_url(a) %></td>
+          <td> <%= link_to 'Editar', editar_agenda_path(a) %></td>
+          <td><%= link_to 'Eliminar', a, method: :delete, data: {confirm: 'seguro?'} %></td>
+        </tr>
+  <% end %>
+  </tbody>
+</table>

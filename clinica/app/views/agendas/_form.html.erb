@@ -1,0 +1,14 @@
+<%= form_for(@agenda, :html => {:role => 'form'}) do |f| %>
+    <% if @agenda.errors.any? %>
+        <%= pluralize(@agenda.errors.count, "error") %>
+
+        <% @agenda.errors.full_messages.each do |actual| %>
+            <%= actual %>
+        <% end %>
+    <% end %>
+    <%= f.label :costo %>
+    <%= f.text_field :costo %>
+    <%= f.label :hora %>
+    <%= f.datetime_field :hora %>
+    <%= f.submit %>
+<% end %>
