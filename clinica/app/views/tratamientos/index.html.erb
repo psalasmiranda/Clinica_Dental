@@ -1,0 +1,20 @@
+<h1> <%= link_to 'CREAR NUEVO TRATAMIENTO', nuevo_tratamiento_path %> </h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th>nombre</th>
+    <th>descripcion</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @tratamientos.each do |a| %>
+        <tr>
+          <td><%= a.nombre%></td>
+          <td><%= a.descripcion %></td>
+          <td><%= link_to 'Mostrar', tratamiento_url(a) %></td>
+          <td> <%= link_to 'Editar', editar_tratamiento_path(a) %></td>
+          <td><%= link_to 'Eliminar', a, method: :delete, data: {confirm: 'seguro?'} %></td>
+        </tr>
+  <% end %>
+  </tbody>
+</table>
