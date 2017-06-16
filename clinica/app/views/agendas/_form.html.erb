@@ -1,4 +1,4 @@
-<%= form_for(@agenda, :html => {:role => 'form'}) do |f| %>
+<%= form_for(@agenda, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
     <% if @agenda.errors.any? %>
         <%= pluralize(@agenda.errors.count, "error") %>
 
@@ -6,9 +6,21 @@
             <%= actual %>
         <% end %>
     <% end %>
-    <%= f.label :costo %>
-    <%= f.text_field :costo %>
-    <%= f.label :hora %>
-    <%= f.datetime_field :hora %>
-    <%= f.submit %>
+    <div class="col-md-6 col-md-offset-3">
+      <div class="form-group">
+        <%= f.label :costo, class:'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :costo , class:'form-control'%>
+      </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :hora , class:'col-sm-2 control-label'%>
+      <div class="col-sm-10">
+        <%= f.datetime_field :hora , class:'form-control'%>
+      </div>
+      </div>
+      <div class="col-sm-4 col-sm-offset-4">
+        <%= f.submit boton, class:'btn btn-primary' %>
+      </div>
+    </div>
 <% end %>

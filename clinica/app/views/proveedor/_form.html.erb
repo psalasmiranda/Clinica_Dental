@@ -1,5 +1,5 @@
 
-  <%= form_for(@proveedor, :html => {:role => 'form'}) do |f| %>
+  <%= form_for(@proveedor, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
       <% if @proveedor.errors.any? %>
           <%= pluralize(@proveedor.errors.count, "error") %>
 
@@ -7,15 +7,39 @@
               <%= actual %>
           <% end %>
       <% end %>
-      <%= f.label :nombre %>
-      <%= f.text_field :nombre %>
-      <%= f.label :rut %>
-      <%= f.text_field :rut %>
-      <%= f.label :correo %>
-      <%= f.text_field :correo %>
-      <%= f.label :telefono %>
-      <%= f.text_field :telefono %>
-      <%= f.label :direccion %>
-      <%= f.text_field :direccion %>
-      <%= f.submit %>
+      <div class="col-md-6 col-md-offset-3">
+        <div class="form-group">
+          <%= f.label :nombre , class:'col-sm-2 control-label'%>
+        <div class="col-sm-10">
+          <%= f.text_field :nombre , class:'form-control'%>
+        </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :rut , class:'col-sm-2 control-label'%>
+        <div class="col-sm-10">
+          <%= f.text_field :rut , class:'form-control'%>
+        </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :correo , class:'col-sm-2 control-label'%>
+        <div class="col-sm-10">
+          <%= f.text_field :correo, class:'form-control' %>
+        </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :telefono , class:'col-sm-2 control-label'%>
+        <div class="col-sm-10">
+          <%= f.text_field :telefono, class:'form-control' %>
+        </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :direccion, class:'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <%= f.text_field :direccion , class:'form-control'%>
+        </div>
+        </div>
+        <div class="col-sm-4 col-sm-offset-4">
+          <%= f.submit boton, class:'btn btn-primary'%>
+        </div>
+        </div>
   <% end %>

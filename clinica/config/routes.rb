@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
+  get 'welcome/index'
 
   get 'pacientes/', to: 'pacientes#index'
   get 'pacientes/nuevo', to: 'pacientes#nuevo', as: 'nuevo_paciente'
