@@ -4,6 +4,7 @@ before_action :set_insumo, only: [:mostrar, :editar, :update, :eliminar]
     @insumos= Insumo.all
   end
 
+
   def mostrar
   end
 

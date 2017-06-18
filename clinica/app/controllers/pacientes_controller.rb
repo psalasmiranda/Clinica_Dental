@@ -17,6 +17,7 @@ class PacientesController < ApplicationController
         @paciente = Paciente.create(paciente_params)
         respond_to do |format|
           if @paciente.save
+          
             format.html {redirect_to @paciente, notice: 'Fue creado con mucho exito'}
           else
             format.html {render :nuevo}

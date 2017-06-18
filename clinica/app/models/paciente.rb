@@ -1,5 +1,5 @@
 class Paciente < ApplicationRecord
-  belongs_to :agenda, foreign_key: :agenda_id
+
   validates :rut, presence: {:message => "Llenado Obligatorio"}
   validates :nombre, presence: {:message => "Llenado Obligatorio"}
   validates :apellidos, presence: {:message => "Llenado Obligatorio"}

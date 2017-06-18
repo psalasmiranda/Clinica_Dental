@@ -1,28 +1,23 @@
 
-
-<h1> <%= link_to 'CREAR NUEVO INSUMO', nuevo_insumo_path %> </h1>
 <table class="table">
-  <thead>
-  <tr>
-    <th>nombre</th>
-    <th>cantidad</th>
-    <th>costo</th>
-    <th>ingreso</th>
-    <th>vencimiento</th>
-    </tr>
-    </thead>
+<div class="list-group" >
+  <a class="list-group-item active" >
+    Listado de Insumos
+  </a>
+
     <tbody>
-    <% @insumos.each do |a| %>
-        <tr>
-          <td><%= a.nombre %></td>
-          <td><%= a.cantidad%></td>
-          <td><%= a.costo %></td>
-          <td><%= a.ingreso %></td>
-          <td><%= a.vencimiento %></td>
-          <td><%= link_to 'Mostrar', insumo_url(a) %></td>
-          <td> <%= link_to 'Editar', editar_insumo_path(a) %></td>
-          <td><%= link_to 'Eliminar', a, method: :delete, data: {confirm: 'segurito?'} %></td>
-        </tr>
-  <% end %>
-  </tbody>
+   <% @insumos.each do |a| %>
+
+  <tr class="list-group-item">
+        <td><%= a.nombre %></td>
+        <td><%= a.cantidad%></td>
+        <td><%= a.costo %></td>
+        <td><%= a.ingreso %></td>
+        <td><%= a.vencimiento %></td>
+        <td><%= button_to 'Mostrar', insumo_url(a) %></td>
+        <td> <%= button_to 'Editar', editar_insumo_path(a) %></td>
+        <td><%= button_to 'Eliminar', a, method: :delete, data: {confirm: 'segurito?'} %></td>
+      </tr>
+  <%end%>
+</div>
 </table>
