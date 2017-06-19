@@ -20,15 +20,24 @@ Rails.application.routes.draw do
   post 'agendas/', to: 'agendas#crear'
   delete 'agendas/:id',to: 'agendas#eliminar'
 
-  get 'insumos/', to: 'insumos#principal'
-  post 'insumos/', to: 'insumos#index'
-  post 'insumos/nuevo', to: 'insumos#nuevo', as: 'nuevo_insumo'
-  post 'insumos/:id',to:'insumos#mostrar', as: 'insumo'
-  post 'insumos/:id/editar',to: 'insumos#editar', as: 'editar_insumo'
-  put 'insumos/:id' ,to: 'insumos#update'
-  patch 'insumos/:id' ,to: 'insumos#update'
+  #routeos de insumo
+  #vista inicial de insumo
+  get 'insumos/principal'
+  #vista donde lista todos los insumos
+  post 'insumos/principal/index', to: 'insumos#index', as: 'listar_insumo'
+  #vista donde muestra la descripcion del insumo
+  #-------------------------------------------------------------------------
+  post 'insumos/principal/index/:id',to:'insumos#mostrar', as: 'insumo'
+  #ruta para el volver de la descripcion del insumo
+  get 'insumos/principal/index', to: 'insumos#index', as: 'volver_insumo'
+  #-------------------------------------------------------------------------
+  post 'insumos/principal/index/:id/editar',to: 'insumos#editar', as: 'editar_insumo'
+  #falta arreglar estas rutas
+  put 'insumos/principal/index/:id' ,to: 'insumos#update'
+  patch 'insumos/principal/index/:id' ,to: 'insumos#update'
+  post 'insumos/principal/nuevo', to: 'insumos#nuevo', as: 'nuevo_insumo'
   post 'insumos/', to: 'insumos#crear'
-  delete 'insumos/:id',to: 'insumos#eliminar'
+  delete 'insumos/principal/index/:id',to: 'insumos#eliminar'
 
   get 'personals/', to: 'personal#index'
   get 'personals/nuevo', to: 'personal#nuevo', as: 'nuevo_personal'

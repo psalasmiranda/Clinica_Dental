@@ -5,7 +5,7 @@
     Listado de Insumos
   </a>
 
-    
+
    <% @insumos.each do |a| %>
 
   <tr class="list-group-item">
@@ -14,9 +14,10 @@
         <td><%= a.costo %></td>
         <td><%= a.ingreso %></td>
         <td><%= a.vencimiento %></td>
-        <td><%= button_to 'Mostrar', insumo_url(a) %></td>
-        <td> <%= button_to 'Editar', editar_insumo_path(a) %></td>
-        <td><%= button_to 'Eliminar', a, method: :delete, data: {confirm: 'segurito?'} %></td>
+        <td><%= button_to 'Mostrar' ,insumo_url(a), :class => "btn btn-primary" %></td>
+        <td> <%= button_to 'Editar', editar_insumo_path(a), :class => "btn btn-warning" %></td>
+        <td><%= button_to 'Eliminar', a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
+
       </tr>
   <%end%>
 </div>
