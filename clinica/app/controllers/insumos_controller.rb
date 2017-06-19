@@ -1,7 +1,8 @@
 class InsumosController < ApplicationController
 before_action :set_insumo, only: [:mostrar, :editar, :update, :eliminar]
   def index
-    @insumos= Insumo.all
+    #@insumos= Insumo.all
+    @insumos = Insumo.order("nombre").page(params[:page]).per(3)
   end
 
 
