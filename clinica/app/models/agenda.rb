@@ -1,6 +1,6 @@
 class Agenda < ApplicationRecord
-  has_many :pacientes
   belongs_to :area, foreign_key: :area_id
-  validates :hora, presence: {message => "LLenado Obligatorio"}
-  validates :costo, presence: {message => "LLenado Obligatorio"}
+  belongs_to :paciente, foreign_key: :paciente_id
+  validates :hora, presence: {:message => "LLenado Obligatorio"}
+  validates :costo, presence: {:message => "LLenado Obligatorio"}
 end
