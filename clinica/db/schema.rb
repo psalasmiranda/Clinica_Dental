@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170609172454) do
+ActiveRecord::Schema.define(version: 20170620024559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,53 @@ ActiveRecord::Schema.define(version: 20170609172454) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "agentes", force: :cascade do |t|
+    t.string "nombre"
+    t.string "apellidos"
+    t.string "rut"
+    t.string "telefono"
+    t.string "correo"
+    t.string "dirrecion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "areas", force: :cascade do |t|
+    t.string "especialidad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "articulos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comunas", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "especialistas", force: :cascade do |t|
+    t.string "nombre"
+    t.string "apellidos"
+    t.string "rut"
+    t.string "telefono"
+    t.string "correo"
+    t.string "cargo"
+    t.string "contraseña"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "grados", force: :cascade do |t|
     t.string "rol"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "historia", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,43 +88,15 @@ ActiveRecord::Schema.define(version: 20170609172454) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "materials", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "pacientes", force: :cascade do |t|
+    t.string "rut"
     t.string "nombre"
-    t.string "apellidos"
+    t.string "materna"
+    t.string "paterno"
     t.string "sexo"
-    t.string "rut"
-    t.integer "edad"
-    t.string "comuna"
-    t.string "direccion"
-    t.string "telefono"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "personals", force: :cascade do |t|
-    t.string "nombre"
-    t.string "apellidos"
-    t.string "telefono"
-    t.string "rut"
-    t.integer "edad"
-    t.string "correo"
-    t.string "contraseña"
-    t.string "cargo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "proveedors", force: :cascade do |t|
-    t.string "nombre"
-    t.string "rut"
-    t.string "correo"
     t.string "telefono"
     t.string "direccion"
+    t.integer "edad"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -87,6 +104,18 @@ ActiveRecord::Schema.define(version: 20170609172454) do
   create_table "tratamientos", force: :cascade do |t|
     t.string "nombre"
     t.text "descripcion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "usuarios", force: :cascade do |t|
+    t.string "nombre"
+    t.string "apellidos"
+    t.string "rut"
+    t.string "telefono"
+    t.string "correo"
+    t.string "cargo"
+    t.string "contraseña"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

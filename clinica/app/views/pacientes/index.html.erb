@@ -4,12 +4,13 @@
   <thead>
   <tr>
     <th>nombre</th>
-    <th>apellidos</th>
+    <th>paterno</th>
+    <th>materna</th>
     <th>telefono</th>
     <th>rut</th>
     <th>edad</th>
     <th>sexo</th>
-    <th>comuna</th>
+
     <th>direccion</th>
 
     </tr>
@@ -18,12 +19,12 @@
     <% @pacientes.each do |a| %>
         <tr>
           <td><%= a.nombre %></td>
-          <td><%= a.apellidos%></td>
+          <td><%= a.paterno%></td>
+          <td><%= a.materna%></td>
           <td><%= a.telefono %></td>
           <td><%= a.rut %></td>
           <td><%= a.edad %></td>
           <td><%= a.sexo %></td>
-          <td><%= a.comuna %></td>
           <td><%= a.direccion%></td>
 
           <td><%= link_to 'Mostrar', paciente_url(a) %></td>

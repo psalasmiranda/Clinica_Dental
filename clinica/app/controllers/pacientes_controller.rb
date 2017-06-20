@@ -17,7 +17,7 @@ class PacientesController < ApplicationController
         @paciente = Paciente.create(paciente_params)
         respond_to do |format|
           if @paciente.save
-          
+
             format.html {redirect_to @paciente, notice: 'Fue creado con mucho exito'}
           else
             format.html {render :nuevo}
@@ -46,6 +46,6 @@ class PacientesController < ApplicationController
     end
 
     def paciente_params
-      params.require(:paciente).permit(:nombre, :apellidos, :telefono, :rut, :edad, :sexo, :comuna, :direccion)
+      params.require(:paciente).permit(:nombre,:paterno,:materna, :telefono, :rut, :edad, :sexo, :comuna, :direccion)
     end
 end

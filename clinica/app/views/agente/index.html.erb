@@ -1,0 +1,30 @@
+
+<%= button_to 'nuevo agente', nuevo_agente_path %>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>nombre</th>
+    <th>apellido</th>
+    <th>rut</th>
+    <th>correo</th>
+    <th>telefono</th>
+    <th>direccion</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @agentes.each do |a| %>
+        <tr>
+          <td><%= a.nombre %></td>
+          <td><%= a.apellidos%></td>
+          <td><%= a.rut%></td>
+          <td><%= a.correo %></td>
+          <td><%= a.telefono %></td>
+          <td><%= a.dirrecion %></td>
+          <td><%= link_to 'Mostrar', agente_url(a) %></td>
+          <td> <%= link_to 'Editar', editar_agente_path(a) %></td>
+          <td><%= link_to 'Eliminar', a, method: :delete, data: {confirm: 'segurito?'} %></td>
+        </tr>
+  <% end %>
+  </tbody>
+</table>

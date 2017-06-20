@@ -1,0 +1,27 @@
+<h1> <%= link_to 'CREAR usuarios', nuevo_usuario_path %> </h1>
+
+<table class="table">
+<div class="list-group" >
+  <a class="list-group-item active" >
+    Listado de usuarios
+  </a>
+
+
+   <% @usuarios.each do |a| %>
+
+  <tr class="list-group-item">
+        <td><%= a.nombre %></td>
+        <td><%= a.apellidos%></td>
+        <td><%= a.rut %></td>
+        <td><%= a.telefono %></td>
+        <td><%= a.correo %></td>
+        <td><%= a.cargo %></td>
+        <td><%= a.contraseña %></td>
+        <td><%= button_to 'Mostrar' ,usuario_url(a), :class => "btn btn-primary" %></td>
+        <td> <%= button_to 'Editar', editar_usuario_path(a), :class => "btn btn-warning" %></td>
+        <td><%= button_to 'Eliminar', a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
+
+      </tr>
+  <%end%>
+</div>
+</table>
