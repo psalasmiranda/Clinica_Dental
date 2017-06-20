@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20170620043049) do
     t.integer "costo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "area_id"
+    t.integer "paciente_id"
   end
 
   create_table "agentes", force: :cascade do |t|
@@ -42,6 +44,8 @@ ActiveRecord::Schema.define(version: 20170620043049) do
   create_table "articulos", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "agente_id"
+    t.integer "insumo_id"
   end
 
   create_table "comunas", force: :cascade do |t|
@@ -71,6 +75,8 @@ ActiveRecord::Schema.define(version: 20170620043049) do
   create_table "historia", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "paciente_id"
+    t.integer "tratamiento_id"
   end
 
   create_table "insumos", force: :cascade do |t|
@@ -86,6 +92,8 @@ ActiveRecord::Schema.define(version: 20170620043049) do
   create_table "listados", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "area_id"
+    t.integer "usuario_id"
   end
 
   create_table "pacientes", force: :cascade do |t|
@@ -99,6 +107,7 @@ ActiveRecord::Schema.define(version: 20170620043049) do
     t.integer "edad"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "comuna_id"
   end
 
   create_table "tratamientos", force: :cascade do |t|
@@ -118,6 +127,17 @@ ActiveRecord::Schema.define(version: 20170620043049) do
     t.string "contraseña"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "grado_id"
   end
 
+  add_foreign_key "agendas", "areas"
+  add_foreign_key "agendas", "pacientes"
+  add_foreign_key "articulos", "agentes"
+  add_foreign_key "articulos", "insumos"
+  add_foreign_key "historia", "pacientes"
+  add_foreign_key "historia", "tratamientos"
+  add_foreign_key "listados", "areas"
+  add_foreign_key "listados", "usuarios"
+  add_foreign_key "pacientes", "comunas"
+  add_foreign_key "usuarios", "grados"
 end

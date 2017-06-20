@@ -9,11 +9,11 @@ class AddForeignToPacienteAndAgenda < ActiveRecord::Migration[5.1]
     add_column :pacientes, :comuna_id, :integer
     add_foreign_key :pacientes, :comunas, column: :comuna_id, primary_key: :id
 
-    add_column :historias, :paciente_id, :integer
-    add_foreign_key :historias, :pacientes, column: :paciente_id, primary_key: :id
+    add_column :historia, :paciente_id, :integer
+    add_foreign_key :historia, :pacientes, column: :paciente_id, primary_key: :id
 
-    add_column :historias, :tratamiento_id, :integer
-    add_foreign_key :historias, :tratamientos, column: :tratamiento_id, primary_key: :id
+    add_column :historia, :tratamiento_id, :integer
+    add_foreign_key :historia, :tratamientos, column: :tratamiento_id, primary_key: :id
 
     add_column :listados, :area_id, :integer
     add_foreign_key :listados, :areas, column: :area_id, primary_key: :id
