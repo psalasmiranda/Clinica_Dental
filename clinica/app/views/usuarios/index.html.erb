@@ -17,9 +17,9 @@
         <td><%= a.correo %></td>
         <td><%= a.cargo %></td>
         <td><%= a.contraseña %></td>
-        <td><%= button_to 'Mostrar' ,usuario_url(a), :class => "btn btn-primary" %></td>
-        <td> <%= button_to 'Editar', editar_usuario_path(a), :class => "btn btn-warning" %></td>
-        <td><%= button_to 'Eliminar', a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
+        <td><%= link_to 'Mostrar' ,usuario_url(a), :class => "btn btn-primary" %></td>
+        <td> <%= link_to 'Editar', editar_usuario_path(a), :class => "btn btn-warning" %></td>
+        <td><%= link_to 'Eliminar', a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
 
       </tr>
   <%end%>

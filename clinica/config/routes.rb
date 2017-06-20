@@ -20,6 +20,15 @@ Rails.application.routes.draw do
   post 'agendas/', to: 'agendas#crear'
   delete 'agendas/:id',to: 'agendas#eliminar'
 
+  get 'usuarios/', to: 'usuarios#index'
+  get 'usuarios/nuevo', to: 'usuarios#nuevo', as: 'nuevo_usuario'
+  get 'usuarios/:id',to:'usuarios#mostrar', as: 'usuario'
+  get 'usuarios/:id/editar',to: 'usuarios#editar', as: 'editar_usuario'
+  put 'usuarios/:id' ,to: 'usuarios#update'
+  patch 'usuarios/:id' ,to: 'usuarios#update'
+  post 'usuarios/', to: 'usuarios#crear'
+  delete 'usuarios/:id',to: 'usuarios#eliminar'
+
   #routeos de insumo
   #vista inicial de insumo
   get 'insumos/principal'
@@ -39,14 +48,7 @@ Rails.application.routes.draw do
   post 'insumos/', to: 'insumos#crear'
   delete 'insumos/principal/index/:id',to: 'insumos#eliminar'
 
-  get 'usuarios/', to: 'usuarios#index'
-  get 'usuarios/nuevo', to: 'usuarios#nuevo', as: 'nuevo_usuario'
-  post 'usuarios/:id',to:'usuarios#mostrar', as: 'usuario'
-  post 'usuarios/:id/editar',to: 'usuarios#editar', as: 'editar_usuario'
-  put 'usuarios/:id' ,to: 'usuarios#update'
-  patch 'usuarios/:id' ,to: 'usuarios#update'
-  post 'usuarios/', to: 'usuarios#crear'
-  delete 'usuarios/:id',to: 'usuarios#eliminar'
+  
 
   get 'agentes/', to: 'agente#index'
   post 'agentes/nuevo', to: 'agente#nuevo', as: 'nuevo_agente'
