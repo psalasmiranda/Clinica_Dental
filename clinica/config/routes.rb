@@ -29,26 +29,25 @@ Rails.application.routes.draw do
   post 'usuarios/', to: 'usuarios#crear'
   delete 'usuarios/:id',to: 'usuarios#eliminar'
 
-  #routeos de insumo
-  #vista inicial de insumo
-  get 'insumos/principal'
+  get 'insumos/', to: 'insumos#principal'
   #vista donde lista todos los insumos
-  post 'insumos/principal/index', to: 'insumos#index', as: 'listar_insumo'
+  post 'insumos/Listar/', to: 'insumos#index', as: 'listar_insumo'
   #vista donde muestra la descripcion del insumo
   #-------------------------------------------------------------------------
-  post 'insumos/principal/index/:id',to:'insumos#mostrar', as: 'insumo'
+  post 'insumos/Listar/:id',to:'insumos#mostrar', as: 'insumo'
+  get 'insumos/Listar/:id',to:'insumos#mostrar'
   #ruta para el volver de la descripcion del insumo
-  get 'insumos/principal/index', to: 'insumos#index', as: 'volver_insumo'
+  get 'insumos/Listar/', to: 'insumos#index', as: 'volver_insumo'
   #-------------------------------------------------------------------------
-  post 'insumos/principal/index/:id/editar',to: 'insumos#editar', as: 'editar_insumo'
-  #falta arreglar estas rutas
-  put 'insumos/principal/index/:id' ,to: 'insumos#update'
-  patch 'insumos/principal/index/:id' ,to: 'insumos#update'
-  post 'insumos/principal/nuevo', to: 'insumos#nuevo', as: 'nuevo_insumo'
-  post 'insumos/', to: 'insumos#crear'
-  delete 'insumos/principal/index/:id',to: 'insumos#eliminar'
+  post 'insumos/Listar/:id/Editar',to: 'insumos#editar', as: 'editar_insumo'
+  put 'insumos/Listar/:id' ,to: 'insumos#update'
+  patch 'insumos/Listar/:id' ,to: 'insumos#update'
+  #------------------------------------------------------
+  post 'insumos/Nuevo', to: 'insumos#nuevo', as: 'nuevo_insumo'
+  post 'insumos', to: 'insumos#crear'
+  #------------------------------------------------------------------------
+  delete 'insumos/Listar/:id',to:'insumos#eliminar'
 
-  
 
   get 'agentes/', to: 'agente#index'
   post 'agentes/nuevo', to: 'agente#nuevo', as: 'nuevo_agente'

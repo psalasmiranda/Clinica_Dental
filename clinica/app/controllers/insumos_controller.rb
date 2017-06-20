@@ -15,6 +15,7 @@ before_action :set_insumo, only: [:mostrar, :editar, :update, :eliminar]
 
   def editar
   end
+  
   def crear
       @insumo = Insumo.create(insumo_params)
       respond_to do |format|
@@ -25,6 +26,7 @@ before_action :set_insumo, only: [:mostrar, :editar, :update, :eliminar]
         end
       end
   end
+
   def update
       respond_to do |format|
         if @insumo.update(insumo_params)
@@ -34,12 +36,14 @@ before_action :set_insumo, only: [:mostrar, :editar, :update, :eliminar]
         end
       end
   end
+
   def eliminar
       @insumo.destroy
       respond_to do |format|
         format.html {redirect_to insumos_url, notice: 'fue eliminado'}
       end
   end
+
   private
 
   def  set_insumo

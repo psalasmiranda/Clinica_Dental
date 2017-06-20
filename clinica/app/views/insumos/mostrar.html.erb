@@ -6,9 +6,9 @@
   </a>
   <div class="panel-footer">Cantidad: <%= @insumo.cantidad %><br></div>
   <div class="panel-footer">Costo : $ <%= @insumo.costo %><br></div>
-  <div class="panel-footer">Fecha de Ingreso: <% a = @insumo.ingreso %>
-  <%=a.to_formatted_s(:long)%></div>
-  <div class="panel-footer">Fecha de Vencimiento: <%  b= @insumo.vencimiento %>
-  <%=b.to_formatted_s(:long)%></div>
+  <div class="panel-footer">Fecha de Ingreso: <%= @insumo.ingreso %>
+  </div>
+  <div class="panel-footer">Fecha de Vencimiento: <%= @insumo.vencimiento %>
+  </div>
 </div>
 <%= link_to 'volver', volver_insumo_path %>
