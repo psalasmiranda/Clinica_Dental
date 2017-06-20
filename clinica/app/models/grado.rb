@@ -1,3 +1,4 @@
 class Grado < ApplicationRecord
-validates :grado, presence: {:message => "Llenado Obligatorio"}
+  belongs_to :usuario, foreign_key: :usuario_id
+  validates :grado, presence: {:message => "Llenado Obligatorio"}
 end

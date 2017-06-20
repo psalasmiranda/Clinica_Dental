@@ -1,4 +1,6 @@
 class Usuario < ApplicationRecord
+  has_many :listados
+  has_many :grados
   validates :rut, presence: {:message => "Llenado Obligatorio"}
   validates :nombre, presence: {:message => "Llenado Obligatorio"}
   validates :apellidos, presence: {:message => "Llenado Obligatorio"}
