@@ -1,6 +1,6 @@
 class Insumo < ApplicationRecord
-<<<<<<< HEAD
-=======
+#<<<<<<< HEAD
+#=======
   has_many :articulos
   validates :nombre, presence: {:message => "Llenado Obligatorio"}
   validates :nombre, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
@@ -17,6 +17,6 @@ class Insumo < ApplicationRecord
 
   validates :vencimiento, presence: {:message => "Llenado Obligatorio"}
   validates :ingreso, presence: {:message => "Llenado Obligatorio"}
->>>>>>> 9ba730ef51ffe683e5991cf506cf3a3b5ca5c57c
+#>>>>>>> 9ba730ef51ffe683e5991cf506cf3a3b5ca5c57c
 
 end

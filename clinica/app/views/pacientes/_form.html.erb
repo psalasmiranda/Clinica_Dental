@@ -56,7 +56,8 @@
         <div class="form-group<%= @paciente.errors[:sexo].any? ? " has-error" : "" %>">
           <%= f.label :sexo, class:'col-sm-2 control-label'%>
         <div class="col-sm-10">
-          <%= f.select :sexo, options_for_select([["seleccionar", ""], "masculino","femenino"]), :class => 'form-control' %>
+          <%= f.radio_button :sexo, 'F', :checked => true%> Mujer
+          <%= f.radio_button :sexo, 'M' %> Hombre
           <span class="help-inline">
            <%= @paciente.errors[:sexo].any? ? @paciente.errors[:sexo].to_s[/\w([^"]*)/] : "" %></span>
         </div>
