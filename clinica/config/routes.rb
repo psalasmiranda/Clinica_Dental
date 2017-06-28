@@ -68,4 +68,14 @@ Rails.application.routes.draw do
   delete 'tratamientos/:id',to: 'tratamientos#eliminar'
 
 
+  resources :sessions
+
+  get 'grados/', to: 'grados#index'
+  get 'grados/nuevo', to: 'grados#nuevo', as: 'nuevo_grado'
+  get 'grados/:id',to:'grados#mostrar', as: 'grado'
+  get 'grados/:id/editar',to: 'grados#editar', as: 'editar_grado'
+  put 'grados/:id' ,to: 'grados#update'
+  patch 'grados/:id' ,to: 'grados#update'
+  post 'grados/', to: 'grados#crear'
+  delete 'grados/:id',to: 'grados#eliminar'
 end

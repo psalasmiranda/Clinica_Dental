@@ -1,0 +1,28 @@
+<h1> <%= link_to 'Crear nuevo grupo de permisos', nuevo_grado_path %> </h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Rol</th>
+    <th>Agenda</th>
+    <th>Insumo</th>
+    <th>Paciente</th>
+    <th>Proveedor</th>
+    <th>Tratamiento</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @grados.each do |a| %>
+        <tr>
+          <td><%= a.rol%></td>
+          <td><%= a.agenda_vista %></td>
+          <td><%= a.insumo_vista %></td>
+          <td><%= a.paciente_vista %></td>
+          <td><%= a.proveedor_vista %></td>
+          <td><%= a.tratamiento_vista %></td>
+          <td><%= link_to 'Mostrar', grado_url(a) %></td>
+          <td> <%= link_to 'Editar', editar_grado_path(a) %></td>
+          <td><%= link_to 'Eliminar', a, method: :delete, data: {confirm: 'seguro?'} %></td>
+        </tr>
+  <% end %>
+  </tbody>
+</table>

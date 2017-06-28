@@ -68,6 +68,13 @@ ActiveRecord::Schema.define(version: 20170620043049) do
 
   create_table "grados", force: :cascade do |t|
     t.string "rol"
+    t.boolean "agenda_vista"
+    t.boolean "insumo_vista"
+    t.boolean "paciente_vista"
+    t.boolean "proveedor_vista"
+    t.boolean "tratamiento_vista"
+    t.boolean "usuario_vista"
+    t.boolean "grado_vista"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,8 +89,8 @@ ActiveRecord::Schema.define(version: 20170620043049) do
   create_table "insumos", force: :cascade do |t|
     t.string "nombre"
     t.integer "cantidad"
-    t.datetime "ingreso"
-    t.datetime "vencimiento"
+    t.date "ingreso"
+    t.date "vencimiento"
     t.integer "costo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -124,7 +131,7 @@ ActiveRecord::Schema.define(version: 20170620043049) do
     t.string "telefono"
     t.string "correo"
     t.string "cargo"
-    t.string "contraseña"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "grado_id"

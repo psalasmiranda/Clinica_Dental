@@ -1,5 +1,6 @@
 class TratamientosController < ApplicationController
   before_action :set_tratamiento, only: [:mostrar, :editar, :update, :eliminar]
+  before_action { authenticate_user!("tratamiento_vista") }
     def index
       @tratamientos= Tratamiento.all
     end

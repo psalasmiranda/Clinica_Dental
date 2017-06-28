@@ -1,5 +1,6 @@
 class PacientesController < ApplicationController
   before_action :set_paciente, only: [:mostrar, :editar, :update, :eliminar]
+  before_action { authenticate_user!("paciente_vista") }
     def index
       @pacientes= Paciente.all
     end

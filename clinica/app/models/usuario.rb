@@ -1,6 +1,12 @@
 class Usuario < ApplicationRecord
+  has_secure_password validations: false
+  validates :password, presence: {message: 'Llenado Obligatorio'},
+                       length: {minimum: 6,
+                       message: 'Tu contraseña debe contener al menos 6 caracteres'}
+  validates_confirmation_of :password, allow_blank: true, message: 'Contraseñas no coinciden'
+
   has_many :listados
-  has_many :grados
+  belongs_to :grado, foreign_key: :grado_id
   validates :rut, presence: {:message => "Llenado Obligatorio"}
 
   validates :nombre, presence: {:message => "Llenado Obligatorio"}
@@ -16,7 +22,9 @@ class Usuario < ApplicationRecord
 
   validates :cargo, presence: {:message => "Llenado Obligatorio"}
   validates :cargo, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
-  
-  validates :contraseña, presence: {:message => "Llenado Obligatorio"}
+
+  validates :password, presence: {:message => "Llenado Obligatorio"}
+
+  validates :grado_id, presence: {:message => "Se debe ingresar el nivel de responsabilidad"}
 
 end

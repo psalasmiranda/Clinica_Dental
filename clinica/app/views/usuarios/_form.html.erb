@@ -2,55 +2,82 @@
   <%= form_for(@usuario, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
       <% if @usuario.errors.any? %>
           <%= pluralize(@usuario.errors.count, "error") %>
-
-          <% @usuario.errors.full_messages.each do |actual| %>
-              <%= actual %>
-          <% end %>
       <% end %>
       <div class="col-md-6 col-md-offset-3">
-        <div class="form-group">
+        <div class="form-group<%= @usuario.errors[:nombre].any? ? " has-error" : "" %>">
           <%= f.label :nombre , class:'col-sm-2 control-label'%>
         <div class="col-sm-10">
           <%= f.text_field :nombre , class:'form-control'%>
+          <span class="help-inline">
+           <%= @usuario.errors[:nombre].any? ? @usuario.errors[:nombre].to_s[/\w([^"]*)/] : "" %></span>
         </div>
         </div>
-        <div class="form-group">
+        <div class="form-group<%= @usuario.errors[:apellidos].any? ? " has-error" : "" %>">
           <%= f.label :apellidos , class:'col-sm-2 control-label'%>
         <div class="col-sm-10">
           <%= f.text_field :apellidos , class:'form-control'%>
+          <span class="help-inline">
+           <%= @usuario.errors[:apellidos].any? ? @usuario.errors[:apellidos].to_s[/\w([^"]*)/] : "" %></span>
         </div>
         </div>
-        <div class="form-group">
+        <div class="form-group<%= @usuario.errors[:rut].any? ? " has-error" : "" %>">
           <%= f.label :rut, class:'col-sm-2 control-label' %>
         <div class="col-sm-10">
           <%= f.text_field :rut , class:'form-control'%>
+          <span class="help-inline">
+           <%= @usuario.errors[:rut].any? ? @usuario.errors[:rut].to_s[/\w([^"]*)/] : "" %></span>
         </div>
         </div>
-        <div class="form-group">
+        <div class="form-group<%= @usuario.errors[:correo].any? ? " has-error" : "" %>">
           <%= f.label :correo, class:'col-sm-2 control-label' %>
         <div class="col-sm-10">
           <%= f.text_field :correo , class:'form-control'%>
+          <span class="help-inline">
+           <%= @usuario.errors[:correo].any? ? @usuario.errors[:correo].to_s[/\w([^"]*)/] : "" %></span>
         </div>
         </div>
-        <div class="form-group">
-          <%= f.label :contraseña, class:'col-sm-2 control-label' %>
+        <div class="form-group<%= @usuario.errors[:password].any? ? " has-error" : "" %>">
+          <%= f.label :Contraseña, class:'col-sm-2 control-label' %>
         <div class="col-sm-10">
-          <%= f.text_field :contraseña, class:'form-control'%>
+          <%= f.password_field :password , class:'form-control'%>
+          <span class="help-inline">
+           <%= @usuario.errors[:password].any? ? @usuario.errors[:password].to_s[/\w([^"]*)/] : "" %></span>
         </div>
         </div>
-        <div class="form-group">
+        <div class="form-group<%= @usuario.errors[:password_confirmation].any? ? " has-error" : "" %>">
+          <%= f.label :'Confirmar' , class:'col-sm-2 control-label'%>
+        <div class="col-sm-10">
+          <%= f.password_field :password_confirmation , class:'form-control'%>
+          <span class="help-inline">
+           <%= @usuario.errors[:password_confirmation].any? ? @usuario.errors[:password_confirmation].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+        </div>
+        <div class="form-group<%= @usuario.errors[:telefono].any? ? " has-error" : "" %>">
           <%= f.label :telefono, class:'col-sm-2 control-label' %>
         <div class="col-sm-10">
           <%= f.text_field :telefono, class:'form-control'%>
+          <span class="help-inline">
+           <%= @usuario.errors[:telefono].any? ? @usuario.errors[:telefono].to_s[/\w([^"]*)/] : "" %></span>
         </div>
         </div>
-        <div class="form-group">
+        <div class="form-group<%= @usuario.errors[:cargo].any? ? " has-error" : "" %>">
           <%= f.label :cargo, class:'col-sm-2 control-label' %>
         <div class="col-sm-10">
           <%= f.text_field :cargo, class:'form-control'%>
+          <span class="help-inline">
+           <%= @usuario.errors[:cargo].any? ? @usuario.errors[:cargo].to_s[/\w([^"]*)/] : "" %></span>
         </div>
         </div>
-        <div class="col-sm-4 col-sm-offset-4">
+        <div class="form-group<%= @usuario.errors[:grado_id].any? ? " has-error" : "" %>">
+            <%= f.label :Permiso, class:'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <%= f.collection_select :grado_id, Grado.all, :id, :rol, {include_blank: 'Por favor selecciona un rol'}, {class: 'form-control'}%>
+          <span class="help-inline">
+           <%= @usuario.errors[:grado_id].any? ? @usuario.errors[:grado_id].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+        </div>
+        <div class="form-group">
+        <div class="col-sm-2 col-sm-offset-5">
           <%= f.submit boton, class:'btn btn-primary'%>
         </div>
         </div>

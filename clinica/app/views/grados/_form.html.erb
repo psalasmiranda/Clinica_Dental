@@ -1,0 +1,66 @@
+
+  <%= form_for(@grado, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
+      <% if @grado.errors.any? %>
+          <%= pluralize(@grado.errors.count, "error") %>
+      <% end %>
+      </div>
+      <div class="col-md-6 col-md-offset-3">
+        <div class="form-group<%= @grado.errors[:rol].any? ? " has-error" : "" %>">
+          <%= f.label :rol, class:'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <%= f.text_field :rol, class:'form-control' %>
+          <span class="help-inline">
+           <%= @grado.errors[:rol].any? ? @grado.errors[:rol].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+        </div>
+
+        <div class="form-group<%= @grado.errors[:agenda_vista].any? ? " has-error" : "" %>">
+          <%= f.label "Acceso a agendas" , class:'col-sm-4 control-label'%>
+        <div class="col-sm-4 col-md-offset-1 checkbox">
+          <%= f.check_box :agenda_vista,{ type:"checkbox"}, 'true', 'false'%>
+          <span class="help-inline">
+           <%= @grado.errors[:agenda_vista].any? ? @grado.errors[:agenda_vista].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+        </div>
+
+        <div class="form-group<%= @grado.errors[:insumo_vista].any? ? " has-error" : "" %>">
+          <%= f.label "Acceso a insumos" , class:'col-sm-4 control-label'%>
+        <div class="col-sm-4 col-md-offset-1 checkbox">
+          <%= f.check_box :insumo_vista,{ type:"checkbox"}, 'true', 'false'%>
+          <span class="help-inline">
+           <%= @grado.errors[:insumo_vista].any? ? @grado.errors[:insumo_vista].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+        </div>
+
+        <div class="form-group<%= @grado.errors[:paciente_vista].any? ? " has-error" : "" %>">
+          <%= f.label "Acceso a pacientes" , class:'col-sm-4 control-label'%>
+        <div class="col-sm-4 col-md-offset-1 checkbox">
+          <%= f.check_box :paciente_vista,{ type:"checkbox"}, 'true', 'false'%>
+          <span class="help-inline">
+           <%= @grado.errors[:paciente_vista].any? ? @grado.errors[:paciente_vista].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+        </div>
+
+        <div class="form-group<%= @grado.errors[:proveedor_vista].any? ? " has-error" : "" %>">
+          <%= f.label "Acceso a proveedores" , class:'col-sm-4 control-label'%>
+        <div class="col-sm-4 col-md-offset-1 checkbox">
+          <%= f.check_box :proveedor_vista,{ type:"checkbox"}, 'true', 'false'%>
+          <span class="help-inline">
+           <%= @grado.errors[:proveedor_vista].any? ? @grado.errors[:proveedor_vista].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+        </div>
+
+        <div class="form-group<%= @grado.errors[:tratamiento_vista].any? ? " has-error" : "" %>">
+          <%= f.label "Acceso a tratamientos" , class:'col-sm-4 control-label'%>
+        <div class="col-sm-4 col-md-offset-1 checkbox">
+          <%= f.check_box :tratamiento_vista,{ type:"checkbox"}, 'true', 'false'%>
+          <span class="help-inline">
+           <%= @grado.errors[:tratamiento_vista].any? ? @grado.errors[:tratamiento_vista].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+        </div>
+
+        <div class="col-sm-2 col-sm-offset-5">
+          <%= f.submit boton, class:'btn btn-primary'%>
+        </div>
+        </div>
+  <% end %>

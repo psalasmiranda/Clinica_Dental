@@ -9,6 +9,12 @@ class UsuariosController < ApplicationController
 
     def nuevo
       @usuario= Usuario.new
+      @grados= Grado.all
+      if @grados.length == 0
+        respond_to do |format|
+        format.html {redirect_to grados_path, notice: 'No es posible crear un usuarios sin un grado prexistente.'}
+      end
+    end
     end
 
     def editar
@@ -28,7 +34,7 @@ class UsuariosController < ApplicationController
           if @usuario.update(usuario_params)
             format.html {redirect_to @usuario}
           else
-            format.html {render :nuevo}
+            format.html {render :editar}
           end
         end
     end
@@ -45,6 +51,6 @@ class UsuariosController < ApplicationController
     end
 
     def usuario_params
-      params.require(:usuario).permit(:nombre, :apellidos,:rut,:telefono,:correo,:cargo,:contraseña)
+      params.require(:usuario).permit(:nombre, :apellidos,:rut,:telefono,:correo,:cargo,:password, :password_confirmation, :grado_id)
     end
 end

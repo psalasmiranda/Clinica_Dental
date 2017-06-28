@@ -24,18 +24,38 @@
           <li><a href="/">Inicio</a></li>
           <li><a href="/pacientes">Pacientes</a></li>
           <li><a href="/agendas">Agendas</a></li>
-          <li><a href="/insumos">insumos</a></li>
+          <li><a href="/insumos">Insumos</a></li>
           <li><a href="/agentes">Proveedores</a></li>
-          <li><a href="/usuarios">Personal</a></li>
           <li><a href="/tratamientos">Tratamientos</a></li>
+          <li><a href="/usuarios">Personal</a></li>
+          <li><a href="/grados">Grados</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Iniciar Sesión</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Cerrar sesión</a></li>
+          <% if current_user %>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=current_user.nombre%>
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to  editar_usuario_path(current_user.id) do %><span class="glyphicon glyphicon-edit"></span>
+              Editar Sesión<% end %></li>
+              <li><%= link_to  session_path(current_user.id), method: :delete do %><span class="glyphicon glyphicon-log-in"></span>
+              Cerrar Sesión<% end %></li>
+            </ul>
+          </li>
+          <% else %>
+            <li><%= link_to new_session_path do %><span class="glyphicon glyphicon-user"></span>
+            Iniciar Sesión</li>
+          <% end %>
+          <% end %>
         </ul>
       </div>
     </div>
   </nav>
+    <% flash.each do |name, msg| %>
+    <div class="col-md-12 col-md-offset-0,5">
+        <%= content_tag :div, msg, class: "alert alert-info" %></div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

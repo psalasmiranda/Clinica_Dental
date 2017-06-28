@@ -3,8 +3,8 @@ class CreateInsumos < ActiveRecord::Migration[5.1]
     create_table :insumos do |t|
       t.string :nombre
       t.integer :cantidad
-      t.datetime :ingreso
-      t.datetime :vencimiento
+      t.date :ingreso
+      t.date :vencimiento
       t.integer :costo
 
       t.timestamps
