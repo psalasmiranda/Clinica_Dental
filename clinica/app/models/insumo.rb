@@ -1,7 +1,7 @@
 class Insumo < ApplicationRecord
 #<<<<<<< HEAD
 #=======
-  has_many :articulos
+  belongs_to :agente, foreign_key: :agente_id
   validates :nombre, presence: {:message => "Llenado Obligatorio"}
   validates :nombre, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
 
@@ -15,8 +15,7 @@ class Insumo < ApplicationRecord
   validates :costo, numericality: {only_integer: true, message: "solo numero enteros"},length: {minimun:1, maximum:6, message: "El precio debe ser de 1 a 6 digitos"}
   validates :costo, numericality: {:greater_than_or_equal_to =>0, message: "no se aceptan enteros negativos"}
 
-  validates :vencimiento, presence: {:message => "Llenado Obligatorio"}
-  validates :ingreso, presence: {:message => "Llenado Obligatorio"}
+
 #>>>>>>> 9ba730ef51ffe683e5991cf506cf3a3b5ca5c57c
 
 end

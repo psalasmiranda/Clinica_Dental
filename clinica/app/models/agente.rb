@@ -1,5 +1,5 @@
 class Agente < ApplicationRecord
-  has_many :articulos
+  has_many :agentes
   validates :nombre, presence: {:message => "Llenado Obligatorio"}
   validates :nombre, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
 
@@ -9,5 +9,5 @@ class Agente < ApplicationRecord
   validates :rut, presence: {:message => "Llenado Obligatorio"}
   validates :telefono, presence: {:message => "Llenado Obligatorio"}
   validates :correo, presence: {:message => "Llenado Obligatorio"}
-  validates :direccion, presence: {:message => "Llenado Obligatorio"}
+  validates :dirrecion, presence: {:message => "Llenado Obligatorio"}
 end

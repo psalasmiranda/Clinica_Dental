@@ -1,14 +1,19 @@
 
 
-<div class="panel panel-default" >
-  <a class="list-group-item active">
-    <%= @insumo.nombre %>
+<div class="list-group" >
+  <a class="list-group-item active" >
+    <font FACE= "roman" size= 8 align= center>Información</font>
   </a>
-  <div class="panel-footer">Cantidad: <%= @insumo.cantidad %><br></div>
-  <div class="panel-footer">Costo : $ <%= @insumo.costo %><br></div>
-  <div class="panel-footer">Fecha de Ingreso: <%= @insumo.ingreso %>
-  </div>
-  <div class="panel-footer">Fecha de Vencimiento: <%= @insumo.vencimiento %>
-  </div>
+
+<tr> <td>
+  <div class="panel-footer" align= left >Nombre :<%= @insumo.nombre %></div>
+  <div class="panel-footer" align= left>Cantidad: <%= @insumo.cantidad %><br></div>
+  <div class="panel-footer" align= left>Fecha de Ingreso: <%= @insumo.ingreso %></div>
+  <div class="panel-footer" align= left>Fecha de Vencimiento: <%=@insumo.vencimiento %></div>
+  <div class="panel-footer" align= left>Nombre proveedor: <%= @insumo.agente.nombre %> &nbsp <%= @insumo.agente.apellidos%></div>
+  <div class="panel-footer" align= left>Telefono proveedor: <%= @insumo.agente.telefono %></div>
+  <div class="panel-footer" align= left>Correo proveedor: <%= @insumo.agente.correo %></div>
+  <div class="panel-footer" align= left>Costo Insumo: $ <%= @insumo.costo %><br></div>
+</tr>
 </div>
 <%= link_to 'volver', volver_insumo_path %>

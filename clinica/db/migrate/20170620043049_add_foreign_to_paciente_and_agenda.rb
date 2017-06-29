@@ -24,11 +24,10 @@ class AddForeignToPacienteAndAgenda < ActiveRecord::Migration[5.1]
     add_column :usuarios, :grado_id, :integer
     add_foreign_key :usuarios, :grados, column: :grado_id, primary_key: :id
 
-    add_column :articulos, :agente_id, :integer
-    add_foreign_key :articulos, :agentes, column: :agente_id, primary_key: :id
+    add_column :insumos, :agente_id, :integer
+    add_foreign_key :insumos, :agentes, column: :agente_id, primary_key: :id
 
-    add_column :articulos, :insumo_id, :integer
-    add_foreign_key :articulos, :insumos, column: :insumo_id, primary_key: :id
+
 
   end
 end
