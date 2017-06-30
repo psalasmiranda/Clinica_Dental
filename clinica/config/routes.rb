@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   #------------------------------------------------------------------------
   delete 'agendas/Listar/:id',to:'agendas#eliminar'
 
-  
+
 
   get 'usuarios/', to: 'usuarios#index'
   get 'usuarios/nuevo', to: 'usuarios#nuevo', as: 'nuevo_usuario'
@@ -94,12 +94,22 @@ Rails.application.routes.draw do
 
   resources :sessions
 
-  get 'grados/', to: 'grados#index'
-  get 'grados/nuevo', to: 'grados#nuevo', as: 'nuevo_grado'
-  get 'grados/:id',to:'grados#mostrar', as: 'grado'
-  get 'grados/:id/editar',to: 'grados#editar', as: 'editar_grado'
-  put 'grados/:id' ,to: 'grados#update'
-  patch 'grados/:id' ,to: 'grados#update'
-  post 'grados/', to: 'grados#crear'
-  delete 'grados/:id',to: 'grados#eliminar'
+  get 'grados/', to: 'grados#principal'
+  #vista donde lista todos los insumos
+  post 'grados/Listar/', to: 'grados#index', as: 'listar_grado'
+  #vista donde muestra la descripcion del insumo
+  #-------------------------------------------------------------------------
+  post 'grados/Listar/:id',to:'grados#mostrar', as: 'grado'
+  get 'grados/Listar/:id',to:'grados#mostrar'
+  #ruta para el volver de la descripcion del insumo
+  get 'grados/Listar/', to: 'grados#index', as: 'volver_grado'
+  #-------------------------------------------------------------------------
+  post 'grados/Listar/:id/Editar',to: 'grados#editar', as: 'editar_grado'
+  put 'grados/Listar/:id' ,to: 'grados#update'
+  patch 'grados/Listar/:id' ,to: 'grados#update'
+  #------------------------------------------------------
+  post 'grados/Nuevo', to: 'grados#nuevo', as: 'nuevo_grado'
+  post 'grados', to: 'grados#crear'
+  #------------------------------------------------------------------------
+  delete 'grados/Listar/:id',to:'grados#eliminar'
 end
