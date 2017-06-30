@@ -21,16 +21,28 @@ Rails.application.routes.draw do
   #------------------------------------------------------------------------
   delete 'pacientes/Listar/:id',to:'pacientes#eliminar'
 
-  
 
-  get 'agendas/', to: 'agendas#index'
-  get 'agendas/nuevo', to: 'agendas#nuevo', as: 'nuevo_agenda'
-  get 'agendas/:id',to:'agendas#mostrar', as: 'agenda'
-  get 'agendas/:id/editar',to: 'agendas#editar', as: 'editar_agenda'
-  put 'agendas/:id' ,to: 'agendas#update'
-  patch 'agendas/:id' ,to: 'agendas#update'
-  post 'agendas/', to: 'agendas#crear'
-  delete 'agendas/:id',to: 'agendas#eliminar'
+
+  get 'agendas/', to: 'agendas#principal'
+  #vista donde lista todos los insumos
+  post 'agendas/Listar/', to: 'agendas#index', as: 'listar_agenda'
+  #vista donde muestra la descripcion del insumo
+  #-------------------------------------------------------------------------
+  post 'agendas/Listar/:id',to:'agendas#mostrar', as: 'agenda'
+  get 'agendas/Listar/:id',to:'agendas#mostrar'
+  #ruta para el volver de la descripcion del insumo
+  get 'agendas/Listar/', to: 'agendas#index', as: 'volver_agenda'
+  #-------------------------------------------------------------------------
+  post 'agendas/Listar/:id/Editar',to: 'agendas#editar', as: 'editar_agenda'
+  put 'agendas/Listar/:id' ,to: 'agendas#update'
+  patch 'agendas/Listar/:id' ,to: 'agendas#update'
+  #------------------------------------------------------
+  post 'agendas/Nuevo', to: 'agendas#nuevo', as: 'nuevo_agenda'
+  post 'agendas', to: 'agendas#crear'
+  #------------------------------------------------------------------------
+  delete 'agendas/Listar/:id',to:'agendas#eliminar'
+
+  
 
   get 'usuarios/', to: 'usuarios#index'
   get 'usuarios/nuevo', to: 'usuarios#nuevo', as: 'nuevo_usuario'
