@@ -44,14 +44,26 @@ Rails.application.routes.draw do
 
 
 
-  get 'usuarios/', to: 'usuarios#index'
-  get 'usuarios/nuevo', to: 'usuarios#nuevo', as: 'nuevo_usuario'
-  get 'usuarios/:id',to:'usuarios#mostrar', as: 'usuario'
-  get 'usuarios/:id/editar',to: 'usuarios#editar', as: 'editar_usuario'
-  put 'usuarios/:id' ,to: 'usuarios#update'
-  patch 'usuarios/:id' ,to: 'usuarios#update'
-  post 'usuarios/', to: 'usuarios#crear'
-  delete 'usuarios/:id',to: 'usuarios#eliminar'
+  get 'usuarios/', to: 'usuarios#principal'
+  #vista donde lista todos los insumos
+  post 'usuarios/Listar/', to: 'usuarios#index', as: 'listar_usuario'
+  #vista donde muestra la descripcion del insumo
+  #-------------------------------------------------------------------------
+  post 'usuarios/Listar/:id',to:'usuarios#mostrar', as: 'usuario'
+  get 'usuarios/Listar/:id',to:'usuarios#mostrar'
+  #ruta para el volver de la descripcion del insumo
+  get 'usuarios/Listar/', to: 'usuarios#index', as: 'volver_usuario'
+  #-------------------------------------------------------------------------
+  post 'usuarios/Listar/:id/Editar',to: 'usuarios#editar', as: 'editar_usuario'
+  put 'usuarios/Listar/:id' ,to: 'usuarios#update'
+  patch 'usuarios/Listar/:id' ,to: 'usuarios#update'
+  #------------------------------------------------------
+  post 'usuarios/Nuevo', to: 'usuarios#nuevo', as: 'nuevo_usuario'
+  post 'usuarios', to: 'usuarios#crear'
+  #------------------------------------------------------------------------
+  delete 'usuarios/Listar/:id',to:'usuarios#eliminar'
+
+  
 
   get 'insumos/', to: 'insumos#principal'
   #vista donde lista todos los insumos

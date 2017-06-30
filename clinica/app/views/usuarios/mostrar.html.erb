@@ -1,6 +1,16 @@
-Nombre:  <%= @usuario.nombre %> <br>
-Apellido: <%= @usuario.apellidos %><br>
-Rut: <%= @usuario.rut %><br>
-Correo: <%= @usuario.correo %><br>
-Telefono: <%= @usuario.telefono %><br>
-cargo: <%= @usuario.cargo %><br>
+<div class="list-group" >
+  <a class="list-group-item active" >
+    <font FACE= "roman" size= 8 align= center>Información</font>
+  </a>
+
+<tr> <td>
+  <div class="panel-footer" align= left >Nombre:  <%= @usuario.nombre %> <br></div>
+  <div class="panel-footer" align= left>Apellido: <%= @usuario.apellidos %><br></div>
+  <div class="panel-footer" align= left>Rut: <%= @usuario.rut %><br></div>
+  <div class="panel-footer" align= left>Correo: <%= @usuario.correo %><br></div>
+  <div class="panel-footer" align= left>Telefono: <%= @usuario.telefono %><br></div>
+  <div class="panel-footer" align= left>Cargo: <%= @usuario.cargo %><br></div>
+
+</tr>
+</div>
+<%= link_to 'volver', volver_usuario_path %>

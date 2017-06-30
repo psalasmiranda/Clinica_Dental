@@ -1,27 +1,34 @@
-<h1> <%= link_to 'AGREGAR PERSONAL', nuevo_usuario_path %> </h1>
 
 <table class="table">
 <div class="list-group" >
   <a class="list-group-item active" >
-    Listado de usuarios
+    <font FACE= "roman" size= 12 align= center>Listado de Personal</font>
   </a>
-
-
+  <tr>
+    <td align= center>Nombre</td>
+    <td align= center>Apellido</td>
+    <td align= center>Rut</td>
+    <td align= center>Telefono</td>
+    <td align= center>Correo</td>
+    <td align= center>Cargo</td>
+    <td align= center>Grado</td>
+  </tr>
    <% @usuarios.each do |a| %>
 
   <tr class="list-group-item">
-        <td><%= a.nombre %></td>
-        <td><%= a.apellidos%></td>
-        <td><%= a.rut %></td>
-        <td><%= a.telefono %></td>
-        <td><%= a.correo %></td>
-        <td><%= a.cargo %></td>
-        <td><%= a.grado_id %></td>
-        <td><%= link_to 'Mostrar' ,usuario_url(a), :class => "btn btn-primary" %></td>
-        <td> <%= link_to 'Editar', editar_usuario_path(a), :class => "btn btn-warning" %></td>
-        <td><%= link_to 'Eliminar', a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
+        <td align= center><%= a.nombre %></td>
+        <td align= center><%= a.apellidos%></td>
+        <td align= center><%= a.rut %></td>
+        <td align= center><%= a.telefono %></td>
+        <td align= center><%= a.correo %></td>
+        <td align= center><%= a.cargo %></td>
+        <td align= center><%= a.grado_id %></td>
+        <td><%= button_to 'Mostrar' ,usuario_url(a), :class => "btn btn-primary" %></td>
+        <td> <%= button_to 'Editar', editar_usuario_url(a), :class => "btn btn-warning" %></td>
+        <td><%= button_to 'Eliminar', a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
 
       </tr>
   <%end%>
 </div>
 </table>
+<%= paginate @usuarios %>
