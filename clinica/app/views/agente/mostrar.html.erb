@@ -1,6 +1,16 @@
-Nombre:  <%= @agente.nombre %> <br>
-Apellido: <%= @agente.apellidos %><br>
-Rut: <%= @agente.rut %><br>
-Correo: <%= @agente.correo %><br>
-Telefono: <%= @agente.telefono %><br>
-dirrecion : <%= @agente.dirrecion %>
+<div class="list-group" >
+  <a class="list-group-item active" >
+    <font FACE= "roman" size= 8 align= center>Información</font>
+  </a>
+
+<tr> <td>
+  <div class="panel-footer" align= left >Nombre:  <%= @agente.nombre %> <br></div>
+  <div class="panel-footer" align= left>Apellido: <%= @agente.apellidos %><br></div>
+  <div class="panel-footer" align= left>Rut: <%= @agente.rut %><br></div>
+  <div class="panel-footer" align= left>Correo: <%= @agente.correo %><br></div>
+  <div class="panel-footer" align= left>Telefono: <%= @agente.telefono %><br></div>
+  <div class="panel-footer" align= left>dirrecion : <%= @agente.dirrecion %></br></div>
+
+</tr>
+</div>
+<%= link_to 'volver', volver_agente_path %>

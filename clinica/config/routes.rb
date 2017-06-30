@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   get 'pacientes/', to: 'pacientes#principal'
-  #vista donde lista todos los insumos
+  #vista donde lista todos los pacientes
   post 'pacientes/Listar/', to: 'pacientes#index', as: 'listar_paciente'
-  #vista donde muestra la descripcion del insumo
+  #vista donde muestra la descripcion del paciente
   #-------------------------------------------------------------------------
   post 'pacientes/Listar/:id',to:'pacientes#mostrar', as: 'paciente'
   get 'pacientes/Listar/:id',to:'pacientes#mostrar'
-  #ruta para el volver de la descripcion del insumo
+  #ruta para el volver de la descripcion del paciente
   get 'pacientes/Listar/', to: 'pacientes#index', as: 'volver_paciente'
   #-------------------------------------------------------------------------
   post 'pacientes/Listar/:id/Editar',to: 'pacientes#editar', as: 'editar_paciente'
@@ -24,13 +24,13 @@ Rails.application.routes.draw do
 
 
   get 'agendas/', to: 'agendas#principal'
-  #vista donde lista todos los insumos
+  #vista donde lista todos los agendas
   post 'agendas/Listar/', to: 'agendas#index', as: 'listar_agenda'
-  #vista donde muestra la descripcion del insumo
+  #vista donde muestra la descripcion del agenda
   #-------------------------------------------------------------------------
   post 'agendas/Listar/:id',to:'agendas#mostrar', as: 'agenda'
   get 'agendas/Listar/:id',to:'agendas#mostrar'
-  #ruta para el volver de la descripcion del insumo
+  #ruta para el volver de la descripcion del agenda
   get 'agendas/Listar/', to: 'agendas#index', as: 'volver_agenda'
   #-------------------------------------------------------------------------
   post 'agendas/Listar/:id/Editar',to: 'agendas#editar', as: 'editar_agenda'
@@ -45,13 +45,13 @@ Rails.application.routes.draw do
 
 
   get 'usuarios/', to: 'usuarios#principal'
-  #vista donde lista todos los insumos
+  #vista donde lista todos el personal
   post 'usuarios/Listar/', to: 'usuarios#index', as: 'listar_usuario'
-  #vista donde muestra la descripcion del insumo
+  #vista donde muestra la descripcion del personal
   #-------------------------------------------------------------------------
   post 'usuarios/Listar/:id',to:'usuarios#mostrar', as: 'usuario'
   get 'usuarios/Listar/:id',to:'usuarios#mostrar'
-  #ruta para el volver de la descripcion del insumo
+  #ruta para el volver de la descripcion del personal
   get 'usuarios/Listar/', to: 'usuarios#index', as: 'volver_usuario'
   #-------------------------------------------------------------------------
   post 'usuarios/Listar/:id/Editar',to: 'usuarios#editar', as: 'editar_usuario'
@@ -85,25 +85,35 @@ Rails.application.routes.draw do
   delete 'insumos/Listar/:id',to:'insumos#eliminar'
 
 
-  get 'agentes/', to: 'agente#index'
-  post 'agentes/nuevo', to: 'agente#nuevo', as: 'nuevo_agente'
-  get 'agentes/:id',to:'agente#mostrar', as: 'agente'
-  get 'agentes/:id/editar',to: 'agente#editar', as: 'editar_agente'
-  put 'agentes/:id' ,to: 'agente#update'
-  patch 'agentes/:id' ,to: 'agente#update'
-  post 'agentes/', to: 'agente#crear'
-  delete 'agentes/:id',to: 'agente#eliminar'
+  get 'agentes/', to: 'agentes#principal'
+  #vista donde lista todos los  proveedores
+  post 'agentes/Listar/', to: 'agentes#index', as: 'listar_agente'
+  #vista donde muestra la descripcion del proveedor
+  #-------------------------------------------------------------------------
+  post 'agentes/Listar/:id',to:'agentes#mostrar', as: 'agente'
+  get 'agentes/Listar/:id',to:'agentes#mostrar'
+  #ruta para el volver de la descripcion del proveedor
+  get 'agentes/Listar/', to: 'agentes#index', as: 'volver_agente'
+  #-------------------------------------------------------------------------
+  post 'agentes/Listar/:id/Editar',to: 'agentes#editar', as: 'editar_agente'
+  put 'agentes/Listar/:id' ,to: 'agentes#update'
+  patch 'agentes/Listar/:id' ,to: 'agentes#update'
+  #------------------------------------------------------
+  post 'agentes/Nuevo', to: 'agentes#nuevo', as: 'nuevo_agente'
+  post 'agentes', to: 'agentes#crear'
+  #------------------------------------------------------------------------
+  delete 'agentes/Listar/:id',to:'agentes#eliminar'
 
 
 
   get 'tratamientos/', to: 'tratamientos#principal'
-  #vista donde lista todos los insumos
+  #vista donde lista todos los tratamientos
   post 'tratamientos/Listar/', to: 'tratamientos#index', as: 'listar_tratamiento'
-  #vista donde muestra la descripcion del insumo
+  #vista donde muestra la descripcion del tratamiento
   #-------------------------------------------------------------------------
   post 'tratamientos/Listar/:id',to:'tratamientos#mostrar', as: 'tratamiento'
   get 'tratamientos/Listar/:id',to:'tratamientos#mostrar'
-  #ruta para el volver de la descripcion del insumo
+  #ruta para el volver de la descripcion del tratamiento
   get 'tratamientos/Listar/', to: 'tratamientos#index', as: 'volver_tratamiento'
   #-------------------------------------------------------------------------
   post 'tratamientos/Listar/:id/Editar',to: 'tratamientos#editar', as: 'editar_tratamiento'
@@ -120,13 +130,13 @@ Rails.application.routes.draw do
   resources :sessions
 
   get 'grados/', to: 'grados#principal'
-  #vista donde lista todos los insumos
+  #vista donde lista todos los grados
   post 'grados/Listar/', to: 'grados#index', as: 'listar_grado'
-  #vista donde muestra la descripcion del insumo
+  #vista donde muestra la descripcion del grado
   #-------------------------------------------------------------------------
   post 'grados/Listar/:id',to:'grados#mostrar', as: 'grado'
   get 'grados/Listar/:id',to:'grados#mostrar'
-  #ruta para el volver de la descripcion del insumo
+  #ruta para el volver de la descripcion del grado
   get 'grados/Listar/', to: 'grados#index', as: 'volver_grado'
   #-------------------------------------------------------------------------
   post 'grados/Listar/:id/Editar',to: 'grados#editar', as: 'editar_grado'
