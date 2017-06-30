@@ -85,24 +85,24 @@ Rails.application.routes.draw do
   delete 'insumos/Listar/:id',to:'insumos#eliminar'
 
 
-  get 'agentes/', to: 'agentes#principal'
+  get 'agentes/', to: 'agente#principal'
   #vista donde lista todos los  proveedores
-  post 'agentes/Listar/', to: 'agentes#index', as: 'listar_agente'
+  post 'agentes/Listar/', to: 'agente#index', as: 'listar_agente'
   #vista donde muestra la descripcion del proveedor
   #-------------------------------------------------------------------------
-  post 'agentes/Listar/:id',to:'agentes#mostrar', as: 'agente'
-  get 'agentes/Listar/:id',to:'agentes#mostrar'
+  post 'agentes/Listar/:id',to:'agente#mostrar', as: 'agente'
+  get 'agentes/Listar/:id',to:'agente#mostrar'
   #ruta para el volver de la descripcion del proveedor
-  get 'agentes/Listar/', to: 'agentes#index', as: 'volver_agente'
+  get 'agentes/Listar/', to: 'agente#index', as: 'volver_agente'
   #-------------------------------------------------------------------------
-  post 'agentes/Listar/:id/Editar',to: 'agentes#editar', as: 'editar_agente'
-  put 'agentes/Listar/:id' ,to: 'agentes#update'
-  patch 'agentes/Listar/:id' ,to: 'agentes#update'
+  post 'agentes/Listar/:id/Editar',to: 'agente#editar', as: 'editar_agente'
+  put 'agentes/Listar/:id' ,to: 'agente#update'
+  patch 'agentes/Listar/:id' ,to: 'agente#update'
   #------------------------------------------------------
-  post 'agentes/Nuevo', to: 'agentes#nuevo', as: 'nuevo_agente'
-  post 'agentes', to: 'agentes#crear'
+  post 'agentes/Nuevo', to: 'agente#nuevo', as: 'nuevo_agente'
+  post 'agentes', to: 'agente#crear'
   #------------------------------------------------------------------------
-  delete 'agentes/Listar/:id',to:'agentes#eliminar'
+  delete 'agentes/Listar/:id',to:'agente#eliminar'
 
 
 
