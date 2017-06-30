@@ -41,13 +41,6 @@ ActiveRecord::Schema.define(version: 20170620043049) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "articulos", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "agente_id"
-    t.integer "insumo_id"
-  end
-
   create_table "comunas", force: :cascade do |t|
     t.string "nombre"
     t.datetime "created_at", null: false
@@ -94,6 +87,7 @@ ActiveRecord::Schema.define(version: 20170620043049) do
     t.integer "costo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "agente_id"
   end
 
   create_table "listados", force: :cascade do |t|
@@ -139,10 +133,9 @@ ActiveRecord::Schema.define(version: 20170620043049) do
 
   add_foreign_key "agendas", "areas"
   add_foreign_key "agendas", "pacientes"
-  add_foreign_key "articulos", "agentes"
-  add_foreign_key "articulos", "insumos"
   add_foreign_key "historia", "pacientes"
   add_foreign_key "historia", "tratamientos"
+  add_foreign_key "insumos", "agentes"
   add_foreign_key "listados", "areas"
   add_foreign_key "listados", "usuarios"
   add_foreign_key "pacientes", "comunas"

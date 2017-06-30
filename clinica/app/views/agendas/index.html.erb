@@ -1,20 +1,25 @@
-<h1> <%= link_to 'CREAR NUEVA HORA', nuevo_agenda_path %> </h1>
 <table class="table">
-  <thead>
-  <tr>
-    <th>hora</th>
-    <th>costo</th>
-    </tr>
-    </thead>
-    <tbody>
+<div class="list-group" >
+  <a class="list-group-item active" >
+    <font FACE= "roman" size= 12 align= center>Listado de Agendas</font>
+  </a>
+
+<tr>
+  <td align= center>Hora</td>
+  <td align= center>Costo</td>
+
+</tr>
+
     <% @agendas.each do |a| %>
         <tr>
-          <td><%= a.hora%></td>
-          <td><%= a.costo %></td>
-          <td><%= link_to 'Mostrar', agenda_url(a) %></td>
-          <td> <%= link_to 'Editar', editar_agenda_path(a) %></td>
-          <td><%= link_to 'Eliminar', a, method: :delete, data: {confirm: 'seguro?'} %></td>
+          <td align= center><%= a.hora %></td>
+          <td align= center><%= a.costo%></td>
+          <td><%= button_to 'Mostrar' ,agenda_url(a), :class => "btn btn-primary" %></td>
+          <td> <%= button_to 'Editar', editar_agenda_url(a), :class => "btn btn-warning" %></td>
+          <td><%= button_to 'Eliminar', a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
+
         </tr>
   <% end %>
   </tbody>
 </table>
+<%= paginate @agendas %>

@@ -2,7 +2,8 @@ class AgenteController < ApplicationController
   before_action :set_agente, only: [:mostrar, :editar, :update, :eliminar]
   before_action { authenticate_user!("proveedor_vista") }
   def index
-    @agentes= Agente.all
+    #@agentes= Agente.all
+    @agentes = Agente.order("nombre").page(params[:page]).per(3)
   end
 
   def mostrar

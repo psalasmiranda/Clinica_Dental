@@ -2,7 +2,8 @@ class AgendasController < ApplicationController
   before_action :set_agenda, only: [:mostrar, :editar, :update, :eliminar]
   before_action { authenticate_user!("agenda_vista") }
     def index
-      @agendas= Agenda.all
+      #@agendas= Agenda.all
+      @agendas = Agenda.order("hora").page(params[:page]).per(3)
     end
 
     def mostrar

@@ -1,3 +1,12 @@
+<div class="list-group" >
+  <a class="list-group-item active" >
+    <font FACE= "roman" size= 8 align= center>Información</font>
+  </a>
 
-HORA: <%= @tratamiento.nombre %><br>
-COSTO: <%= @tratamiento.descripcion %><br>
+<tr> <td>
+  <div class="panel-footer" align= left >Nombre: <%= @tratamiento.nombre %><br></div>
+  <div class="panel-footer" align= left>Descripcion: <%= @tratamiento.descripcion %><br></div>
+
+</tr>
+</div>
+<%= link_to 'volver', volver_tratamiento_path %>

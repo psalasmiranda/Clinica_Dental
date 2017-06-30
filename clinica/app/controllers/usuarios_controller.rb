@@ -1,7 +1,8 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:mostrar, :editar, :update, :eliminar]
     def index
-      @usuarios= Usuario.all
+      #@usuarios= Usuario.all
+      @usuarios = Usuario.order("cargo").page(params[:page]).per(3)
     end
 
     def mostrar

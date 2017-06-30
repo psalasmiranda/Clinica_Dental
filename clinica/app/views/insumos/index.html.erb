@@ -1,23 +1,33 @@
+
+
 <table class="table">
 <div class="list-group" >
   <a class="list-group-item active" >
-    Listado de Insumos
+    <font FACE= "roman" size= 12 align= center>Listado de Insumos</font>
   </a>
 
-
+<tr>
+  <td align= center>Insumo</td>
+  <td align= center>Stock Actual</td>
+  <td align= center>Fecha vencimiento</td>
+  <td align= center>Proveedor</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
    <% @insumos.each do |a| %>
 
-  <tr class="list-group-item">
-        <td><%= a.nombre %></td>
-        <td><%= a.cantidad%></td>
-        <td><%= a.costo %></td>
-        <td><%= a.ingreso %></td>
-        <td><%= a.vencimiento %></td>
+  <tr>
+        <td align= center><%= a.nombre %></td>
+        <td align= center><%= a.cantidad%></td>
+        <td align= center><%= a.vencimiento %></td>
+        <td align= center><%= a.agente.nombre %> &nbsp <%= a.agente.apellidos%></td>
         <td><%= button_to 'Mostrar' ,insumo_url(a), :class => "btn btn-primary" %></td>
         <td> <%= button_to 'Editar', editar_insumo_url(a), :class => "btn btn-warning" %></td>
         <td><%= button_to 'Eliminar', a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
 
       </tr>
+
   <%end%>
 </div>
 </table>

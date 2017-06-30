@@ -1,20 +1,25 @@
-<h1> <%= link_to 'CREAR NUEVO TRATAMIENTO', nuevo_tratamiento_path %> </h1>
 <table class="table">
-  <thead>
-  <tr>
-    <th>nombre</th>
-    <th>descripcion</th>
-    </tr>
-    </thead>
-    <tbody>
+<div class="list-group" >
+  <a class="list-group-item active" >
+    <font FACE= "roman" size= 12 align= center>Listado de Tratamientos</font>
+  </a>
+
+<tr>
+  <td align= center>Nombre Tratamiento </td>
+  <td align= center>Descripcion</td>
+
+</tr>
+
     <% @tratamientos.each do |a| %>
         <tr>
-          <td><%= a.nombre%></td>
-          <td><%= a.descripcion %></td>
-          <td><%= link_to 'Mostrar', tratamiento_url(a) %></td>
-          <td> <%= link_to 'Editar', editar_tratamiento_path(a) %></td>
-          <td><%= link_to 'Eliminar', a, method: :delete, data: {confirm: 'seguro?'} %></td>
+          <td align= center><%= a.nombre%></td>
+          <td align= center><%= a.descripcion %></td>
+          <td><%= button_to 'Mostrar' , tratamiento_url(a), :class => "btn btn-primary" %></td>
+          <td> <%= button_to 'Editar', editar_tratamiento_url(a), :class => "btn btn-warning" %></td>
+          <td><%= button_to 'Eliminar', a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
+
         </tr>
   <% end %>
   </tbody>
 </table>
+<%= paginate @tratamientos %>

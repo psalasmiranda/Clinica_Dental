@@ -52,6 +52,6 @@ before_action { authenticate_user!("insumo_vista") }
   end
 
   def insumo_params
-    params.require(:insumo).permit(:nombre, :cantidad, :costo, :ingreso, :vencimiento)
+    params.require(:insumo).permit(:nombre, :cantidad, :costo, :ingreso, :vencimiento,:agente_id)
   end
 end

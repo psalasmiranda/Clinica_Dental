@@ -2,32 +2,68 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'welcome/index'
 
-  get 'pacientes/', to: 'pacientes#index'
-  get 'pacientes/nuevo', to: 'pacientes#nuevo', as: 'nuevo_paciente'
-  get 'pacientes/:id',to:'pacientes#mostrar', as: 'paciente'
-  get 'pacientes/:id/editar',to: 'pacientes#editar', as: 'editar_paciente'
-  put 'pacientes/:id' ,to: 'pacientes#update'
-  patch 'pacientes/:id' ,to: 'pacientes#update'
-  post 'pacientes/', to: 'pacientes#crear'
-  delete 'pacientes/:id',to: 'pacientes#eliminar'
+  get 'pacientes/', to: 'pacientes#principal'
+  #vista donde lista todos los pacientes
+  post 'pacientes/Listar/', to: 'pacientes#index', as: 'listar_paciente'
+  #vista donde muestra la descripcion del paciente
+  #-------------------------------------------------------------------------
+  post 'pacientes/Listar/:id',to:'pacientes#mostrar', as: 'paciente'
+  get 'pacientes/Listar/:id',to:'pacientes#mostrar'
+  #ruta para el volver de la descripcion del paciente
+  get 'pacientes/Listar/', to: 'pacientes#index', as: 'volver_paciente'
+  #-------------------------------------------------------------------------
+  post 'pacientes/Listar/:id/Editar',to: 'pacientes#editar', as: 'editar_paciente'
+  put 'pacientes/Listar/:id' ,to: 'pacientes#update'
+  patch 'pacientes/Listar/:id' ,to: 'pacientes#update'
+  #------------------------------------------------------
+  post 'pacientes/Nuevo', to: 'pacientes#nuevo', as: 'nuevo_paciente'
+  post 'pacientes', to: 'pacientes#crear'
+  #------------------------------------------------------------------------
+  delete 'pacientes/Listar/:id',to:'pacientes#eliminar'
 
-  get 'agendas/', to: 'agendas#index'
-  get 'agendas/nuevo', to: 'agendas#nuevo', as: 'nuevo_agenda'
-  get 'agendas/:id',to:'agendas#mostrar', as: 'agenda'
-  get 'agendas/:id/editar',to: 'agendas#editar', as: 'editar_agenda'
-  put 'agendas/:id' ,to: 'agendas#update'
-  patch 'agendas/:id' ,to: 'agendas#update'
-  post 'agendas/', to: 'agendas#crear'
-  delete 'agendas/:id',to: 'agendas#eliminar'
 
-  get 'usuarios/', to: 'usuarios#index'
-  get 'usuarios/nuevo', to: 'usuarios#nuevo', as: 'nuevo_usuario'
-  get 'usuarios/:id',to:'usuarios#mostrar', as: 'usuario'
-  get 'usuarios/:id/editar',to: 'usuarios#editar', as: 'editar_usuario'
-  put 'usuarios/:id' ,to: 'usuarios#update'
-  patch 'usuarios/:id' ,to: 'usuarios#update'
-  post 'usuarios/', to: 'usuarios#crear'
-  delete 'usuarios/:id',to: 'usuarios#eliminar'
+
+  get 'agendas/', to: 'agendas#principal'
+  #vista donde lista todos los agendas
+  post 'agendas/Listar/', to: 'agendas#index', as: 'listar_agenda'
+  #vista donde muestra la descripcion del agenda
+  #-------------------------------------------------------------------------
+  post 'agendas/Listar/:id',to:'agendas#mostrar', as: 'agenda'
+  get 'agendas/Listar/:id',to:'agendas#mostrar'
+  #ruta para el volver de la descripcion del agenda
+  get 'agendas/Listar/', to: 'agendas#index', as: 'volver_agenda'
+  #-------------------------------------------------------------------------
+  post 'agendas/Listar/:id/Editar',to: 'agendas#editar', as: 'editar_agenda'
+  put 'agendas/Listar/:id' ,to: 'agendas#update'
+  patch 'agendas/Listar/:id' ,to: 'agendas#update'
+  #------------------------------------------------------
+  post 'agendas/Nuevo', to: 'agendas#nuevo', as: 'nuevo_agenda'
+  post 'agendas', to: 'agendas#crear'
+  #------------------------------------------------------------------------
+  delete 'agendas/Listar/:id',to:'agendas#eliminar'
+
+
+
+  get 'usuarios/', to: 'usuarios#principal'
+  #vista donde lista todos el personal
+  post 'usuarios/Listar/', to: 'usuarios#index', as: 'listar_usuario'
+  #vista donde muestra la descripcion del personal
+  #-------------------------------------------------------------------------
+  post 'usuarios/Listar/:id',to:'usuarios#mostrar', as: 'usuario'
+  get 'usuarios/Listar/:id',to:'usuarios#mostrar'
+  #ruta para el volver de la descripcion del personal
+  get 'usuarios/Listar/', to: 'usuarios#index', as: 'volver_usuario'
+  #-------------------------------------------------------------------------
+  post 'usuarios/Listar/:id/Editar',to: 'usuarios#editar', as: 'editar_usuario'
+  put 'usuarios/Listar/:id' ,to: 'usuarios#update'
+  patch 'usuarios/Listar/:id' ,to: 'usuarios#update'
+  #------------------------------------------------------
+  post 'usuarios/Nuevo', to: 'usuarios#nuevo', as: 'nuevo_usuario'
+  post 'usuarios', to: 'usuarios#crear'
+  #------------------------------------------------------------------------
+  delete 'usuarios/Listar/:id',to:'usuarios#eliminar'
+
+
 
   get 'insumos/', to: 'insumos#principal'
   #vista donde lista todos los insumos
@@ -49,33 +85,66 @@ Rails.application.routes.draw do
   delete 'insumos/Listar/:id',to:'insumos#eliminar'
 
 
-  get 'agentes/', to: 'agente#index'
-  post 'agentes/nuevo', to: 'agente#nuevo', as: 'nuevo_agente'
-  get 'agentes/:id',to:'agente#mostrar', as: 'agente'
-  get 'agentes/:id/editar',to: 'agente#editar', as: 'editar_agente'
-  put 'agentes/:id' ,to: 'agente#update'
-  patch 'agentes/:id' ,to: 'agente#update'
-  post 'agentes/', to: 'agente#crear'
-  delete 'agentes/:id',to: 'agente#eliminar'
+  get 'agentes/', to: 'agentes#principal'
+  #vista donde lista todos los  proveedores
+  post 'agentes/Listar/', to: 'agentes#index', as: 'listar_agente'
+  #vista donde muestra la descripcion del proveedor
+  #-------------------------------------------------------------------------
+  post 'agentes/Listar/:id',to:'agentes#mostrar', as: 'agente'
+  get 'agentes/Listar/:id',to:'agentes#mostrar'
+  #ruta para el volver de la descripcion del proveedor
+  get 'agentes/Listar/', to: 'agentes#index', as: 'volver_agente'
+  #-------------------------------------------------------------------------
+  post 'agentes/Listar/:id/Editar',to: 'agentes#editar', as: 'editar_agente'
+  put 'agentes/Listar/:id' ,to: 'agentes#update'
+  patch 'agentes/Listar/:id' ,to: 'agentes#update'
+  #------------------------------------------------------
+  post 'agentes/Nuevo', to: 'agentes#nuevo', as: 'nuevo_agente'
+  post 'agentes', to: 'agentes#crear'
+  #------------------------------------------------------------------------
+  delete 'agentes/Listar/:id',to:'agentes#eliminar'
 
-  get 'tratamientos/', to: 'tratamientos#index'
-  get 'tratamientos/nuevo', to: 'tratamientos#nuevo', as: 'nuevo_tratamiento'
-  get 'tratamientos/:id',to:'tratamientos#mostrar', as: 'tratamiento'
-  get 'tratamientos/:id/editar',to: 'tratamientos#editar', as: 'editar_tratamiento'
-  put 'tratamientos/:id' ,to: 'tratamientos#update'
-  patch 'tratamientos/:id' ,to: 'tratamientos#update'
-  post 'tratamientos/', to: 'tratamientos#crear'
-  delete 'tratamientos/:id',to: 'tratamientos#eliminar'
+
+
+  get 'tratamientos/', to: 'tratamientos#principal'
+  #vista donde lista todos los tratamientos
+  post 'tratamientos/Listar/', to: 'tratamientos#index', as: 'listar_tratamiento'
+  #vista donde muestra la descripcion del tratamiento
+  #-------------------------------------------------------------------------
+  post 'tratamientos/Listar/:id',to:'tratamientos#mostrar', as: 'tratamiento'
+  get 'tratamientos/Listar/:id',to:'tratamientos#mostrar'
+  #ruta para el volver de la descripcion del tratamiento
+  get 'tratamientos/Listar/', to: 'tratamientos#index', as: 'volver_tratamiento'
+  #-------------------------------------------------------------------------
+  post 'tratamientos/Listar/:id/Editar',to: 'tratamientos#editar', as: 'editar_tratamiento'
+  put 'tratamientos/Listar/:id' ,to: 'tratamientos#update'
+  patch 'tratamientos/Listar/:id' ,to: 'tratamientos#update'
+  #------------------------------------------------------
+  post 'tratamientos/Nuevo', to: 'tratamientos#nuevo', as: 'nuevo_tratamiento'
+  post 'tratamientos', to: 'tratamientos#crear'
+  #------------------------------------------------------------------------
+  delete 'tratamientos/Listar/:id',to:'tratamientos#eliminar'
+
 
 
   resources :sessions
 
-  get 'grados/', to: 'grados#index'
-  get 'grados/nuevo', to: 'grados#nuevo', as: 'nuevo_grado'
-  get 'grados/:id',to:'grados#mostrar', as: 'grado'
-  get 'grados/:id/editar',to: 'grados#editar', as: 'editar_grado'
-  put 'grados/:id' ,to: 'grados#update'
-  patch 'grados/:id' ,to: 'grados#update'
-  post 'grados/', to: 'grados#crear'
-  delete 'grados/:id',to: 'grados#eliminar'
+  get 'grados/', to: 'grados#principal'
+  #vista donde lista todos los grados
+  post 'grados/Listar/', to: 'grados#index', as: 'listar_grado'
+  #vista donde muestra la descripcion del grado
+  #-------------------------------------------------------------------------
+  post 'grados/Listar/:id',to:'grados#mostrar', as: 'grado'
+  get 'grados/Listar/:id',to:'grados#mostrar'
+  #ruta para el volver de la descripcion del grado
+  get 'grados/Listar/', to: 'grados#index', as: 'volver_grado'
+  #-------------------------------------------------------------------------
+  post 'grados/Listar/:id/Editar',to: 'grados#editar', as: 'editar_grado'
+  put 'grados/Listar/:id' ,to: 'grados#update'
+  patch 'grados/Listar/:id' ,to: 'grados#update'
+  #------------------------------------------------------
+  post 'grados/Nuevo', to: 'grados#nuevo', as: 'nuevo_grado'
+  post 'grados', to: 'grados#crear'
+  #------------------------------------------------------------------------
+  delete 'grados/Listar/:id',to:'grados#eliminar'
 end
