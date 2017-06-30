@@ -2,7 +2,8 @@ class PacientesController < ApplicationController
   before_action :set_paciente, only: [:mostrar, :editar, :update, :eliminar]
   before_action { authenticate_user!("paciente_vista") }
     def index
-      @pacientes= Paciente.all
+      #@pacientes= Paciente.all
+      @pacientes = Paciente.order("nombre").page(params[:page]).per(3)
     end
 
     def mostrar

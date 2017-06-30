@@ -2,14 +2,26 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'welcome/index'
 
-  get 'pacientes/', to: 'pacientes#index'
-  get 'pacientes/nuevo', to: 'pacientes#nuevo', as: 'nuevo_paciente'
-  get 'pacientes/:id',to:'pacientes#mostrar', as: 'paciente'
-  get 'pacientes/:id/editar',to: 'pacientes#editar', as: 'editar_paciente'
-  put 'pacientes/:id' ,to: 'pacientes#update'
-  patch 'pacientes/:id' ,to: 'pacientes#update'
-  post 'pacientes/', to: 'pacientes#crear'
-  delete 'pacientes/:id',to: 'pacientes#eliminar'
+  get 'pacientes/', to: 'pacientes#principal'
+  #vista donde lista todos los insumos
+  post 'pacientes/Listar/', to: 'pacientes#index', as: 'listar_paciente'
+  #vista donde muestra la descripcion del insumo
+  #-------------------------------------------------------------------------
+  post 'pacientes/Listar/:id',to:'pacientes#mostrar', as: 'paciente'
+  get 'pacientes/Listar/:id',to:'pacientes#mostrar'
+  #ruta para el volver de la descripcion del insumo
+  get 'pacientes/Listar/', to: 'pacientes#index', as: 'volver_paciente'
+  #-------------------------------------------------------------------------
+  post 'pacientes/Listar/:id/Editar',to: 'pacientes#editar', as: 'editar_paciente'
+  put 'pacientes/Listar/:id' ,to: 'pacientes#update'
+  patch 'pacientes/Listar/:id' ,to: 'pacientes#update'
+  #------------------------------------------------------
+  post 'pacientes/Nuevo', to: 'pacientes#nuevo', as: 'nuevo_paciente'
+  post 'pacientes', to: 'pacientes#crear'
+  #------------------------------------------------------------------------
+  delete 'pacientes/Listar/:id',to:'pacientes#eliminar'
+
+  
 
   get 'agendas/', to: 'agendas#index'
   get 'agendas/nuevo', to: 'agendas#nuevo', as: 'nuevo_agenda'

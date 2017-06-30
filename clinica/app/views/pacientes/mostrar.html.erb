@@ -1,9 +1,17 @@
+<div class="list-group" >
+  <a class="list-group-item active" >
+    <font FACE= "roman" size= 8 align= center>Información</font>
+  </a>
 
-Nombre:  <%= @paciente.nombre %> <br>
-paterno: <%= @paciente.paterno %><br>
-materna: <%= @paciente.materna %><br>
-Telefono: <%= @paciente.telefono %><br>
-RUT: <%= @paciente.rut %><br>
-EDAD: <%= @paciente.edad %><br>
-SEXO: <%= @paciente.sexo %><br>
-DIRECCION: <%= @paciente.direccion %><br>
+<tr> <td>
+  <div class="panel-footer" align= left >Nombre :<%= @paciente.nombre %></div>
+  <div class="panel-footer" align= left> Apellido Paterno: <%= @paciente.paterno %><br></div>
+  <div class="panel-footer" align= left>Apellido Materno: <%= @paciente.materna %><br></div>
+  <div class="panel-footer" align= left>Telefono: <%= @paciente.telefono %><br></div>
+  <div class="panel-footer" align= left>Rut: <%= @paciente.rut %><br></div>
+  <div class="panel-footer" align= left>Edad: <%= @paciente.edad %><br></div>
+  <div class="panel-footer" align= left>Sexo: <%= @paciente.sexo %><br></div>
+  <div class="panel-footer" align= left>Direccion: <%= @paciente.direccion %><br></div>
+</tr>
+</div>
+<%= link_to 'volver', volver_paciente_path %>

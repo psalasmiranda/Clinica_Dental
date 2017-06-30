@@ -1,36 +1,38 @@
 
-<h1> <%= link_to 'CREAR NUEVO paciente', nuevo_paciente_path %> </h1>
-<table >
-  <thead>
-  <tr>
-    <th>nombre</th>
-    <th>paterno</th>
-    <th>materna</th>
-    <th>telefono</th>
-    <th>rut</th>
-    <th>edad</th>
-    <th>sexo</th>
+<table class="table">
+<div class="list-group" >
+  <a class="list-group-item active" >
+    <font FACE= "roman" size= 12 align= center>Listado de Insumos</font>
+  </a>
 
-    <th>direccion</th>
+<tr>
+  <td align= center>Nombre</td>
+  <td align= center>Apellido Paterno</td>
+  <td align= center>Apellido Materno</td>
+  <td align= center>Telefono</td>
+  <td align= center>Rut</td>
+  <td align= center>Edad</td>
+  <td align= center>Sexo</td>
+  <td align= center>Direccion</td>
+</tr>
 
-    </tr>
-    </thead>
-    <tbody>
     <% @pacientes.each do |a| %>
         <tr>
-          <td><%= a.nombre %></td>
-          <td><%= a.paterno%></td>
-          <td><%= a.materna%></td>
-          <td><%= a.telefono %></td>
-          <td><%= a.rut %></td>
-          <td><%= a.edad %></td>
-          <td><%= a.sexo %></td>
-          <td><%= a.direccion%></td>
+          <td align= center><%= a.nombre %></td>
+          <td align= center><%= a.paterno%></td>
+          <td align= center><%= a.materna%></td>
+          <td align= center><%= a.telefono %></td>
+          <td align= center><%= a.rut %></td>
+          <td align= center><%= a.edad %></td>
+          <td align= center><%= a.sexo %></td>
+          <td align= center><%= a.direccion%></td>
 
-          <td><%= link_to 'Mostrar', paciente_url(a) %></td>
-          <td> <%= link_to 'Editar', editar_paciente_path(a) %></td>
-          <td><%= link_to 'Eliminar', a, method: :delete, data: {confirm: 'segurito?'} %></td>
+          <td><%= button_to 'Mostrar' ,paciente_url(a), :class => "btn btn-primary" %></td>
+          <td> <%= button_to 'Editar', editar_paciente_url(a), :class => "btn btn-warning" %></td>
+          <td><%= button_to 'Eliminar', a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
+
         </tr>
   <% end %>
   </tbody>
 </table>
+<%= paginate @pacientes %>
