@@ -1,3 +1,32 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+//paleta : negro = #0F0B0F, narango fuerte = #BC4F27, naranjo medio = #CA7535, naranjo suave =  #CC994D, rojo medio = #793341
+
+/* cambiar tipo de letra */
+nav.navbar ul.nav li {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* cambiar el color de fondo a la barra */
+nav.navbar{
+    background-color: #36667F;
+}
+.navbar-default .navbar-brand {
+  color: white;
+}
+.navbar-default .navbar-brand:hover {
+  color: white;
+}
+.navbar .nav li a{
+    color: white;
+}
+/*Mouse encima*/
+.navbar .nav li a:hover{
+  color: red;
+}
+.well {
+  background-color:#94B9CC;
+  color: white;
+}
