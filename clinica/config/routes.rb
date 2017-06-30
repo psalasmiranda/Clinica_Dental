@@ -63,7 +63,7 @@ Rails.application.routes.draw do
   #------------------------------------------------------------------------
   delete 'usuarios/Listar/:id',to:'usuarios#eliminar'
 
-  
+
 
   get 'insumos/', to: 'insumos#principal'
   #vista donde lista todos los insumos
@@ -94,14 +94,27 @@ Rails.application.routes.draw do
   post 'agentes/', to: 'agente#crear'
   delete 'agentes/:id',to: 'agente#eliminar'
 
-  get 'tratamientos/', to: 'tratamientos#index'
-  get 'tratamientos/nuevo', to: 'tratamientos#nuevo', as: 'nuevo_tratamiento'
-  get 'tratamientos/:id',to:'tratamientos#mostrar', as: 'tratamiento'
-  get 'tratamientos/:id/editar',to: 'tratamientos#editar', as: 'editar_tratamiento'
-  put 'tratamientos/:id' ,to: 'tratamientos#update'
-  patch 'tratamientos/:id' ,to: 'tratamientos#update'
-  post 'tratamientos/', to: 'tratamientos#crear'
-  delete 'tratamientos/:id',to: 'tratamientos#eliminar'
+
+
+  get 'tratamientos/', to: 'tratamientos#principal'
+  #vista donde lista todos los insumos
+  post 'tratamientos/Listar/', to: 'tratamientos#index', as: 'listar_tratamiento'
+  #vista donde muestra la descripcion del insumo
+  #-------------------------------------------------------------------------
+  post 'tratamientos/Listar/:id',to:'tratamientos#mostrar', as: 'tratamiento'
+  get 'tratamientos/Listar/:id',to:'tratamientos#mostrar'
+  #ruta para el volver de la descripcion del insumo
+  get 'tratamientos/Listar/', to: 'tratamientos#index', as: 'volver_tratamiento'
+  #-------------------------------------------------------------------------
+  post 'tratamientos/Listar/:id/Editar',to: 'tratamientos#editar', as: 'editar_tratamiento'
+  put 'tratamientos/Listar/:id' ,to: 'tratamientos#update'
+  patch 'tratamientos/Listar/:id' ,to: 'tratamientos#update'
+  #------------------------------------------------------
+  post 'tratamientos/Nuevo', to: 'tratamientos#nuevo', as: 'nuevo_tratamiento'
+  post 'tratamientos', to: 'tratamientos#crear'
+  #------------------------------------------------------------------------
+  delete 'tratamientos/Listar/:id',to:'tratamientos#eliminar'
+
 
 
   resources :sessions
