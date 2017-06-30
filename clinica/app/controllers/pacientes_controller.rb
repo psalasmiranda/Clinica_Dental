@@ -48,6 +48,6 @@ class PacientesController < ApplicationController
     end
 
     def paciente_params
-      params.require(:paciente).permit(:nombre,:paterno,:materna, :telefono, :rut, :edad, :sexo, :comuna, :direccion)
+      params.require(:paciente).permit(:nombre,:paterno,:materna, :telefono, :rut, :edad, :sexo, :comuna, :direccion , :comuna_id)
     end
 end
