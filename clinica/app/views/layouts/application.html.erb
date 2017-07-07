@@ -10,7 +10,7 @@
 
   <body>
 
-  <nav class="navbar navbar-default  navbar-static-top"  role="navigation">
+  <nav class="navbar navbar-default navbar-static-top" >
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -18,20 +18,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">CDental</a>
-
+        <h1 class="navbar-brand">CDental</h1>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a href="/" >Inicio</a></li>
-          <li><a href="/pacientes">Pacientes</a></li>
-          <li><a href="/agendas">Agendas</a></li>
-          <li><a href="/insumos">Insumos</a></li>
-          <li><a href="/agentes">Proveedores</a></li>
-          <li><a href="/tratamientos">Tratamientos</a></li>
-          <li><a href="/usuarios">Personal</a></li>
-          <li><a href="/grados">Grados</a></li>
-        </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
           <li class="dropdown">
@@ -45,6 +34,11 @@
             </ul>
           </li>
           <% else %>
+            <li><form class="form-inline ">
+              <input class="form-control mr-sm-2" type="text" placeholder="Nombre">
+              <input class="form-control mr-sm-2" type="password" placeholder="Contraseña">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ingresar</button>
+            </form></li>
             <li><%= link_to new_session_path do %><span class="glyphicon glyphicon-user"></span>
             Iniciar Sesión</li>
           <% end %>
