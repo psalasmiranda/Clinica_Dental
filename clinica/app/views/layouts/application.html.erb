@@ -18,7 +18,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <h1 class="navbar-brand">CDental</h1>
+        <a class="navbar-brand">CDental</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
@@ -34,14 +34,13 @@
             </ul>
           </li>
           <% else %>
-            <li><form class="form-inline ">
-              <input class="form-control mr-sm-2" type="text" placeholder="Nombre">
-              <input class="form-control mr-sm-2" type="password" placeholder="Contraseña">
+            <li><%= form_tag(sessions_path, {class: 'navbar-form navbar-left'})  do %>
+              <div class="form-group">
+                <%= text_field_tag :nombre, params[:nombre] , class:'form-control', placeholder:'Nombre'%>
+                <%= password_field_tag :password, "" , class:'form-control', placeholder:'Contraseña'%>
+              </div>
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ingresar</button>
-            </form></li>
-            <li><%= link_to new_session_path do %><span class="glyphicon glyphicon-user"></span>
-            Iniciar Sesión</li>
-          <% end %>
+            <% end %></li>
           <% end %>
         </ul>
       </div>
@@ -52,6 +51,10 @@
         <%= content_tag :div, msg, class: "alert alert-info" %></div>
     <% end %>
 
-    <%= yield %>
+<% if current_user %>
+<%= render 'layouts/menu' %>
+<% else %>
+<%= yield %>
+<% end %>
   </body>
 </html>
