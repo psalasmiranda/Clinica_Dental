@@ -18,3 +18,7 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+  def menu! (as)
+      @permiso = Grado.find(current_user.grado_id)
+      @permiso[as]
+  end

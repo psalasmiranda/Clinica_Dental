@@ -1,46 +1,39 @@
-<div class="container">
+
 <div class="row">
     <div class="col-sm-3 col-md-3">
         <div class="panel-group" id="accordion">
+          <% if menu!('agenda_vista') %>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-th-list">
-                        </span>Opciones</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-calendar">
+                        </span>Agendas</a>
                     </h4>
                 </div>
-                <div id="collapseOne" class="panel-collapse collapse in">
+                <div id="collapseOne" class="panel-collapse collapse">
                     <div class="panel-body">
                         <table class="table">
                             <tr>
                                 <td>
-                                    <span class="glyphicon glyphicon-list-alt text-primary"></span><%=link_to "Insumos", insumos_path(@insumo)%>
+                                    <span class="glyphicon glyphicon-th-list text-primary"></span><%=link_to "Listar", listar_agenda_path(@agenda)%>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <span class="glyphicon glyphicon-user text-success"></span><%=link_to "Pacientes", pacientes_path(@paciente)%>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="glyphicon glyphicon-time text-info"></span><%=link_to "Agendas", agendas_path(@agenda)%>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="glyphicon glyphicon-duplicate   text-success"></span><%=link_to "Tratamientos", tratamientos_path(@tratamiento)%>
+                                    <span class="glyphicon glyphicon-plus text-success"></span><%=link_to "Nuevo", nuevo_agenda_path, :method=> :post%>
                                 </td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
+          <%end%>
+          <% if menu!('proveedor_vista') %>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-th">
-                        </span>Pacientes</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-tags">
+                        </span>Proveedores</a>
                     </h4>
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse">
@@ -48,33 +41,25 @@
                         <table class="table">
                             <tr>
                                 <td>
-                                    <a href="http://www.jquery2dotnet.com">Orders</a> <span class="label label-success">$ 320</span>
+                                    <span class="glyphicon glyphicon-th-list text-primary"></span><%=link_to "Listar", listar_agente_path%>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="http://www.jquery2dotnet.com">Invoices</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="http://www.jquery2dotnet.com">Shipments</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="http://www.jquery2dotnet.com">Tex</a>
+                                    <span class="glyphicon glyphicon-plus-sign text-success"></span><%=link_to "Nuevo", nuevo_agenda_path, :method=> :post%>
                                 </td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
+          <%end%>
+          <% if menu!('insumo_vista') %>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-user">
-                        </span>Cuenta</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-shopping-cart">
+                        </span>Insumos</a>
                     </h4>
                 </div>
                 <div id="collapseThree" class="panel-collapse collapse">
@@ -82,34 +67,25 @@
                         <table class="table">
                             <tr>
                                 <td>
-                                    <a href="http://www.jquery2dotnet.com">Change Password</a>
+                                    <span class="glyphicon glyphicon-th-list text-primary"></span><%=link_to "Listar", listar_insumo_path%>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="http://www.jquery2dotnet.com">Notifications</a> <span class="label label-info">5</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="http://www.jquery2dotnet.com">Import/Export</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="glyphicon glyphicon-trash text-danger"></span><a href="http://www.jquery2dotnet.com" class="text-danger">
-                                        Delete Account</a>
+                                    <span class="glyphicon glyphicon-plus text-success"></span><%=link_to "Nuevo", nuevo_insumo_path, :method=> :post%>
                                 </td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
+          <%end%>
+          <% if menu!('paciente_vista') %>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-file">
-                        </span>Informes</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-briefcase">
+                        </span>Pacientes</a>
                     </h4>
                 </div>
                 <div id="collapseFour" class="panel-collapse collapse">
@@ -117,33 +93,76 @@
                         <table class="table">
                             <tr>
                                 <td>
-                                    <span class="glyphicon glyphicon-usd"></span><a href="http://www.jquery2dotnet.com">Sales</a>
+                                    <span class="glyphicon glyphicon-th-list text-primary"></span><%=link_to "Listar", listar_paciente_path%>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <span class="glyphicon glyphicon-user"></span><a href="http://www.jquery2dotnet.com">Customers</a>
+                                    <span class="glyphicon glyphicon-plus text-success"></span><%=link_to "Nuevo", nuevo_paciente_path, :method=> :post%>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+          <%end%>
+          <% if menu!('tratamiento_vista') %>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive"><span class="glyphicon glyphicon-paperclip">
+                        </span>Tramientos</a>
+                    </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-th-list text-primary"></span><%=link_to "Listar", listar_tratamiento_path%>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <span class="glyphicon glyphicon-tasks"></span><a href="http://www.jquery2dotnet.com">Products</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="glyphicon glyphicon-shopping-cart"></span><a href="http://www.jquery2dotnet.com">Shopping Cart</a>
+                                    <span class="glyphicon glyphicon-plus text-success"></span><%=link_to "Nuevo", nuevo_tratamiento_path, :method=> :post%>
                                 </td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
+          <%end%>
+          <%# if menu!('proveedor_vista') %>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix"><span class="glyphicon glyphicon-wrench">
+                        </span>Administración</a>
+                    </h4>
+                </div>
+                <div id="collapseSix" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-user text-warning"></span><%=link_to "Usuarios", usuarios_path%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-cog text-warning"></span><%=link_to "Permisos", grados_path%>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+          <%#end%>
         </div>
     </div>
     <div class="col-sm-9 col-md-9">
 
         <%= yield %>
     </div>
-</div>
 </div>
