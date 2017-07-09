@@ -1,4 +1,3 @@
-
   <%= form_for(@usuario, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
       <% if @usuario.errors.any? %>
           <%= pluralize(@usuario.errors.count, "error") %>

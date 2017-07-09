@@ -1,5 +1,6 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:mostrar, :editar, :update, :eliminar]
+  before_action { authenticate_user!("usuario_vista") }
     def index
       #@usuarios= Usuario.all
       @usuarios = Usuario.order("cargo").page(params[:page]).per(3)

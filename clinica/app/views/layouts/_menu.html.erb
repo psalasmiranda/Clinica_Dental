@@ -46,7 +46,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <span class="glyphicon glyphicon-plus-sign text-success"></span><%=link_to "Nuevo", nuevo_agenda_path, :method=> :post%>
+                                    <span class="glyphicon glyphicon-plus-sign text-success"></span><%=link_to "Nuevo", nuevo_agente_path, :method=> :post%>
                                 </td>
                             </tr>
                         </table>
@@ -133,7 +133,7 @@
                 </div>
             </div>
           <%end%>
-          <%# if menu!('proveedor_vista') %>
+          <% if menu!('usuario_vista') &&  menu!('grado_vista')%>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
@@ -158,10 +158,10 @@
                     </div>
                 </div>
             </div>
-          <%#end%>
+          <% end%>
         </div>
     </div>
-    <div class="col-sm-9 col-md-9">
+    <div class="col-sm-8 col-md-8">
 
         <%= yield %>
     </div>

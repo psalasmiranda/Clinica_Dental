@@ -20,12 +20,13 @@ nav.navbar{
   color: white;
 }
 .navbar .nav li a{
-    color: white;
+    color: black;
 }
-/*Mouse encima*/
+/*Mouse encima
 .navbar .nav li a:hover{
-  color: red;
-}
+  color: white;
+}*/
+//color de principal
 .well {
   background-color:#94B9CC;
   color: white;
@@ -40,7 +41,10 @@ nav.navbar{
       height: 100%;
       width: 100%;
 }
-
+//color de titulos de vistas
+a.list-group-item.active{
+    background-color: #36667F;
+}
 //menu lateral
 .glyphicon { margin-right:10px; }
 .panel-body { padding:0px; }

@@ -1,5 +1,6 @@
 class GradosController < ApplicationController
   before_action :set_grado, only: [:mostrar, :editar, :update, :eliminar]
+  before_action { authenticate_user!("grado_vista") }
     def index
       #@grados= Grado.all
       @grados = Grado.order("rol").page(params[:page]).per(3)

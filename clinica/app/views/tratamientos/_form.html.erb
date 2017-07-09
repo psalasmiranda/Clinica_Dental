@@ -1,7 +1,6 @@
 <%= form_for(@tratamiento, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
     <% if @tratamiento.errors.any? %>
         <%= pluralize(@tratamiento.errors.count, "error") %>
-
         <% @tratamiento.errors.full_messages.each do |actual| %>
             <%= actual %>
         <% end %>

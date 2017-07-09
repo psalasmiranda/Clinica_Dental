@@ -2,7 +2,6 @@
       <% if @paciente.errors.any? %>
           <%= pluralize(@paciente.errors.count, "error") %>
       <% end %>
-      </div>
       <div class="col-md-6 col-md-offset-3">
         <div class="form-group<%= @paciente.errors[:nombre].any? ? " has-error" : "" %>">
           <%= f.label :nombre, class:'col-sm-2 control-label' %>
