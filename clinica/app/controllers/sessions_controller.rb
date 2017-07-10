@@ -9,13 +9,12 @@ class SessionsController < ApplicationController
       session[:permiso_id] = user.grado_id
       redirect_to root_url
     else
-      flash.now.alert = "Contraseña o Nombre invalido"
-      render "new"
+      redirect_to root_url, :notice => "Contraseña o Nombre invalido"
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to new_session_url, :notice => "Se ha finalizado la sesión correctamente"
+    redirect_to root_url, :notice => "Se ha finalizado la sesión correctamente"
   end
 end
