@@ -1,7 +1,9 @@
 <%= form_for(@grado, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
+    <div class="form-group text-center">
       <% if @grado.errors.any? %>
           <%= pluralize(@grado.errors.count, "error") %>
       <% end %>
+    </div>
       <div class="col-md-6 col-md-offset-3">
         <div class="form-group<%= @grado.errors[:rol].any? ? " has-error" : "" %>">
           <%= f.label :rol, class:'col-sm-2 control-label' %>

@@ -1,50 +1,56 @@
-
-  <%= form_for(@insumo, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
-      <% if @insumo.errors.any? %>
-          <%= pluralize(@insumo.errors.count, "error") %>
-
-          <% @insumo.errors.full_messages.each do |actual| %>
-              <%= actual %>
-          <% end %>
-      <% end %>
+<%= form_for(@insumo, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
       <div class="col-md-6 col-md-offset-3">
-        <div class="form-group">
+        <div class="form-group<%= @insumo.errors[:nombre].any? ? " has-error" : "" %>">
           <%= f.label :nombre , class:'col-sm-2 control-label'%>
         <div class="col-sm-10">
           <%= f.text_field :nombre , class:'form-control'%>
+          <span class="help-inline">
+           <%= @insumo.errors[:nombre].any? ? @insumo.errors[:nombre].to_s[/\w([^"]*)/] : "" %></span>
         </div>
         </div>
-        <div class="form-group">
+        <div class="form-group<%= @insumo.errors[:cantidad].any? ? " has-error" : "" %>">
           <%= f.label :cantidad , class:'col-sm-2 control-label'%>
         <div class="col-sm-10">
           <%= f.text_field :cantidad , class:'form-control'%>
+          <span class="help-inline">
+           <%= @insumo.errors[:cantidad].any? ? @insumo.errors[:cantidad].to_s[/\w([^"]*)/] : "" %></span>
         </div>
         </div>
-        <div class="form-group">
+        <div class="form-group<%= @insumo.errors[:costo].any? ? " has-error" : "" %>">
           <%= f.label :costo, class:'col-sm-2 control-label' %>
         <div class="col-sm-10">
           <%= f.text_field :costo , class:'form-control'%>
+          <span class="help-inline">
+           <%= @insumo.errors[:costo].any? ? @insumo.errors[:correo].to_s[/\w([^"]*)/] : "" %></span>
         </div>
         </div>
-        <div class="form-group">
+        <div class="form-group<%= @insumo.errors[:ingreso].any? ? " has-error" : "" %>">
           <%= f.label :ingreso, class:'col-sm-2 control-label' %>
         <div class="col-sm-4">
           <%= f.date_field :ingreso , class:'form-control'%>
+          <span class="help-inline">
+           <%= @insumo.errors[:ingreso].any? ? @insumo.errors[:ingreso].to_s[/\w([^"]*)/] : "" %></span>
         </div>
           <%= f.label :vencimiento, class:'col-sm-2 control-label' %>
         <div class="col-sm-4">
           <%= f.date_field :vencimiento , class:'form-control'%>
+          <span class="help-inline">
+           <%= @insumo.errors[:vencimiento].any? ? @insumo.errors[:vencimiento].to_s[/\w([^"]*)/] : "" %></span>
         </div>
         </div>
 
         <div class="form-group">
             <%= f.label :Proveedor, class:'col-sm-2 control-label' %>
-        <div class="col-sm-10">
-          <%= f.collection_select :agente_id, Agente.all, :id, :nombre %>
+            <div class="col-sm-10">
+              <%= f.collection_select :agente_id, Agente.all, :id, :nombre, {include_blank: 'Por favor selecciona un proveedor'}, {class: 'form-control'} %>
 
+            </div>
         </div>
-        </div>
-
+        <div class="form-group text-center">
+        <% if @insumo.errors.any? %>
+            <%= pluralize(@insumo.errors.count, "error") %>
+        <% end %>
+      </div>
         <div class="col-sm-2 col-sm-offset-5">
           <%= f.submit boton, class:'btn btn-primary'%>
         </div>

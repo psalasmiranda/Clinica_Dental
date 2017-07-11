@@ -1,8 +1,13 @@
   <%= form_for(@usuario, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
-      <% if @usuario.errors.any? %>
-          <%= pluralize(@usuario.errors.count, "error") %>
-      <% end %>
       <div class="col-md-6 col-md-offset-3">
+        <div class="form-group<%= @usuario.errors[:alias].any? ? " has-error" : "" %>">
+          <%= f.label :Alias , class:'col-sm-2 control-label'%>
+        <div class="col-sm-10">
+          <%= f.text_field :alias , class:'form-control'%>
+          <span class="help-inline">
+           <%= @usuario.errors[:alias].any? ? @usuario.errors[:alias].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+        </div>
         <div class="form-group<%= @usuario.errors[:nombre].any? ? " has-error" : "" %>">
           <%= f.label :nombre , class:'col-sm-2 control-label'%>
         <div class="col-sm-10">
@@ -75,6 +80,11 @@
            <%= @usuario.errors[:grado_id].any? ? @usuario.errors[:grado_id].to_s[/\w([^"]*)/] : "" %></span>
         </div>
         </div>
+        <div class="form-group text-center">
+        <% if @usuario.errors.any? %>
+            <%= pluralize(@usuario.errors.count, "error") %>
+        <% end %>
+      </div>
         <div class="form-group">
         <div class="col-sm-2 col-sm-offset-5">
           <%= f.submit boton, class:'btn btn-primary'%>

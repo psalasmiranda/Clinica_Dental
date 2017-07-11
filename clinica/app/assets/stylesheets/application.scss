@@ -46,6 +46,9 @@ nav.navbar{
 a.list-group-item.active{
     background-color: #36667F;
 }
+a.list-group-item.active:hover{
+    background-color: #36667F;
+}
 //menu lateral
 .glyphicon { margin-right:10px; }
 .panel-body { padding:0px; }
@@ -72,7 +75,7 @@ a.list-group-item.active{
   position: relative;
   width: 900px;
   max-width: 80%;
-  border: 2px solid #333;
+  border: 2px solid #36667F;
   border-top: none;
   text-align: center;
   margin: 60px auto;
@@ -83,13 +86,14 @@ a.list-group-item.active{
   margin-top: -14px;
   display: inline-block;
   letter-spacing: 4px;
+  color: #36667F;
 }
 
 .top-border{
   position: absolute;
   height: 2px;
   width: 10%; //ancho borde top
-  background-color: #333;
+  background-color: #36667F;
 }
 
 .right {
