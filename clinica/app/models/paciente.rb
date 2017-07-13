@@ -25,14 +25,14 @@ class Paciente < ApplicationRecord
   validates :telefono, length: {is: 11, message: "EL telefono debe tener 11 digitos"}
 
   validates :direccion, presence: {:message => "LLenado Obligatorio"}
-  
+
 
   validates :edad, presence: {:message => "LLenado Obligatorio"}
   validates :edad, numericality: {only_integer: true, message:"Solo numero enteros"}
   validates :edad, numericality: {:greater_than_or_equal_to =>1, message: "No se aceptan menores a 1 año"}
   validate :edad_validacion
 
-
+  validates :comuna_id, presence: {:message => "LLenado Obligatorio"}
 
   def edad_validacion
     if self.edad.present?

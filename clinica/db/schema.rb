@@ -121,7 +121,8 @@ ActiveRecord::Schema.define(version: 20170620043049) do
   create_table "usuarios", force: :cascade do |t|
     t.string "alias"
     t.string "nombre"
-    t.string "apellidos"
+    t.string "ape_paterno"
+    t.string "ape_materno"
     t.string "rut"
     t.string "telefono"
     t.string "correo"

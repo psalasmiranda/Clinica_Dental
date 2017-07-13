@@ -3,7 +3,8 @@ class CreateUsuarios < ActiveRecord::Migration[5.1]
     create_table :usuarios do |t|
       t.string :alias
       t.string :nombre
-      t.string :apellidos
+      t.string :ape_paterno
+      t.string :ape_materno
       t.string :rut
       t.string :telefono
       t.string :correo
@@ -11,6 +12,7 @@ class CreateUsuarios < ActiveRecord::Migration[5.1]
       t.string :password_digest
 
       t.timestamps
-    end
+    end    
   end
+
 end

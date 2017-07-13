@@ -3,7 +3,8 @@ class UsuariosController < ApplicationController
   before_action { authenticate_user!("usuario_vista") }
     def index
       #@usuarios= Usuario.all
-      @usuarios = Usuario.order("cargo").page(params[:page]).per(3)
+      #se agrega where para que no muerte al usuario por defecto
+      @usuarios = Usuario.where.not(alias: :root).order("cargo").page(params[:page]).per(3)
     end
 
     def mostrar
@@ -12,11 +13,6 @@ class UsuariosController < ApplicationController
     def nuevo
       @usuario= Usuario.new
       @grados= Grado.all
-      if @grados.length == 0
-        respond_to do |format|
-        format.html {redirect_to grados_path, notice: 'No es posible crear un usuarios sin un grado prexistente.'}
-      end
-    end
     end
 
     def editar
@@ -53,6 +49,6 @@ class UsuariosController < ApplicationController
     end
 
     def usuario_params
-      params.require(:usuario).permit(:alias, :nombre, :apellidos,:rut,:telefono,:correo,:cargo,:password, :password_confirmation, :grado_id)
+      params.require(:usuario).permit(:alias, :nombre, :ape_paterno, :ape_materno,:rut,:telefono,:correo,:cargo,:password, :password_confirmation, :grado_id)
     end
 end

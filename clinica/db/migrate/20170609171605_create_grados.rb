@@ -11,6 +11,6 @@ class CreateGrados < ActiveRecord::Migration[5.1]
       t.boolean :grado_vista
 
       t.timestamps
-    end
+    end    
   end
 end
