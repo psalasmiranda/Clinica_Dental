@@ -36,7 +36,7 @@ class Paciente < ApplicationRecord
 
   def edad_validacion
     if self.edad.present?
-      if self.edad > 100
+      if self.edad >= 100
         errors.add(:edad, "no puede ser mayor a 100 años")
         return false
       end
