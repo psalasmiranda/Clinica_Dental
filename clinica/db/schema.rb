@@ -98,8 +98,9 @@ ActiveRecord::Schema.define(version: 20170620043049) do
     t.string "materna"
     t.string "paterno"
     t.string "sexo"
-    t.string "telefono"
+    t.integer "telefono"
     t.string "direccion"
+    t.integer "numero"
     t.integer "edad"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
