@@ -3,7 +3,9 @@
 @import "bootstrap";
 
 //paleta : negro = #0F0B0F, narango fuerte = #BC4F27, naranjo medio = #CA7535, naranjo suave =  #CC994D, rojo medio = #793341
-
+.row {
+    margin-right: 0px;
+}
 /* cambiar tipo de letra */
 nav.navbar ul.nav li {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
