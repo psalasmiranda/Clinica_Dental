@@ -71,5 +71,6 @@ class Usuario < ApplicationRecord
         end
       end
     end
+  end
 
 end
