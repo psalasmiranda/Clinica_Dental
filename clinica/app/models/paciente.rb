@@ -7,15 +7,19 @@ class Paciente < ApplicationRecord
   validates :rut,uniqueness: true, rut: true
 
   validates :nombre, presence: {:message => "LLenado Obligatorio"}
-  validates :nombre, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
+  validates :nombre, format:{with: /\A[a-zA-Z\s]+\z/,message: "Solo acepta letras"}
   validates :nombre, length: {minimum: 3, maximum: 15, :message => "El nombre debe tener entre 3 y 15 caracteres"}
 
 
   validates :materna, presence: {:message => "LLenado Obligatorio"}
   validates :materna, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
+  validates :materna, length: {minimum: 3, maximum: 15, :message => "El apellido materno debe tener entre 3 y 15 caracteres"}
+
 
   validates :paterno, presence: {:message => "LLenado Obligatorio"}
   validates :paterno, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
+  validates :paterno, length: {minimum: 3, maximum: 15, :message => "El apellido paterno debe tener entre 3 y 15 caracteres"}
+
 
   validates :sexo, presence: {:message => "LLenado Obligatorio"}
 
@@ -25,6 +29,8 @@ class Paciente < ApplicationRecord
   validates :telefono, length: {is: 11, message: "EL telefono debe tener 11 digitos"}
 
   validates :direccion, presence: {:message => "LLenado Obligatorio"}
+  validates :dirrecion, format: {with: /\A[0-9a-zA-Z\s}]+\z/,message: "Direccion no valida no acepta #"}
+  validates :dirrecion, length: {minimum: 7, maximum: 30, :message => "La direccion debe tener entre 7 y 30 caracteres"}
 
 
   validates :edad, presence: {:message => "LLenado Obligatorio"}
@@ -36,7 +42,7 @@ class Paciente < ApplicationRecord
 
   def edad_validacion
     if self.edad.present?
-      if self.edad > 100
+      if self.edad >= 100
         errors.add(:edad, "no puede ser mayor a 100 años")
         return false
       end
