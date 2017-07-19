@@ -3,7 +3,7 @@ class GradosController < ApplicationController
   before_action { authenticate_user!("grado_vista") }
     def index
       #@grados= Grado.all
-      @grados = Grado.order("rol").page(params[:page]).per(3)
+      @grados = Grado.order("rol").page(params[:page]).per(5)
     end
 
     def mostrar

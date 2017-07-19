@@ -3,7 +3,7 @@ class PacientesController < ApplicationController
   before_action { authenticate_user!("paciente_vista") }
     def index
       #@pacientes= Paciente.all
-      @pacientes = Paciente.order("nombre").page(params[:page]).per(3)
+      @pacientes = Paciente.order("nombre").page(params[:page]).per(5)
     end
 
     def mostrar

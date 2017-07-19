@@ -2,7 +2,7 @@ class Agente < ApplicationRecord
   has_many :agentes
   belongs_to :comuna, foreign_key: :comuna_id
   validates :nombre, presence: {:message => "Llenado Obligatorio"}
-  validates :nombre, format:{with: /\A[a-zA-Z\s]+\z/,message: "Solo acepta letras"}
+  validates :nombre, format: {with: /\A[0-9a-zA-Z\s}]+\z/}
   validates :nombre, length: {minimum: 3, maximum: 15, :message => "El nombre debe tener entre 3 y 15 caracteres"}
 
   validates :rut, presence: {:message => "Llenado Obligatorio"}
@@ -18,5 +18,5 @@ class Agente < ApplicationRecord
   validates :correo, email: true
 
 
-  
+
 end
