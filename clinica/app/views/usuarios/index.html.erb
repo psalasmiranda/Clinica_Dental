@@ -14,8 +14,8 @@
   <tr >+
         <td align= center><%= a.nombre && a.ape_paterno%></td>
         <td align= center><%= a.cargo %></td>
-        <td align= center><%= a.horario_entrada %></td>
-        <td align= center><%= a.horario_salida %></td>
+        <td align= center><%= a.hora_entrada %></td>
+        <td align= center><%= a.hora_salida %></td>
         <td><%= button_to 'Detalles' ,usuario_url(a), :class => "btn btn-primary" %></td>
         <td> <%= button_to 'Editar', editar_usuario_url(a), :class => "btn btn-primary" %></td>
         <td><%= button_to a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} do %>
