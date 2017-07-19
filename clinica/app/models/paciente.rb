@@ -29,8 +29,8 @@ class Paciente < ApplicationRecord
   validates :telefono, length: {is: 11, message: "EL telefono debe tener 11 digitos"}
 
   validates :direccion, presence: {:message => "LLenado Obligatorio"}
-  validates :dirrecion, format: {with: /\A[0-9a-zA-Z\s}]+\z/,message: "Direccion no valida no acepta #"}
-  validates :dirrecion, length: {minimum: 7, maximum: 30, :message => "La direccion debe tener entre 7 y 30 caracteres"}
+  validates :direccion, format: {with: /\A[0-9a-zA-Z\s}]+\z/,message: "Direccion no valida no acepta #"}
+  validates :direccion, length: {minimum: 7, maximum: 30, :message => "La direccion debe tener entre 7 y 30 caracteres"}
 
 
   validates :edad, presence: {:message => "LLenado Obligatorio"}
