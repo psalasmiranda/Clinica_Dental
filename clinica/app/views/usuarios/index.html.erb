@@ -5,14 +5,16 @@
   </a>
   <tr>
     <td align= center>Nombre</td>
+    <td align= center>          </td>
     <td align= center>Cargo</td>
     <td align= center>Horario_Entrada</td>
     <td align= center>Horario_Salida</td>
   </tr>
    <% @usuarios.each do |a| %>
 
-  <tr >+
-        <td align= center><%= a.nombre && a.ape_paterno%></td>
+  <tr >
+        <td align= center><%= a.nombre%></td>
+        <td align= center><%= a.ape_paterno%></td>
         <td align= center><%= a.cargo %></td>
         <td align= center><%= a.hora_entrada %></td>
         <td align= center><%= a.hora_salida %></td>
