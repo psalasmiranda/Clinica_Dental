@@ -28,9 +28,10 @@ ActiveRecord::Schema.define(version: 20170620043049) do
   create_table "agentes", force: :cascade do |t|
     t.string "nombre"
     t.string "rut"
-    t.string "telefono"
+    t.integer "telefono"
     t.string "correo"
     t.string "dirrecion"
+    t.integer "numero"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "comuna_id"

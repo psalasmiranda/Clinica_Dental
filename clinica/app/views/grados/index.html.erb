@@ -1,29 +1,19 @@
 <table class="table">
 <div class="list-group" >
   <a class="list-group-item active" >
-    <font FACE= "roman" size= 12 align= center>Listado de Insumos</font>
+    <font FACE= "roman" size= 12 align= center>Listado de Permisos</font>
   </a>
 
 <tr>
-  <td align= center>Rol</td>
-  <td align= center>Agenda</td>
-  <td align= center>Insumo</td>
-  <td align= center>Paciente</td>
-  <td align= center>Proveedor</td>
-  <td align= center>Tratamiento</td>
+  <td align= center> Tipo Permiso</td>
 
 </tr>
     <% @grados.each do |a| %>
         <tr>
           <td align= center><%= a.rol%></td>
-          <td align= center><%= a.agenda_vista %></td>
-          <td align= center><%= a.insumo_vista %></td>
-          <td align= center><%= a.paciente_vista %></td>
-          <td align= center><%= a.proveedor_vista %></td>
-          <td align= center><%= a.tratamiento_vista %></td>
           <td><%= button_to 'Mostrar' ,grado_url(a), :class => "btn btn-primary" %></td>
-          <td> <%= button_to 'Editar', editar_grado_url(a), :class => "btn btn-warning" %></td>
-          <td><%= button_to 'Eliminar', a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
+          <td> <%= button_to 'Editar', editar_grado_url(a), :class => "btn btn-primary" %></td>
+          <td><%= button_to 'X', a, :class => "btn btn-primary", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
 
         </tr>
   <% end %>

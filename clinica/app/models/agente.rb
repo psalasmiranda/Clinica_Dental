@@ -9,14 +9,31 @@ class Agente < ApplicationRecord
   validates :rut,uniqueness: true, rut: true
 
   validates :telefono, presence: {:message => "Llenado Obligatorio"}
-  validates :telefono, numericality: { :greater_than_or_equal_to => 2, message: "Numero no valido"}
-  validates :telefono, numericality: {only_integer: true, message: "Solo numeros"}
-  validates :telefono, length: {is: 9, message: "EL telefono debe tener 9 digitos"}
+  validate :telefono_validacion
+
 
   validates :correo, presence: {:message => "Llenado Obligatorio"}
   validates :correo, format: {with: /[0-9A-Za-z^\#]+@.+\..+/i}, uniqueness: {case_sensitive: false}
   validates :correo, email: true
 
+  validates :dirrecion, presence: {:message => "LLenado Obligatorio"}
+  validates :dirrecion, format: {with: /\A[a-zA-Z\s}]+\z/,message: "Solo letras"}
+  validates :dirrecion, length: {minimum: 3, maximum: 15, :message => "La direccion debe tener entre 3 y 15 caracteres"}
 
+
+  validates :numero, presence: {:message => "Llenado Obligatorio"}
+  validates :numero, numericality: {only_integer: true, message: "Solo numeros"}
+  validates :numero, length: {minimum: 1, maximum: 5, :message => "El numero debe tener entre 1 y 5 caracteres"}
+  validates :numero, numericality: {:greater_than_or_equal_to =>1, message: "No se aceptan numeros que partan con 0"}
+
+  def telefono_validacion
+    if self.telefono.present?
+      if self.telefono < 222000000 || self.telefono > 300000000
+        if self.telefono <940000000
+          errors.add(:telefono, "No es valido")
+        end
+      end
+    end
+  end
 
 end
