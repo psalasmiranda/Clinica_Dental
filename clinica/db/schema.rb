@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20170620043049) do
 
   create_table "agentes", force: :cascade do |t|
     t.string "nombre"
-    t.string "apellidos"
     t.string "rut"
     t.string "telefono"
     t.string "correo"
