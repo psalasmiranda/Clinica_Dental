@@ -1,12 +1,10 @@
 class Agente < ApplicationRecord
   has_many :agentes
   validates :nombre, presence: {:message => "Llenado Obligatorio"}
-<<<<<<< HEAD
   validates :nombre, format:{with: /\A[a-zA-Z\s]+\z/,message: "Solo acepta letras"}
   validates :nombre, format:{with: /\A[a-zA-Z \s]+\z/,message: "Solo acepta letras"}
   validates :nombre, length: {minimum: 3, maximum: 15, :message => "El nombre debe tener entre 3 y 15 caracteres"}
 
-=======
   validates :nombre, format:{with: /\A[a-zA-Z \s]+\z/,message: "Solo acepta letras"}
   validates :nombre, length: {minimum: 3, maximum: 15, :message => "El nombre debe tener entre 3 y 15 caracteres"}
 
@@ -14,7 +12,6 @@ class Agente < ApplicationRecord
   validates :apellidos, presence: {:message => "Llenado Obligatorio"}
   validates :apellidos, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
 
->>>>>>> e15a1de17e6030eb1d57067e5279ca9dfad3a8bd
   validates :rut, presence: {:message => "Llenado Obligatorio"}
   validates :rut,uniqueness: true, rut: true
 
