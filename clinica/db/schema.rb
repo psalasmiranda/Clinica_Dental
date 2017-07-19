@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(version: 20170620043049) do
     t.string "ape_paterno"
     t.string "ape_materno"
     t.string "rut"
-    t.string "telefono"
+    t.integer "telefono"
     t.string "correo"
     t.string "cargo"
     t.string "password_digest"
