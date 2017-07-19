@@ -20,7 +20,7 @@
           <td align= center><%= a.paterno%></td>
           <td align= center><%= a.rut %></td>
           <td align= center><%= a.telefono %></td>
-          <td><%= button_to 'Mostrar' ,paciente_url(a), :class => "btn btn-primary" %></td>
+          <td><%= button_to 'Detalles' ,paciente_url(a), :class => "btn btn-primary" %></td>
           <td> <%= button_to 'Editar', editar_paciente_url(a), :class => "btn btn-primary" %></td>
           <td><%= button_to 'X', a, :class => "btn btn-primary", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
 
