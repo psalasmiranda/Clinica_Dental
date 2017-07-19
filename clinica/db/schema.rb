@@ -98,9 +98,8 @@ ActiveRecord::Schema.define(version: 20170620043049) do
     t.string "materna"
     t.string "paterno"
     t.string "sexo"
-    t.integer "telefono"
+    t.string "telefono"
     t.string "direccion"
-    t.integer "numero"
     t.integer "edad"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -126,6 +125,8 @@ ActiveRecord::Schema.define(version: 20170620043049) do
     t.string "cargo"
     t.string "password_digest"
     t.boolean "medico"
+    t.time "hora_entrada"
+    t.time "hora_salida"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "grado_id"
