@@ -12,8 +12,7 @@
 
     <% @agendas.each do |a| %>
         <tr>
-          <td align= center><%= a.hora %></td>
-          <td align= center><%= a.costo%></td>
+          <td align= center><%= a.fecha %></td>
           <td><%= button_to 'Mostrar' ,agenda_url(a), :class => "btn btn-primary" %></td>
           <td> <%= button_to 'Editar', editar_agenda_url(a), :class => "btn btn-warning" %></td>
           <td><%= button_to 'Eliminar', a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} %></td>

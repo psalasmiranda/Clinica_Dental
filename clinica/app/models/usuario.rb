@@ -6,6 +6,7 @@ class Usuario < ApplicationRecord
   validates_confirmation_of :password, allow_blank: true, message: 'Contraseñas no coinciden'
 
   has_many :listados
+  has_many :agendas
   belongs_to :grado, foreign_key: :grado_id
 
   validates :alias, presence: {:message => "Llenado Obligatorio"}

@@ -3,13 +3,15 @@ class AgendasController < ApplicationController
   before_action { authenticate_user!("agenda_vista") }
     def index
       #@agendas= Agenda.all
-      @agendas = Agenda.order("hora").page(params[:page]).per(3)
+      @agendas = Agenda.order("fecha").page(params[:page]).per(3)
     end
 
     def mostrar
     end
 
     def nuevo
+      @number = 100
+      @horas= Hora.all   #where(alias: :root)
       @agenda= Agenda.new
     end
 
@@ -47,6 +49,6 @@ class AgendasController < ApplicationController
     end
 
     def agenda_params
-      params.require(:agenda).permit(:hora, :costo)
+      params.require(:agenda).permit(:fecha, :usuario_id, :hora_id, :tratamiento_id, :paciente_id)
     end
 end

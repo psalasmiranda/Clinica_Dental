@@ -16,11 +16,12 @@ ActiveRecord::Schema.define(version: 20170620043049) do
   enable_extension "plpgsql"
 
   create_table "agendas", force: :cascade do |t|
-    t.datetime "hora"
-    t.integer "costo"
+    t.date "fecha"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "area_id"
+    t.integer "hora_id"
+    t.integer "usuario_id"
+    t.integer "tratamiento_id"
     t.integer "paciente_id"
   end
 
@@ -47,18 +48,6 @@ ActiveRecord::Schema.define(version: 20170620043049) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "especialistas", force: :cascade do |t|
-    t.string "nombre"
-    t.string "apellidos"
-    t.string "rut"
-    t.string "telefono"
-    t.string "correo"
-    t.string "cargo"
-    t.string "contraseña"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "grados", force: :cascade do |t|
     t.string "rol"
     t.boolean "agenda_vista"
@@ -77,6 +66,12 @@ ActiveRecord::Schema.define(version: 20170620043049) do
     t.datetime "updated_at", null: false
     t.integer "paciente_id"
     t.integer "tratamiento_id"
+  end
+
+  create_table "horas", force: :cascade do |t|
+    t.string "bloque"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "insumos", force: :cascade do |t|
@@ -114,6 +109,7 @@ ActiveRecord::Schema.define(version: 20170620043049) do
   create_table "tratamientos", force: :cascade do |t|
     t.string "nombre"
     t.text "descripcion"
+    t.integer "costo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -133,8 +129,10 @@ ActiveRecord::Schema.define(version: 20170620043049) do
     t.integer "grado_id"
   end
 
-  add_foreign_key "agendas", "areas"
+  add_foreign_key "agendas", "horas"
   add_foreign_key "agendas", "pacientes"
+  add_foreign_key "agendas", "tratamientos"
+  add_foreign_key "agendas", "usuarios"
   add_foreign_key "historia", "pacientes"
   add_foreign_key "historia", "tratamientos"
   add_foreign_key "insumos", "agentes"
