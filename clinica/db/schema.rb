@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170620043049) do
     t.string "dirrecion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "comuna_id"
   end
 
   create_table "areas", force: :cascade do |t|
@@ -134,6 +135,7 @@ ActiveRecord::Schema.define(version: 20170620043049) do
   add_foreign_key "agendas", "pacientes"
   add_foreign_key "agendas", "tratamientos"
   add_foreign_key "agendas", "usuarios"
+  add_foreign_key "agentes", "comunas"
   add_foreign_key "historia", "pacientes"
   add_foreign_key "historia", "tratamientos"
   add_foreign_key "insumos", "agentes"

@@ -9,8 +9,6 @@
 <tr>
   <td align= center>Insumo</td>
   <td align= center>Stock Actual</td>
-  <td align= center>Fecha vencimiento</td>
-  <td align= center>Proveedor</td>
   <td></td>
   <td></td>
   <td></td>
@@ -20,11 +18,9 @@
   <tr>
         <td align= center><%= a.nombre %></td>
         <td align= center><%= a.cantidad%></td>
-        <td align= center><%= a.vencimiento %></td>
-        <td align= center><%= a.agente.nombre %> &nbsp <%= a.agente.apellidos%></td>
-        <td><%= button_to 'Mostrar' ,insumo_url(a), :class => "btn btn-primary" %></td>
-        <td> <%= button_to 'Editar', editar_insumo_url(a), :class => "btn btn-warning" %></td>
-        <td><%= button_to 'Eliminar', a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
+        <td><%= button_to 'Detalles' ,insumo_url(a), :class => "btn btn-primary" %></td>
+        <td> <%= button_to 'Editar', editar_insumo_url(a), :class => "btn btn-primary" %></td>
+        <td><%= button_to 'X', a, :class => "btn btn-primary", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
 
       </tr>
 

@@ -4,7 +4,7 @@ class UsuariosController < ApplicationController
     def index
       #@usuarios= Usuario.all
       #se agrega where para que no muerte al usuario por defecto
-      @usuarios = Usuario.where.not(alias: :root).order("cargo").page(params[:page]).per(3)
+      @usuarios = Usuario.where.not(alias: :root).order("cargo").page(params[:page]).per(5)
     end
 
     def mostrar
