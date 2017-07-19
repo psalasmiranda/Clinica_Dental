@@ -18,7 +18,9 @@
         <td align= center><%= a.horario_salida %></td>
         <td><%= button_to 'Detalles' ,usuario_url(a), :class => "btn btn-primary" %></td>
         <td> <%= button_to 'Editar', editar_usuario_url(a), :class => "btn btn-primary" %></td>
-        <td><%= button_to 'X', a, :class => "btn btn-primary", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
+        <td><%= button_to a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} do %>
+              <span class="glyphicon glyphicon-trash"></span>
+          <% end %></td>
 
       </tr>
   <%end%>

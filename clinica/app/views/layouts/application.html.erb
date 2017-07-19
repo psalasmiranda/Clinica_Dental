@@ -27,8 +27,6 @@
             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=current_user.alias%>
             <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><%= link_to  editar_usuario_path(current_user.id) do %><span class="glyphicon glyphicon-edit"></span>
-              Editar Sesión<% end %></li>
               <li><%= link_to  session_path(current_user.id), method: :delete do %><span class="glyphicon glyphicon-log-in"></span>
               Cerrar Sesión<% end %></li>
             </ul>

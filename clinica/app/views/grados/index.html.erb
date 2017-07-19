@@ -13,7 +13,9 @@
           <td align= center><%= a.rol%></td>
           <td><%= button_to 'Mostrar' ,grado_url(a), :class => "btn btn-primary" %></td>
           <td> <%= button_to 'Editar', editar_grado_url(a), :class => "btn btn-primary" %></td>
-          <td><%= button_to 'X', a, :class => "btn btn-primary", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
+          <td><%= button_to a, :class => "btn btn-primary", method: :delete, data: {confirm: 'Desea Continuar'} do %>
+                <span class="glyphicon glyphicon-trash"></span>
+            <% end %></td>
 
         </tr>
   <% end %>
