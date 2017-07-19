@@ -29,7 +29,7 @@
           <h3>Datos del paciente</h3>
           <div class="form-group">
             <label class="control-label">Rut del paciente</label>
-            <%= f.collection_select :paciente_id, Paciente.all, :id, :rut, {include_blank: 'Por favor selecciona un paciente'}, {class: 'form-control'}%>
+            <%= f.collection_select :paciente_id, Paciente.all, :id, :rut, {include_blank: 'Por favor selecciona un paciente'}, {class: 'form-control' , :required => true}%>
           </div>
           <button id ="rut" class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Siguiente</button>
         </div>
@@ -43,7 +43,7 @@
             <label class="control-label">Doctor</label>
             <%= f.collection_select :usuario_id, Usuario.all, :id, :nombre, {include_blank: 'Por favor selecciona un doctor'}, {class: 'form-control'}%>
             <label class="control-label">Consulta</label>
-            <%= f.collection_select :usuario_id, Tratamiento.all, :id, :nombre, {include_blank: 'Por favor selecciona un tratamiento'}, {class: 'form-control'}%>
+            <%= f.collection_select :tratamiento_id, Tratamiento.all, :id, :nombre, {include_blank: 'Por favor selecciona un tratamiento'}, {class: 'form-control'}%>
           </div>
           <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Siguiente</button>
         </div>
@@ -61,27 +61,12 @@
              <%= @agenda.errors[:costo].any? ? @agenda.errors[:hora].to_s[/\w([^"]*)/] : "" %></span>
           </div>
           </div>
-
-          <div id="reserva" >
-              <table class="table table-hover table-condensed">
-                <thead>
-                  <tr>
-                    <th>Hora</th>
-                    <th>Reserva</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <% @horas.each do |a| %>
-                    <tr >
-                       <td><%= a.bloque %></td>
-                       <td><button class="btn btn-primary disabled" type="submit" >Reservado</button></td>
-                     </tr>
-                 <%end%>
-                </tbody>
-              </table>
-            </div>
-
+          <%= f.collection_select :hora_id, Hora.all, :id, :bloque, {include_blank: 'Por favor selecciona una hora'}, {class: 'form-control'}%>
+          <div class="col-sm-2 col-sm-offset-5">
+            <%= f.submit :Reservar, class:'btn btn-primary'%>
+          </div>
       </div>
+
     </div>
   <% end %>
 

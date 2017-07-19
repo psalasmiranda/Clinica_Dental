@@ -10,7 +10,6 @@ class AgendasController < ApplicationController
     end
 
     def nuevo
-      @number = 100
       @horas= Hora.all   #where(alias: :root)
       @agenda= Agenda.new
     end
@@ -18,6 +17,7 @@ class AgendasController < ApplicationController
     def editar
     end
     def crear
+        @horas= Hora.all
         @agenda = Agenda.create(agenda_params)
         respond_to do |format|
           if @agenda.save

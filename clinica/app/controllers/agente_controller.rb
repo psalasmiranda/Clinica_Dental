@@ -48,6 +48,6 @@ class AgenteController < ApplicationController
   end
 
   def agente_params
-    params.require(:agente).permit(:nombre,:apellidos, :telefono,:correo, :rut,:dirrecion)
+    params.require(:agente).permit(:nombre, :telefono,:correo, :rut,:dirrecion)
   end
 end
