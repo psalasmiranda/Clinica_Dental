@@ -18,8 +18,5 @@ class Agente < ApplicationRecord
   validates :correo, email: true
 
 
-  validates :dirrecion, presence: {:message => "Llenado Obligatorio"}
-  validates :dirrecion, format: {with: /\A[0-9a-zA-Z\s}]+\z/,message: "Direccion no valida no acepta #"}
-  validates :dirrecion, length: {minimum: 7, maximum: 30, :message => "La direccion debe tener entre 7 y 30 caracteres"}
-
+  
 end
