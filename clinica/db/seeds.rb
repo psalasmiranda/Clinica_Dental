@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Grado.create(:rol => "Administradores")
-Usuario.create(:alias => "root",:nombre=>"q", :ape_paterno =>"q", :ape_materno=>"q", :rut=>"99999999-9",:telefono=>"56954443267",:correo=>"q",:cargo=>"q", :password =>"123456" , :grado_id => 1)
+Usuario.create(:alias => "root",:nombre=>"qqq", :ape_paterno =>"qqq", :ape_materno=>"qqq", :rut=>"99999999-9",:telefono=>"954443267",:correo=>"qq@qq.cl",:cargo=>"qqq", :password =>"123456" , :grado_id => 1)
 Comuna.create(:nombre => "Quinta normal")
 Hora.create(:bloque => "09:00 - 09:30")
 Hora.create(:bloque => "09:30 - 10:00")
