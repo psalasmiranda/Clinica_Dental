@@ -37,6 +37,8 @@ class Usuario < ApplicationRecord
 
 
   validates :correo, presence: {:message => "Llenado Obligatorio"}
+  validates :correo, format: {with: /[0-9A-Za-z^\#]+@.+\..+/i}, uniqueness: {case_sensitive: false}
+  validates :correo, email: true
 
   validates :cargo, presence: {:message => "Llenado Obligatorio"}
   validates :cargo, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
