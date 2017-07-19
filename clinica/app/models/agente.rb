@@ -1,13 +1,9 @@
 class Agente < ApplicationRecord
   has_many :agentes
   validates :nombre, presence: {:message => "Llenado Obligatorio"}
-<<<<<<< HEAD
-  validates :nombre, format:{with: /\A[a-zA-Z\s]+\z/,message: "Solo acepta letras"}
-=======
   validates :nombre, format:{with: /\A[a-zA-Z \s]+\z/,message: "Solo acepta letras"}
   validates :nombre, length: {minimum: 3, maximum: 15, :message => "El nombre debe tener entre 3 y 15 caracteres"}
 
->>>>>>> 426d5515d56f8a4f8828e72dd768c4f686418909
 
   validates :apellidos, presence: {:message => "Llenado Obligatorio"}
   validates :apellidos, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
@@ -21,12 +17,9 @@ class Agente < ApplicationRecord
   validates :telefono, length: {is: 9, message: "EL telefono debe tener 9 digitos"}
 
   validates :correo, presence: {:message => "Llenado Obligatorio"}
-<<<<<<< HEAD
   validates :correo, format: {with: /[0-9A-Za-z^\#]+@.+\..+/i}, uniqueness: {case_sensitive: false}
   validates :correo, email: true
-=======
 
->>>>>>> 426d5515d56f8a4f8828e72dd768c4f686418909
 
   validates :dirrecion, presence: {:message => "Llenado Obligatorio"}
   validates :dirrecion, format: {with: /\A[0-9a-zA-Z\s}]+\z/,message: "Direccion no valida no acepta #"}
