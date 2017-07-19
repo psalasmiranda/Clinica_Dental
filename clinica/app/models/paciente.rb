@@ -23,14 +23,18 @@ class Paciente < ApplicationRecord
 
   validates :sexo, presence: {:message => "LLenado Obligatorio"}
 
-  validates :telefono, presence: {:message => "LLenado Obligatorio"}
-  validates :telefono, numericality: { :greater_than_or_equal_to => 0, message: "Numeros que parten de 0 no validos"}
-  validates :telefono, numericality: {only_integer: true, message: "Solo numeros"}
-  validates :telefono, length: {is: 11, message: "EL telefono debe tener 11 digitos"}
+
+  validate :telefono_validacion
+
 
   validates :direccion, presence: {:message => "LLenado Obligatorio"}
-  validates :direccion, format: {with: /\A[0-9a-zA-Z\s}]+\z/,message: "Direccion no valida no acepta #"}
-  validates :direccion, length: {minimum: 7, maximum: 30, :message => "La direccion debe tener entre 7 y 30 caracteres"}
+  validates :direccion, format: {with: /\A[a-zA-Z\s}]+\z/,message: "Solo letras"}
+  validates :direccion, length: {minimum: 3, maximum: 15, :message => "La direccion debe tener entre 3 y 15 caracteres"}
+
+  validates :numero, presence: {:message => "Llenado Obligatorio"}
+  validates :numero, numericality: {only_integer: true, message: "Solo numeros"}
+  validates :numero, length: {minimum: 1, maximum: 5, :message => "El numero debe tener entre 1 y 5 caracteres"}
+  validates :numero, numericality: {:greater_than_or_equal_to =>1, message: "No se aceptan numeros que partan con 0"}
 
 
   validates :edad, presence: {:message => "LLenado Obligatorio"}
@@ -43,11 +47,22 @@ class Paciente < ApplicationRecord
   def edad_validacion
     if self.edad.present?
       if self.edad >= 100
-        errors.add(:edad, "no puede ser mayor a 100 años")
+        errors.add(:edad, "No puede ser mayor a 100 años")
         return false
       end
     end
   end
+
+  def telefono_validacion
+    if self.telefono.present?
+      if self.telefono < 222000000 || self.telefono > 300000000
+        if self.telefono <940000000
+          errors.add(:telefono, "No es valido")
+        end
+      end
+    end
+  end
+
 
 
 end

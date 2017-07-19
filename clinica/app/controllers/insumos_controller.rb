@@ -3,7 +3,7 @@ before_action :set_insumo, only: [:mostrar, :editar, :update, :eliminar]
 before_action { authenticate_user!("insumo_vista") }
   def index
     #@insumos= Insumo.all
-    @insumos = Insumo.order("nombre").page(params[:page]).per(3)
+    @insumos = Insumo.order("nombre").page(params[:page]).per(5)
   end
 
 

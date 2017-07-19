@@ -3,7 +3,7 @@ class PacientesController < ApplicationController
   before_action { authenticate_user!("paciente_vista") }
     def index
       #@pacientes= Paciente.all
-      @pacientes = Paciente.order("nombre").page(params[:page]).per(3)
+      @pacientes = Paciente.order("nombre").page(params[:page]).per(5)
     end
 
     def mostrar
@@ -48,6 +48,8 @@ class PacientesController < ApplicationController
     end
 
     def paciente_params
-      params.require(:paciente).permit(:nombre,:paterno,:materna, :telefono, :rut, :edad, :sexo, :comuna, :direccion , :comuna_id)
+
+      params.require(:paciente).permit(:nombre,:paterno,:materna, :telefono, :rut, :edad, :sexo, :comuna, :direccion ,:numero ,:comuna_id)
+
     end
 end

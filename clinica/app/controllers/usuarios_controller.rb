@@ -4,7 +4,7 @@ class UsuariosController < ApplicationController
     def index
       #@usuarios= Usuario.all
       #se agrega where para que no muerte al usuario por defecto
-      @usuarios = Usuario.where.not(alias: :root).order("cargo").page(params[:page]).per(3)
+      @usuarios = Usuario.where.not(alias: :root).order("cargo").page(params[:page]).per(5)
     end
 
     def mostrar
@@ -49,6 +49,6 @@ class UsuariosController < ApplicationController
     end
 
     def usuario_params
-      params.require(:usuario).permit(:alias, :nombre, :ape_paterno, :ape_materno,:rut,:telefono,:correo,:cargo,:medico,:password, :password_confirmation, :grado_id, :medico)
+      params.require(:usuario).permit(:alias, :nombre, :ape_paterno, :ape_materno,:rut,:telefono,:correo,:cargo,:medico,:password, :password_confirmation, :grado_id, :medico, :hora_entrada, :hora_salida)
     end
 end

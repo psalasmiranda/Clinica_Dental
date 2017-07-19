@@ -6,8 +6,9 @@ class CreatePacientes < ActiveRecord::Migration[5.1]
       t.string :materna
       t.string :paterno
       t.string :sexo
-      t.string :telefono
+      t.integer :telefono
       t.string :direccion
+      t.integer :numero
       t.integer :edad
 
       t.timestamps

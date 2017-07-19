@@ -3,7 +3,7 @@ class AgendasController < ApplicationController
   before_action { authenticate_user!("agenda_vista") }
     def index
       #@agendas= Agenda.all
-      @agendas = Agenda.order("fecha").page(params[:page]).per(3)
+      @agendas = Agenda.order("fecha").page(params[:page]).per(5)
     end
 
     def mostrar

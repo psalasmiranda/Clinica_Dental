@@ -3,7 +3,7 @@ class TratamientosController < ApplicationController
   before_action { authenticate_user!("tratamiento_vista") }
     def index
       #@tratamientos= Tratamiento.all
-      @tratamientos = Tratamiento.order("nombre").page(params[:page]).per(3)
+      @tratamientos = Tratamiento.order("nombre").page(params[:page]).per(5)
     end
 
     def mostrar
@@ -47,7 +47,7 @@ class TratamientosController < ApplicationController
     end
 
     def tratamiento_params
-      params.require(:tratamiento).permit(:nombre, :descripcion)
+      params.require(:tratamiento).permit(:nombre, :descripcion,:costo)
     end
 
 end

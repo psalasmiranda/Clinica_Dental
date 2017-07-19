@@ -3,7 +3,7 @@ class AgenteController < ApplicationController
   before_action { authenticate_user!("proveedor_vista") }
   def index
     #@agentes= Agente.all
-    @agentes = Agente.order("nombre").page(params[:page]).per(3)
+    @agentes = Agente.order("nombre").page(params[:page]).per(5)
   end
 
   def mostrar
@@ -48,6 +48,6 @@ class AgenteController < ApplicationController
   end
 
   def agente_params
-    params.require(:agente).permit(:nombre, :telefono,:correo, :rut,:dirrecion)
+    params.require(:agente).permit(:nombre, :telefono,:correo, :rut, :dirrecion , :comuna_id)
   end
 end

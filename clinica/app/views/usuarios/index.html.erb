@@ -5,28 +5,20 @@
   </a>
   <tr>
     <td align= center>Nombre</td>
-    <td align= center>Apellido Paterno</td>
-    <td align= center>Apellido Materno</td>
-    <td align= center>Rut</td>
-    <td align= center>Telefono</td>
-    <td align= center>Correo</td>
     <td align= center>Cargo</td>
-    <td align= center>Grado</td>
+    <td align= center>Horario_Entrada</td>
+    <td align= center>Horario_Salida</td>
   </tr>
    <% @usuarios.each do |a| %>
 
-  <tr >
-        <td align= center><%= a.nombre %></td>
-        <td align= center><%= a.ape_paterno%></td>
-        <td align= center><%= a.ape_materno%></td>
-        <td align= center><%= a.rut %></td>
-        <td align= center><%= a.telefono %></td>
-        <td align= center><%= a.correo %></td>
+  <tr >+
+        <td align= center><%= a.nombre && a.ape_paterno%></td>
         <td align= center><%= a.cargo %></td>
-        <td align= center><%= a.grado_id %></td>
-        <td><%= button_to 'Mostrar' ,usuario_url(a), :class => "btn btn-primary" %></td>
-        <td> <%= button_to 'Editar', editar_usuario_url(a), :class => "btn btn-warning" %></td>
-        <td><%= button_to 'Eliminar', a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
+        <td align= center><%= a.horario_entrada %></td>
+        <td align= center><%= a.horario_salida %></td>
+        <td><%= button_to 'Detalles' ,usuario_url(a), :class => "btn btn-primary" %></td>
+        <td> <%= button_to 'Editar', editar_usuario_url(a), :class => "btn btn-primary" %></td>
+        <td><%= button_to 'X', a, :class => "btn btn-primary", method: :delete, data: {confirm: 'Desea Continuar'} %></td>
 
       </tr>
   <%end%>
