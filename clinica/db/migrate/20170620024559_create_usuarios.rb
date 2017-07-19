@@ -11,7 +11,8 @@ class CreateUsuarios < ActiveRecord::Migration[5.1]
       t.string :cargo
       t.string :password_digest
       t.boolean :medico
-
+      t.time :hora_entrada
+      t.time :hora_salida
       t.timestamps
     end
   end
