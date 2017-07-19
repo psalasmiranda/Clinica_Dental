@@ -91,7 +91,7 @@
         <div class="form-group<%= @usuario.errors[:medico].any? ? " has-error" : "" %>">
           <%= f.label "Medico" , class:'col-sm-4 control-label'%>
         <div class="col-sm-4 col-md-offset-1 checkbox">
-          <%= f.check_box :grado_id,{ type:"checkbox"}, 'true', 'false'%>
+          <%= f.check_box :medico,{ type:"checkbox"}, 'true', 'false'%>
           <span class="help-inline">
            <%= @usuario.errors[:medico].any? ? @usuario.errors[:medico].to_s[/\w([^"]*)/] : "" %></span>
         </div>

@@ -41,7 +41,7 @@
           <h3>Datos del doctor</h3>
           <div class="form-group">
             <label class="control-label">Doctor</label>
-            <%= f.collection_select :usuario_id, Usuario.all, :id, :nombre, {include_blank: 'Por favor selecciona un doctor'}, {class: 'form-control'}%>
+            <%= f.collection_select :usuario_id, Usuario.where(medico: :true), :id, :nombre, {include_blank: 'Por favor selecciona un doctor'}, {class: 'form-control'}%>
             <label class="control-label">Consulta</label>
             <%= f.collection_select :tratamiento_id, Tratamiento.all, :id, :nombre, {include_blank: 'Por favor selecciona un tratamiento'}, {class: 'form-control'}%>
           </div>
