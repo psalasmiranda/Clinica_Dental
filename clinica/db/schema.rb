@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20170620043049) do
     t.string "correo"
     t.string "cargo"
     t.string "password_digest"
+    t.boolean "medico"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "grado_id"
