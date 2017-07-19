@@ -43,7 +43,7 @@ class Usuario < ApplicationRecord
 
   validates :cargo, presence: {:message => "Llenado Obligatorio"}
   validates :cargo, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
-  validates :cargo, length: {minimum: 3, maximum: 20, :message => "El cargo debe tener entre 3 y 10 caracteres"}
+  validates :cargo, length: {minimum: 3, maximum: 18, :message => "El cargo debe tener entre 3 y 10 caracteres"}
 
 
   validates :password, presence: {:message => "Llenado Obligatorio"}
@@ -53,14 +53,14 @@ class Usuario < ApplicationRecord
 
   validates :grado_id, presence: {:message => "Se debe ingresar el nivel de responsabilidad"}
 
-  validate :validacion_pasado
+  #validate :validacion_pasado
 
-  def validacion_pasado
-    if self.hora_entrada > self.hora_salida
-      errors.add(:hora_entrada,"Error, no puede ingresar despues del Horario de Salida")
-      return fals
-    end
-  end
+  #def validacion_pasado
+  #  if self.hora_entrada > self.hora_salida
+  #    errors.add(:hora_entrada,"Error, no puede ingresar despues del Horario de Salida")
+  #    return fals
+  #  end
+  #end
 
   def telefono_validacion
     if self.telefono.present?
