@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   post 'pacientes', to: 'pacientes#crear'
   #------------------------------------------------------------------------
   delete 'pacientes/Listar/:id',to:'pacientes#eliminar'
-
+  post 'pacientes/historial/:id', to:'pacientes#historial', as: 'historial_paciente'
 
 
   get 'agendas/', to: 'agendas#principal'
@@ -94,7 +94,7 @@ Rails.application.routes.draw do
   get 'agentes/Listar/:id',to:'agente#mostrar'
   #ruta para el volver de la descripcion del proveedor
   get 'agentes/Listar/', to: 'agente#index', as: 'volver_agente'
-  
+
   #-------------------------------------------------------------------------
   post 'agentes/Listar/:id/Editar',to: 'agente#editar', as: 'editar_agente'
   put 'agentes/Listar/:id' ,to: 'agente#update'
