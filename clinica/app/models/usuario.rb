@@ -43,7 +43,7 @@ class Usuario < ApplicationRecord
 
   validates :cargo, presence: {:message => "Llenado Obligatorio"}
   validates :cargo, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
-  validates :cargo, length: {minimum: 3, maximum: 10, :message => "El cargo debe tener entre 3 y 10 caracteres"}
+  validates :cargo, length: {minimum: 3, maximum: 20, :message => "El cargo debe tener entre 3 y 10 caracteres"}
 
 
   validates :password, presence: {:message => "Llenado Obligatorio"}
