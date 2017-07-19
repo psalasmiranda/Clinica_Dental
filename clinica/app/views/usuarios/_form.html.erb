@@ -91,7 +91,7 @@
       <%= f.label :Horario_Salida, class:'col-sm-2 control-label' %>
     <div class="col-sm-5">
       <%= f.time_field :hora_salida, class: 'form-control'%>
-       <%= @usuario.errors[:hora_salida].any? ? @usuario.errors[:horario_salida].to_s[/\w([^"]*)/] : "" %></span>
+       <%= @usuario.errors[:hora_salida].any? ? @usuario.errors[:hora_salida].to_s[/\w([^"]*)/] : "" %></span>
     </div>
         </div>
         <div class="form-group<%= @usuario.errors[:grado_id].any? ? " has-error" : "" %>">
