@@ -10,4 +10,9 @@ class Tratamiento < ApplicationRecord
   validates :descripcion, format:{with: /\A[a-zA-Z\s]+\z/,message: "Solo acepta letras"}
   validates :descripcion, length: {minimum: 7, maximum: 30, :message => "La descripcion debe tener entre 7 y 30 caracteres"}
 
+  validates :costo, presence: {:message => "Llenado Obligatorio"}
+  validates :costo, numericality: {only_integer: true, message: "Solo numero enteros"},length: {minimun:1, maximum:6, message: "El precio debe ser de 1 a 6 digitos"}
+  validates :costo, numericality: {:greater_than_or_equal_to =>0, message: "No se aceptan enteros negativos"}
+
+
 end

@@ -3,6 +3,12 @@ class Agenda < ApplicationRecord
   belongs_to :tratamiento, foreign_key: :tratamiento_id
   belongs_to :paciente, foreign_key: :paciente_id
   belongs_to :usuario, foreign_key: :usuario_id
-  validates :hora, presence: {:message => "LLenado Obligatorio"}
+  validates :hora_id, presence: {:message => "LLenado Obligatorio"}
+  validates :fecha, presence: {:message => "LLenado Obligatorio"}
+  validates :paciente_id, presence: {:message => "LLenado Obligatorio"}
+  validates :usuario_id, presence: {:message => "LLenado Obligatorio"}
+  validates :tratamiento_id, presence: {:message => "LLenado Obligatorio"}
 
+  validates :fecha, uniqueness: { scope: [:usuario_id, :hora_id],
+    message: "El doctor ya reservo esa hora" }
 end
