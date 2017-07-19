@@ -46,6 +46,20 @@ class Usuario < ApplicationRecord
 
   validates :password, presence: {:message => "Llenado Obligatorio"}
 
+  validates :hora_entrada, presence: {:message => "Llenado Obligatorio"}
+  validates :hora_salida, presence: {:message => "Llenado Obligatorio"}
+
   validates :grado_id, presence: {:message => "Se debe ingresar el nivel de responsabilidad"}
+
+  validate :validacion_pasado
+
+  def validacion_pasado
+    if self.hora_entrada > self.hora_salida
+      errors.add(:hora_entrada,"Error, no puede ingresar despues del Horario de Salida")
+      return false
+
+    end
+
+  end
 
 end
