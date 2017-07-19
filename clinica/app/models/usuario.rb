@@ -35,7 +35,7 @@ class Usuario < ApplicationRecord
   validates :telefono, numericality: { :greater_than_or_equal_to =>2, message: "Numero no valido"}
   validates :telefono, numericality: {only_integer: true, message: "Solo numeros"}
   validates :telefono, length: {is: 9, message: "EL telefono debe tener 9 digitos"}
-
+  validate :telefono_validacion
 
   validates :correo, presence: {:message => "Llenado Obligatorio"}
   validates :correo, format: {with: /[0-9A-Za-z^\#]+@.+\..+/i}, uniqueness: {case_sensitive: false}
@@ -43,6 +43,8 @@ class Usuario < ApplicationRecord
 
   validates :cargo, presence: {:message => "Llenado Obligatorio"}
   validates :cargo, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
+  validates :cargo, length: {minimum: 3, maximum: 10, :message => "El cargo debe tener entre 3 y 10 caracteres"}
+
 
   validates :password, presence: {:message => "Llenado Obligatorio"}
 
@@ -59,7 +61,15 @@ class Usuario < ApplicationRecord
       return false
 
     end
-
   end
+
+  def telefono_validacion
+    if self.telefono.present?
+      if self.telefono < 222000000 || self.telefono > 300000000
+        if self.telefono <940000000
+          errors.add(:telefono, "No es valido")
+        end
+      end
+    end
 
 end
