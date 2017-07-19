@@ -6,7 +6,7 @@ class CreateUsuarios < ActiveRecord::Migration[5.1]
       t.string :ape_paterno
       t.string :ape_materno
       t.string :rut
-      t.string :telefono
+      t.integer :telefono
       t.string :correo
       t.string :cargo
       t.string :password_digest
