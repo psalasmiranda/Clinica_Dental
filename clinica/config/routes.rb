@@ -94,6 +94,7 @@ Rails.application.routes.draw do
   get 'agentes/Listar/:id',to:'agente#mostrar'
   #ruta para el volver de la descripcion del proveedor
   get 'agentes/Listar/', to: 'agente#index', as: 'volver_agente'
+  
   #-------------------------------------------------------------------------
   post 'agentes/Listar/:id/Editar',to: 'agente#editar', as: 'editar_agente'
   put 'agentes/Listar/:id' ,to: 'agente#update'
