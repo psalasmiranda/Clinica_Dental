@@ -24,12 +24,15 @@ class Paciente < ApplicationRecord
   validates :sexo, presence: {:message => "LLenado Obligatorio"}
 
 
+  validates :telefono, presence: {:message => "Llenado Obligatorio"}
+  validates :telefono, numericality: {only_integer: true, message: "Solo numeros"}
+  validates :telefono, length: {is: 9, message: "EL telefono debe tener 9 digitos"}
   validate :telefono_validacion
 
 
   validates :direccion, presence: {:message => "LLenado Obligatorio"}
   validates :direccion, format: {with: /\A[a-zA-Z\s}]+\z/,message: "Solo letras"}
-  validates :direccion, length: {minimum: 3, maximum: 15, :message => "La direccion debe tener entre 3 y 15 caracteres"}
+  validates :direccion, length: {minimum: 3, maximum: 20, :message => "La direccion debe tener entre 3 y 20 caracteres"}
 
   validates :numero, presence: {:message => "Llenado Obligatorio"}
   validates :numero, numericality: {only_integer: true, message: "Solo numeros"}
@@ -57,7 +60,7 @@ class Paciente < ApplicationRecord
     if self.telefono.present?
       if self.telefono < 222000000 || self.telefono > 300000000
         if self.telefono <940000000
-          errors.add(:telefono, "No es valido")
+          errors.add(:telefono, "Error, el telefono debe comenzar en 22... o 9...")
         end
       end
     end

@@ -9,6 +9,8 @@ class Agente < ApplicationRecord
   validates :rut,uniqueness: true, rut: true
 
   validates :telefono, presence: {:message => "Llenado Obligatorio"}
+  validates :telefono, numericality: {only_integer: true, message: "Solo numeros"}
+  validates :telefono, length: {is: 9, message: "EL telefono debe tener 9 digitos"}
   validate :telefono_validacion
 
 
@@ -22,7 +24,7 @@ class Agente < ApplicationRecord
 
 
   validates :numero, presence: {:message => "Llenado Obligatorio"}
-  validates :numero, numericality: {only_integer: true, message: "Solo numeros"}
+  validates :numero, numericality: {only_integer: true, message: "Solo ingrese numeros"}
   validates :numero, length: {minimum: 1, maximum: 5, :message => "El numero debe tener entre 1 y 5 caracteres"}
   validates :numero, numericality: {:greater_than_or_equal_to =>1, message: "No se aceptan numeros que partan con 0"}
 
@@ -30,7 +32,7 @@ class Agente < ApplicationRecord
     if self.telefono.present?
       if self.telefono < 222000000 || self.telefono > 300000000
         if self.telefono <940000000
-          errors.add(:telefono, "No es valido")
+          errors.add(:telefono, "Error, el telefono debe comenzar en 22... o 9...")
         end
       end
     end
