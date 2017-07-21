@@ -25,14 +25,13 @@ class Usuario < ApplicationRecord
 
   validates :ape_paterno, presence: {:message => "Llenado Obligatorio"}
   validates :ape_paterno, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
-  validates :ape_paterno, length: {minimum: 3, maximum: 10, :message => "El apellido paterno debe tener entre 3 y 10 caracteres"}
+  validates :ape_paterno, length: {minimum: 3, maximum: 15, :message => "El apellido paterno debe tener entre 3 y 15 caracteres"}
 
   validates :ape_materno, presence: {:message => "Llenado Obligatorio"}
   validates :ape_materno, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
-  validates :ape_materno, length: {minimum: 3, maximum: 10, :message => "El apellido materno debe tener entre 3 y 10 caracteres"}
+  validates :ape_materno, length: {minimum: 3, maximum: 15, :message => "El apellido materno debe tener entre 3 y 15 caracteres"}
 
   validates :telefono, presence: {:message => "Llenado Obligatorio"}
-  validates :telefono, numericality: { :greater_than_or_equal_to =>2, message: "Numero no valido"}
   validates :telefono, numericality: {only_integer: true, message: "Solo numeros"}
   validates :telefono, length: {is: 9, message: "EL telefono debe tener 9 digitos"}
   validate :telefono_validacion
@@ -42,8 +41,8 @@ class Usuario < ApplicationRecord
   validates :correo, email: true
 
   validates :cargo, presence: {:message => "Llenado Obligatorio"}
-  validates :cargo, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
-  validates :cargo, length: {minimum: 3, maximum: 18, :message => "El cargo debe tener entre 3 y 10 caracteres"}
+  validates :cargo, format:{with: /\A[a-zA-Z]+\z/,message: "Solo ingrese  letras"}
+  validates :cargo, length: {minimum: 3, maximum: 20, :message => "El cargo debe tener entre 3 y 20 caracteres"}
 
 
   validates :password, presence: {:message => "Llenado Obligatorio"}
@@ -51,7 +50,7 @@ class Usuario < ApplicationRecord
   validates :hora_entrada, presence: {:message => "Llenado Obligatorio"}
   validates :hora_salida, presence: {:message => "Llenado Obligatorio"}
 
-  validates :grado_id, presence: {:message => "Se debe ingresar el nivel de responsabilidad"}
+  validates :grado_id, presence: {:message => "Error, debe ingresar el nivel de responsabilidad"}
 
   validate :validacion_pasado
 
@@ -66,7 +65,7 @@ class Usuario < ApplicationRecord
     if self.telefono.present?
       if self.telefono < 222000000 || self.telefono > 300000000
         if self.telefono <940000000
-          errors.add(:telefono, "No es valido")
+          errors.add(:telefono, "Error, los telefonos deben partir en 22... o 9...")
         end
       end
     end
