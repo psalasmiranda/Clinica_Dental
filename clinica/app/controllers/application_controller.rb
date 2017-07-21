@@ -10,12 +10,12 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user! (as)
     if current_user.nil?
-      redirect_to new_session_path, :notice => "Acceso no autorizado, por favor inicie sesión"
+      redirect_to root_path, :notice => "Acceso no autorizado, por favor inicie sesión"
     else
       @permiso = Grado.find(current_user.grado_id)
       if  @permiso['rol']!="Administradores"
         if !@permiso[as]
-        redirect_to new_session_path, :notice => "No posee los permisos para acceder #{as}"
+        redirect_to root_path, :notice => "No posee los permisos para acceder #{as}"
         end
       end
     end
@@ -24,3 +24,10 @@ class ApplicationController < ActionController::Base
       @permiso = Grado.find(current_user.grado_id)
       @permiso[as] || @permiso['rol']=="Administradores"
   end
+
+
+def sinUsuario
+  if current_user.nil?
+    redirect_to root_path, :notice => "Acceso no autorizado, por favor inicie sesión"
+  end
+end

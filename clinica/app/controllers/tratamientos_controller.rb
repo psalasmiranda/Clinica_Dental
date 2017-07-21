@@ -35,10 +35,16 @@ class TratamientosController < ApplicationController
         end
     end
     def eliminar
+      begin
         @tratamiento.destroy
         respond_to do |format|
           format.html {redirect_to tratamientos_url, notice: 'fue eliminado'}
         end
+      rescue
+          respond_to do |format|
+          format.html {redirect_to volver_tratamiento_url, notice: 'Este registro se encuentra en uso, su eliminación se encuentra restringida'}
+        end
+      end
     end
     private
 

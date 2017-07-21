@@ -1,5 +1,5 @@
 class Agente < ApplicationRecord
-  has_many :agentes
+  has_many :insumos, dependent: :restrict_with_exception
   belongs_to :comuna, foreign_key: :comuna_id
   validates :nombre, presence: {:message => "Llenado Obligatorio"}
   validates :nombre, format: {with: /\A[0-9a-zA-Z\s}]+\z/}

@@ -1,7 +1,7 @@
 class Paciente < ApplicationRecord
   has_many :historias
   belongs_to :comuna, foreign_key: :comuna_id
-  has_many :agendas
+  has_many :agendas, dependent: :restrict_with_exception
 
   validates :rut, presence: {:message => "Llenado Obligatorio"}
   validates :rut,uniqueness: true, rut: true

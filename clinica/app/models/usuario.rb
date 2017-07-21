@@ -6,7 +6,7 @@ class Usuario < ApplicationRecord
   validates_confirmation_of :password, allow_blank: true, message: 'Contraseñas no coinciden'
 
   has_many :listados
-  has_many :agendas
+  has_many :agendas, dependent: :restrict_with_exception #, dependent: :nullify destroy
   belongs_to :grado, foreign_key: :grado_id
 
   validates :alias, presence: {:message => "Llenado Obligatorio"}
@@ -16,7 +16,8 @@ class Usuario < ApplicationRecord
 
 
   validates :rut, presence: {:message => "Llenado Obligatorio"}
-  validates :rut,uniqueness: true, rut: true
+  validates :rut,uniqueness: { scope: [:rut],
+    message: "Este rut ya se encuentra registrado" }
 
   validates :nombre, presence: {:message => "Llenado Obligatorio"}
   validates :nombre, format:{with: /([\w\s]*)/,message: "Solo acepta letras"}
@@ -55,9 +56,11 @@ class Usuario < ApplicationRecord
   validate :validacion_pasado
 
   def validacion_pasado
-    if self.hora_entrada > self.hora_salida
-      errors.add(:hora_entrada,"Error, no puede ingresar despues del Horario de Salida")
-      return false
+    if self.hora_entrada.present? && self.hora_salida.present?
+      if self.hora_entrada > self.hora_salida
+        errors.add(:hora_entrada,"Error, no puede ingresar despues del Horario de Salida")
+        return false
+      end
     end
   end
 

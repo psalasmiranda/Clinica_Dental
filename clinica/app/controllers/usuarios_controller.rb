@@ -37,10 +37,17 @@ class UsuariosController < ApplicationController
         end
     end
     def eliminar
-        @usuario.destroy
-        respond_to do |format|
+      begin
+          respond_to do |format|
+          @usuario.destroy
           format.html {redirect_to usuarios_url, notice: 'fue eliminado'}
         end
+      rescue
+          respond_to do |format|
+          format.html {redirect_to volver_usuario_url, notice: 'Este registro se encuentra en uso, su eliminación se encuentra restringida'}
+        end
+      end
+
     end
     private
 

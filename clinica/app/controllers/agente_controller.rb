@@ -36,10 +36,16 @@ class AgenteController < ApplicationController
       end
   end
   def eliminar
+    begin
       @agente.destroy
       respond_to do |format|
         format.html {redirect_to agentes_url, notice: 'fue eliminado'}
       end
+    rescue
+        respond_to do |format|
+        format.html {redirect_to volver_agente_url, notice: 'Este registro se encuentra en uso, su eliminación se encuentra restringida'}
+      end
+    end
   end
   private
 

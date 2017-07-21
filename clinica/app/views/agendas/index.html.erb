@@ -15,10 +15,10 @@
     <% @agendas.each do |a| %>
         <tr>
           <td align= center><%= a.fecha %></td>
-          <td align= center><%= Hora.select('bloque AS field_one').find(a.hora_id).field_one%></td>
-          <td align= center><%= Paciente.select('rut AS field_one').find(a.paciente_id).field_one%></td>
-          <td align= center><%= Usuario.select('rut AS field_one').find(a.usuario_id).field_one%></td>
-          <td align= center><%= Tratamiento.select('nombre AS field_one').find(a.tratamiento_id).field_one%></td>
+          <td align= center><%= a.hora.bloque%></td>
+          <td align= center><%= a.paciente.nombre << " " << a.paciente.paterno%></td>
+          <td align= center><%= a.usuario.nombre << " " << a.usuario.ape_paterno %></td>
+          <td align= center><%= a.tratamiento.nombre%></td>
           <td><%= button_to  a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} do %>
                 <span class="glyphicon glyphicon-trash"></span>
             <% end %></td>

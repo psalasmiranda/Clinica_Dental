@@ -35,10 +35,16 @@ class GradosController < ApplicationController
         end
     end
     def eliminar
+      begin
         @grado.destroy
         respond_to do |format|
           format.html {redirect_to grados_url, notice: 'fue eliminado'}
         end
+      rescue
+          respond_to do |format|
+          format.html {redirect_to volver_grado_url, notice: 'Este registro se encuentra en uso, su eliminación se encuentra restringida'}
+        end
+      end
     end
     private
 

@@ -1,6 +1,10 @@
 class AgendasController < ApplicationController
   before_action :set_agenda, only: [:mostrar, :editar, :update, :eliminar, :registro_editar, :update_registro]
-  before_action { authenticate_user!("agenda_vista") }
+  before_action except: [:registro, :registro_editar, :update_registro] do
+    authenticate_user!("agenda_vista")
+  end
+  before_action :sinUsuario, only: [:registro, :registro_editar, :update_registro]
+  
     def index
       #@agendas= Agenda.all
       @agendas = Agenda.order("fecha").page(params[:page]).per(5)

@@ -40,10 +40,16 @@ class PacientesController < ApplicationController
         end
     end
     def eliminar
+      begin
         @paciente.destroy
         respond_to do |format|
           format.html {redirect_to pacientes_url, notice: 'fue eliminado'}
         end
+      rescue
+          respond_to do |format|
+          format.html {redirect_to volver_paciente_url, notice: 'Este registro se encuentra en uso, su eliminación se encuentra restringida'}
+        end
+      end
     end
     private
 
