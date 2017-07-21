@@ -1,5 +1,5 @@
 class AgendasController < ApplicationController
-  before_action :set_agenda, only: [:mostrar, :editar, :update, :eliminar]
+  before_action :set_agenda, only: [:mostrar, :editar, :update, :eliminar, :registro_editar, :update_registro]
   before_action { authenticate_user!("agenda_vista") }
     def index
       #@agendas= Agenda.all
@@ -7,6 +7,23 @@ class AgendasController < ApplicationController
     end
 
     def mostrar
+    end
+
+    def registro
+      @agendas= Agenda.all
+    end
+
+    def registro_editar
+    end
+
+    def update_registro
+        respond_to do |format|
+          if @agenda.update(agenda_registro_params)
+            format.html {redirect_to registro_agenda_url}
+          else
+            format.html {render :nuevo}
+          end
+        end
     end
 
     def nuevo
@@ -50,5 +67,9 @@ class AgendasController < ApplicationController
 
     def agenda_params
       params.require(:agenda).permit(:fecha, :usuario_id, :hora_id, :tratamiento_id, :paciente_id)
+    end
+
+    def agenda_registro_params
+      params.require(:agenda).permit(:comentario)
     end
 end

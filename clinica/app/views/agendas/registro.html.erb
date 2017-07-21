@@ -1,0 +1,34 @@
+<%= javascript_include_tag "jquery.uitablefilter", "data-turbolinks-track" => true  %>
+<%= javascript_include_tag "registro", "data-turbolinks-track" => true  %>
+<div class="list-group" >
+  <a class="list-group-item active" >
+    <font FACE= "roman" size= 12 align= center>Mis registros</font>
+  </a>
+</div>
+<div class="col-lg-4 col-lg-offset-4 calendario-registro">
+    <input type="date" id="e" class="form-control">
+</div>
+<table class="table" id="latabla">
+<tr>
+  <td align= center>Fecha</td>
+  <td align= center>Hora</td>
+  <td align= center>Paciente</td>
+  <td align= center>Tratamiento</td>
+</tr>
+
+    <% @agendas.where(usuario_id: current_user.id).each do |a| %>
+        <tr>
+          <td align= center class="search"><%= a.fecha %></td>
+          <td align= center class="search"><%= a.hora.bloque %></td>
+          <td align= center class="search"><%= a.paciente.nombre << " " << a.paciente.paterno%></td>
+          <td align= center class="search"><%= a.tratamiento.nombre %></td>
+          <td class="search"><%= button_to  editar_registro_agenda_url(a), :class => "btn btn-primary" do %>
+                <span class="glyphicon glyphicon-pencil"> Registrar</span>
+            <% end %></td>
+          <td class="search"><%= button_to  a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} do %>
+                <span class="glyphicon glyphicon-trash"></span>
+            <% end %></td>
+        </tr>
+  <% end %>
+  </tbody>
+</table>

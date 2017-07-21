@@ -2,6 +2,27 @@
 <div class="row">
     <div class="col-sm-3 col-md-3">
         <div class="panel-group" id="accordion">
+          <% if current_user.medico %>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseCero"><span class="glyphicon glyphicon-time">
+                        </span>Mi registro</a>
+                    </h4>
+                </div>
+                <div id="collapseCero" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-list-alt text-primary"></span><%=link_to "Listar", registro_agenda_path(@agenda)%>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+          <%end%>
           <% if menu!('agenda_vista') %>
             <div class="panel panel-default">
                 <div class="panel-heading">

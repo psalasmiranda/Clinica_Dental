@@ -6,14 +6,16 @@
 
 <tr>
   <td align= center>Fecha</td>
-  <td align= center>Tratamiento</td>
   <td align= center>Doctor</td>
+  <td align= center>Tratamiento</td>
+  <td align= center>Descripción</td>
 </tr>
     <% @horas.each do |a| %>
         <tr>
           <td align= center><%= a.fecha %></td>
-          <td align= center><%= a.tratamiento.nombre %></td>
           <td align= center><%= a.usuario.nombre << " " <<  a.usuario.ape_paterno%></td>
+          <td align= center><%= a.tratamiento.nombre %></td>
+          <td align= center><%= a.comentario %></td>
         </tr>
   <% end %>
   </div>

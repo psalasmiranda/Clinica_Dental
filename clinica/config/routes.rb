@@ -41,8 +41,12 @@ Rails.application.routes.draw do
   post 'agendas', to: 'agendas#crear'
   #------------------------------------------------------------------------
   delete 'agendas/Listar/:id',to:'agendas#eliminar'
-
-
+  #Para el registro en la agenda
+  get 'agendas/registro', to: 'agendas#registro', as: 'registro_agenda'
+  #-------------------------------------------------------------------------
+  post 'agendas/:id/registro_editar', to: 'agendas#registro_editar', as: 'editar_registro_agenda'
+  put 'agendas/registro_editar/:id' ,to: 'agendas#update_registro'
+  patch 'agendas/registro_editar/:id' ,to: 'agendas#update_registro'
 
   get 'usuarios/', to: 'usuarios#principal'
   #vista donde lista todos el personal

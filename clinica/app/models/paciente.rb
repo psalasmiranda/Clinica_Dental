@@ -25,11 +25,12 @@ class Paciente < ApplicationRecord
 
 
   validate :telefono_validacion
+  #ldeflmfdñlfds
 
 
   validates :direccion, presence: {:message => "LLenado Obligatorio"}
   validates :direccion, format: {with: /\A[a-zA-Z\s}]+\z/,message: "Solo letras"}
-  validates :direccion, length: {minimum: 3, maximum: 15, :message => "La direccion debe tener entre 3 y 15 caracteres"}
+  validates :direccion, length: {minimum: 3, maximum: 20, :message => "La direccion debe tener entre 3 y 20 caracteres"}
 
   validates :numero, presence: {:message => "Llenado Obligatorio"}
   validates :numero, numericality: {only_integer: true, message: "Solo numeros"}

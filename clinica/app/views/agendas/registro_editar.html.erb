@@ -1,0 +1,39 @@
+<div class=" col-md-6 col-md-offset-2 col-lg-6 col-lg-offset-2">
+      <table class="table table-user-information">
+            <tbody>
+              <tr class="info">
+                <td>Paciente:</td>
+                <td><%= @agenda.paciente.nombre << " " <<  @agenda.paciente.paterno %></td>
+              </tr>
+              <tr class="info">
+                <td>Tratamiento:</td>
+                <td><%= @agenda.tratamiento.nombre %></td>
+              </tr>
+            </tbody>
+      </table>
+  </div>
+
+
+<%= form_for(@agenda, :url => {:action => 'update_registro'}, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
+    <div class="col-md-6 col-md-offset-2">
+      <div class="form-group<%= @agenda.errors[:costo].any? ? " has-error" : "" %>">
+        <%= f.label :Descripción, class:'col-sm-3 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_area :comentario , :cols => 70, :rows => 10%>
+        <span class="help-inline">
+         <%= @agenda.errors[:costo].any? ? @agenda.errors[:costo].to_s[/\w([^"]*)/] : "" %></span>
+      </div>
+      </div>
+
+      <div class="form-group text-center">
+      <% if @agenda.errors.any? %>
+          <%= pluralize(@agenda.errors.count, "error") %>
+      <% end %>
+    </div>
+      <div class="col-sm-2 col-sm-offset-5">
+        <%= f.submit :Registar, class:'btn btn-primary' %>
+      </div>
+    </div>
+      </div>
+
+<% end %>

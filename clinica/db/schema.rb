@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20170620043049) do
 
   create_table "agendas", force: :cascade do |t|
     t.date "fecha"
+    t.text "comentario"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "hora_id"
