@@ -26,10 +26,10 @@
     <div class="row setup-content" id="step-1">
       <div class="col-xs-6 col-md-offset-1">
         <div class="col-md-12">
-          <h3>Datos del paciente</h3>
+          <h3 align=center>Datos del paciente</h3>
           <div class="form-group<%= @agenda.errors[:paciente_id].any? ? " has-error" : "" %>">
-            <%= f.label "Rut del paciente" , class:'col-sm-4 control-label'%>
-          <div class="col-sm-7">
+            <%= f.label :Paciente , class:'col-sm-2 control-label'%>
+          <div class="col-sm-8">
             <%= f.collection_select :paciente_id, Paciente.all, :id, :rut, {include_blank: 'Por favor selecciona un paciente'}, {class: 'form-control'}%>
             <span class="help-inline">
              <%= @agenda.errors[:paciente_id].any? ? @agenda.errors[:paciente_id].to_s[/\w([^"]*)/] : "" %></span>
@@ -42,17 +42,17 @@
     <div class="row setup-content" id="step-2">
       <div class="col-xs-6 col-md-offset-1">
         <div class="col-md-12">
-          <h3>Datos del doctor</h3>
+          <h3 align=center>Datos del doctor</h3>
           <div class="form-group<%= @agenda.errors[:usuario_id].any? ? " has-error" : "" %>">
-            <%= f.label "Doctor" , class:'col-sm-4 control-label'%>
-          <div class="col-sm-7">
-            <%= f.collection_select :usuario_id, Usuario.where(medico: :true), :id, :nombre, {include_blank: 'Por favor selecciona un doctor'}, {class: 'form-control'}%>
+            <%= f.label "Doctor" , class:'col-sm-2 control-label'%>
+          <div class="col-sm-8">
+            <%= f.collection_select :usuario_id, Usuario.where(medico: :true), :id, :name_full, {include_blank: 'Por favor selecciona un doctor'}, {class: 'form-control'}%>
             <span class="help-inline">
              <%= @agenda.errors[:usuario_id].any? ? @agenda.errors[:usuario_id].to_s[/\w([^"]*)/] : "" %></span>
           </div>
           </div>
           <div class="form-group<%= @agenda.errors[:tratamiento_id].any? ? " has-error" : "" %>">
-            <%= f.label "Tratamiento" , class:'col-sm-4 control-label'%>
+            <%= f.label "Tratamiento" , class:'col-sm-2 control-label'%>
           <div class="col-sm-8">
             <%= f.collection_select :tratamiento_id, Tratamiento.all, :id, :nombre, {include_blank: 'Por favor selecciona un tratamiento'}, {class: 'form-control'}%>
             <span class="help-inline">
@@ -66,7 +66,7 @@
     <div class="row setup-content" id="step-3">
       <div class="col-xs-6 col-md-offset-1">
         <div class="col-md-12">
-          <h3> Tomar hora</h3>
+          <h3 align=center> Tomar hora</h3>
           <div class="form-group<%= @agenda.errors[:fecha].any? ? " has-error" : "" %>">
             <%= f.label :Fecha , class:'col-sm-2 control-label'%>
           <div class="col-sm-8">
@@ -84,7 +84,7 @@
           </div>
           </div>
           <div class="col-sm-2 col-sm-offset-5">
-            <%= f.submit :Reservar, class:'btn btn-primary'%>
+            <%= f.submit :Reservar, class:'btn btn-primary btn-lg pull-right'%>
           </div>
       </div>
 

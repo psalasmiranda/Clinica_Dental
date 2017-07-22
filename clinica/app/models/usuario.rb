@@ -73,5 +73,8 @@ class Usuario < ApplicationRecord
       end
     end
   end
+  def name_full
+    "#{nombre} #{ape_paterno}"
+  end
 
 end

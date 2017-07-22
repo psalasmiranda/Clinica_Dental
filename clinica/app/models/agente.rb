@@ -28,6 +28,8 @@ class Agente < ApplicationRecord
   validates :numero, length: {minimum: 1, maximum: 5, :message => "El numero debe tener entre 1 y 5 caracteres"}
   validates :numero, numericality: {:greater_than_or_equal_to =>1, message: "No se aceptan numeros que partan con 0"}
 
+  validates :comuna_id, presence: {:message => "LLenado Obligatorio"}
+
   def telefono_validacion
     if self.telefono.present?
       if self.telefono < 222000000 || self.telefono > 300000000
