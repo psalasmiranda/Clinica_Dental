@@ -1,15 +1,38 @@
-<table class="table">
 <div class="list-group" >
   <a class="list-group-item active" >
-    <font FACE= "roman" size= 12 align= center>Historial <%= @paciente.nombre << " " << @paciente.paterno%></font>
+    <font FACE= "roman" size= 12 align= center>Historial <%= @paciente.nombre + " " + @paciente.paterno%></font>
   </a>
-
-<tr>
-  <td align= center>Fecha</td>
-  <td align= center>Doctor</td>
-  <td align= center>Tratamiento</td>
-  <td align= center>Descripción</td>
-</tr>
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <td colspan="4" class="text-center">Ficha Medica</td>
+    </tr>
+    <tr>
+      <th>Nombre:</th>
+      <td><%= @paciente.nombre + " " + @paciente.paterno + " " + @paciente.materna %></td>
+      <th>Rut:</th>
+      <td><%= @paciente.rut %></td>
+    </tr>
+  </thead>
+  <tr>
+    <th>Edad:</th>
+    <td><%= @paciente.edad %></td>
+    <th>Sexo:</th>
+    <td><%= @paciente.sexo %></td>
+  </tr>
+  <tr>
+    <th>Domicilio:</th>
+    <td><%= @paciente.direccion + " " + @paciente.numero.to_s + ", " + @paciente.comuna.nombre %></td>
+  </tr>
+</table>
+<table class="table Active">
+  <tr>
+    <td align= center>Fecha</td>
+    <td align= center>Doctor</td>
+    <td align= center>Tratamiento</td>
+    <td align= center>Descripción</td>
+  </tr>
     <% @horas.each do |a| %>
         <tr>
           <td align= center><%= a.fecha %></td>
@@ -18,6 +41,5 @@
           <td align= center><%= a.comentario %></td>
         </tr>
   <% end %>
-  </div>
 </table>
 <%= link_to 'volver', volver_paciente_path %>

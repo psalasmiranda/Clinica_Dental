@@ -4,7 +4,7 @@ class AgendasController < ApplicationController
     authenticate_user!("agenda_vista")
   end
   before_action :sinUsuario, only: [:registro, :registro_editar, :update_registro]
-  
+
     def index
       #@agendas= Agenda.all
       @agendas = Agenda.order("fecha").page(params[:page]).per(5)
@@ -60,7 +60,7 @@ class AgendasController < ApplicationController
     def eliminar
         @agenda.destroy
         respond_to do |format|
-          format.html {redirect_to agendas_url, notice: 'fue eliminado'}
+          format.html {redirect_to listar_agenda_url, notice: 'fue eliminado'}
         end
     end
     private

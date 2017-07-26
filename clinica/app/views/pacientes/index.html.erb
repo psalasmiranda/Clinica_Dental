@@ -20,12 +20,12 @@
           <td align= center><%= a.paterno%></td>
           <td align= center><%= a.rut %></td>
           <td align= center><%= a.telefono %></td>
-          <td><%= button_to 'Detalles' ,paciente_url(a), :class => "btn btn-primary" %></td>
           <td> <%= button_to 'Editar', editar_paciente_url(a), :class => "btn btn-primary" %></td>
+          <td><%= button_to 'Detalles' ,paciente_url(a), :class => "btn btn-primary" %></td>
+          <td> <%= button_to :Ficha, historial_paciente_url(a), :class => "btn btn-primary" %></td>
           <td><%= button_to a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} do %>
                 <span class="glyphicon glyphicon-trash"></span>
             <% end %></td>
-          <td> <%= button_to 'Historial', historial_paciente_url(a), :class => "btn btn-primary" %></td>
         </tr>
   <% end %>
   </tbody>
