@@ -82,6 +82,7 @@
              <%= @agenda.errors[:hora_id].any? ? @agenda.errors[:hora_id].to_s[/\w([^"]*)/] : "" %></span>
           </div>
           </div>
+          
           <div class="col-sm-2 col-sm-offset-5">
             <%= f.submit :Reservar, class:'btn btn-primary btn-lg pull-right'%>
           </div>

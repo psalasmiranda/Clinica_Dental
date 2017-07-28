@@ -1,3 +1,3 @@
 class Diente < ApplicationRecord
-  has_many :agendas
+  belongs_to :agenda, foreign_key: :agenda_id
 end

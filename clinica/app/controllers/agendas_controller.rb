@@ -42,6 +42,7 @@ class AgendasController < ApplicationController
         @agenda = Agenda.create(agenda_params)
         respond_to do |format|
           if @agenda.save
+            Diente.create(:agenda_id => @agenda.id)
             format.html {redirect_to @agenda, notice: 'Fue creado con mucho exito'}
           else
             format.html {render :nuevo}

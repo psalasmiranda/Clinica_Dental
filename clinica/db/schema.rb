@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20180620043049) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "hora_id"
-    t.integer "diente_id"
     t.integer "usuario_id"
     t.integer "tratamiento_id"
     t.integer "paciente_id"
@@ -123,6 +122,7 @@ ActiveRecord::Schema.define(version: 20180620043049) do
     t.boolean "d48"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "agenda_id"
   end
 
   create_table "especialista", force: :cascade do |t|
@@ -217,12 +217,12 @@ ActiveRecord::Schema.define(version: 20180620043049) do
     t.integer "grado_id"
   end
 
-  add_foreign_key "agendas", "dientes"
   add_foreign_key "agendas", "horas"
   add_foreign_key "agendas", "pacientes"
   add_foreign_key "agendas", "tratamientos"
   add_foreign_key "agendas", "usuarios"
   add_foreign_key "agentes", "comunas"
+  add_foreign_key "dientes", "agendas"
   add_foreign_key "historia", "pacientes"
   add_foreign_key "historia", "tratamientos"
   add_foreign_key "insumos", "agentes"
