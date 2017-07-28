@@ -1,0 +1,2 @@
+class Diente < ApplicationRecord
+end
