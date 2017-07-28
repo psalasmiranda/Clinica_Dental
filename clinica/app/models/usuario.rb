@@ -79,7 +79,7 @@ class Usuario < ApplicationRecord
   end
 
   def self.search(search)
-  where("nombre  LIKE ?", "%#{search}%")
+  where("tipo  LIKE ?", "%#{search}%")
   end
 
 end
