@@ -215,6 +215,8 @@ ActiveRecord::Schema.define(version: 20180620043049) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "grado_id"
+    t.integer "calendario_id"
+    t.integer "especialista_id"
   end
 
   add_foreign_key "agendas", "dientes"
@@ -229,5 +231,7 @@ ActiveRecord::Schema.define(version: 20180620043049) do
   add_foreign_key "listados", "areas"
   add_foreign_key "listados", "usuarios"
   add_foreign_key "pacientes", "comunas"
+  add_foreign_key "usuarios", "calendarios"
+  add_foreign_key "usuarios", "especialista", column: "especialista_id"
   add_foreign_key "usuarios", "grados"
 end
