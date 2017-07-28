@@ -30,10 +30,6 @@
       <th>Sexo:</th>
       <td><%= @agenda.paciente.sexo %></td>
     </tr>
-    <tr>
-      <th>Domicilio:</th>
-      <td><%= @agenda.paciente.direccion + " " + @agenda.paciente.numero.to_s + ", " + @agenda.paciente.comuna.nombre %></td>
-    </tr>
   </table>
 <%= render 'piezas'%>
 <%= form_for(@agenda, :url => {:action => 'update_registro'}, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>

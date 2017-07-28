@@ -122,8 +122,6 @@
            <%= @usuario.errors[:tipo].any? ? @usuario.errors[:tipo].to_s[/\w([^"]*)/] : "" %></span>
         </div>
         </div>
-
-
         <div class="form-group text-center">
         <% if @usuario.errors.any? %>
             <%= pluralize(@usuario.errors.count, "error") %>
