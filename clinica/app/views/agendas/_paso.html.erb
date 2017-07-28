@@ -45,7 +45,7 @@
           <div class="form-group<%= @agenda.errors[:usuario_id].any? ? " has-error" : "" %>">
             <%= f.label "Doctor" , class:'col-sm-2 control-label'%>
           <div class="col-sm-8">
-            <%= f.collection_select :usuario_id, Usuario.where(medico: :true), :id, :name_full, {include_blank: 'Por favor selecciona un doctor'}, {class: 'form-control'}%>
+            <%= f.collection_select :usuario_id, Usuario.where(tipo: :Medico), :id, :name_full, {include_blank: 'Por favor selecciona un doctor'}, {class: 'form-control'}%>
             <span class="help-inline">
              <%= @agenda.errors[:usuario_id].any? ? @agenda.errors[:usuario_id].to_s[/\w([^"]*)/] : "" %></span>
           </div>
