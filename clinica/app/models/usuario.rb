@@ -78,4 +78,8 @@ class Usuario < ApplicationRecord
     "#{nombre} #{ape_paterno}"
   end
 
+  def self.search(search)
+  where("nombre  LIKE ?", "%#{search}%")
+  end
+
 end
