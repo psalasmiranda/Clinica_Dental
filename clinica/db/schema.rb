@@ -44,23 +44,6 @@ ActiveRecord::Schema.define(version: 20180620043049) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "calendarios", force: :cascade do |t|
-    t.time "hora_el"
-    t.time "hora_sl"
-    t.time "hora_ema"
-    t.time "hora_sma"
-    t.time "hora_em"
-    t.time "hora_sm"
-    t.time "hora_ej"
-    t.time "hora_sj"
-    t.time "hora_ev"
-    t.time "hora_sv"
-    t.time "hora_es"
-    t.time "hora_ss"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "comunas", force: :cascade do |t|
     t.string "nombre"
     t.datetime "created_at", null: false
@@ -215,7 +198,6 @@ ActiveRecord::Schema.define(version: 20180620043049) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "grado_id"
-    t.integer "calendario_id"
     t.integer "especialista_id"
   end
 
@@ -231,7 +213,6 @@ ActiveRecord::Schema.define(version: 20180620043049) do
   add_foreign_key "listados", "areas"
   add_foreign_key "listados", "usuarios"
   add_foreign_key "pacientes", "comunas"
-  add_foreign_key "usuarios", "calendarios"
   add_foreign_key "usuarios", "especialista", column: "especialista_id"
   add_foreign_key "usuarios", "grados"
 end
