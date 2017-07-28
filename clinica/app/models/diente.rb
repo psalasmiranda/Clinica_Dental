@@ -1,3 +1,3 @@
 class Diente < ApplicationRecord
-  has_many :dientes
+  has_many :agendas
 end
