@@ -1,6 +1,6 @@
 class Usuario < ApplicationRecord
   has_secure_password validations: false
-  belongs_to :especialista, foreign_key: :especialista_id
+  has_many :especialista
   validates :password, presence: {message: 'Llenado Obligatorio'},
                        length: {minimum: 6,
                        message: 'Tu contraseña debe contener al menos 6 caracteres'}
