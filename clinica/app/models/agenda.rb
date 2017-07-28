@@ -3,6 +3,7 @@ class Agenda < ApplicationRecord
   belongs_to :tratamiento, foreign_key: :tratamiento_id
   belongs_to :paciente, foreign_key: :paciente_id
   belongs_to :usuario, foreign_key: :usuario_id
+  belongs_to :diente, foreign_key: :diente_id
 
   validates :hora_id, presence: {:message => "LLenado Obligatorio"}
   validates :fecha, presence: {:message => "LLenado Obligatorio"}

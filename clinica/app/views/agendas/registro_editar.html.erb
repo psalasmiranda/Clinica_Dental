@@ -1,3 +1,17 @@
+<script>
+  $(document).on("ready", function(){
+    $('.pieza').on("click", function(){
+      var id = $(this).attr("id");
+      if($.data(this,"seleccionado")== "no"){
+        $(this).attr("src", "/assets/diente"+id+".jpg");
+        $.data(this,"seleccionado","si");
+      }else{
+        $(this).attr("src", "/assets/"+"S"+"diente"+id+".jpg");
+        $.data(this,"seleccionado","no");
+      }
+    })
+  })
+</script>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -17,7 +31,7 @@
       <td><%= @agenda.paciente.sexo %></td>
     </tr>
   </table>
-
+<%= render 'piezas'%>
 <%= form_for(@agenda, :url => {:action => 'update_registro'}, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
     <div class="col-md-6 col-md-offset-2">
       <div><strong>Fecha:</strong> <%= @agenda.fecha %></div>

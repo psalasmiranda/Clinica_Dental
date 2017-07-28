@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hora_el: 2017-07-27 23:48:07
+
+two:
+  hora_el: 2017-07-27 23:48:07
