@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170728034844) do
+ActiveRecord::Schema.define(version: 20180620043049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170728034844) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "hora_id"
+    t.integer "diente_id"
     t.integer "usuario_id"
     t.integer "tratamiento_id"
     t.integer "paciente_id"
@@ -216,6 +217,7 @@ ActiveRecord::Schema.define(version: 20170728034844) do
     t.integer "grado_id"
   end
 
+  add_foreign_key "agendas", "dientes"
   add_foreign_key "agendas", "horas"
   add_foreign_key "agendas", "pacientes"
   add_foreign_key "agendas", "tratamientos"
