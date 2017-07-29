@@ -56,8 +56,8 @@ Rails.application.routes.draw do
   post 'usuarios/Listar/:id',to:'usuarios#mostrar', as: 'usuario'
   get 'usuarios/Listar/:id',to:'usuarios#mostrar'
   #ruta para el volver de la descripcion del personal
-  get 'usuarios/Listar/', to: 'usuarios#index', as: 'volver_usuario'
-  #-------------------------------------------------------------------------
+  get 'usuarios/Listar/', to: 'usuarios#principal', as: 'volver_usuario'
+  #------------------------------------------------------------------------
   post 'usuarios/Listar/:id/Editar',to: 'usuarios#editar', as: 'editar_usuario'
   put 'usuarios/Listar/:id' ,to: 'usuarios#update'
   patch 'usuarios/Listar/:id' ,to: 'usuarios#update'

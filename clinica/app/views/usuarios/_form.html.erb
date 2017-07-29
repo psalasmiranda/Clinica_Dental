@@ -1,4 +1,7 @@
   <%= form_for(@usuario, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
+  <link href="jquery.multiselect.css" rel="stylesheet" type="text/css">
+  <script src="jquery.min.js"></script>
+  <script src="jquery.multiselect.js"></script>
       <div class="col-md-7 col-md-offset-2">
         <div class="form-group<%= @usuario.errors[:alias].any? ? " has-error" : "" %>">
           <%= f.label :Alias , class:'col-sm-2 control-label'%>
@@ -120,8 +123,20 @@
           <%= f.radio_button :tipo, 'Otros' %> Otros
           <span class="help-inline">
            <%= @usuario.errors[:tipo].any? ? @usuario.errors[:tipo].to_s[/\w([^"]*)/] : "" %></span>
+         </div>
+         </div>
+        <div class="form-group<%= @usuario.errors[:especialista_id].any? ? " has-error" : "" %>">
+        <%= f.label :Especialidades , class:'col-sm-4 control-label' %>
+      <div class="col-sm-10">
+      </h1>(Oprima el boton ctrl mientras seleccina sus opciones)</h1>
+      <div class="col-sm-12">
         </div>
         </div>
+        <%= f.collection_select :especialista_id, Especialista.all, :id, :especialidad, {include_blank: 'Por favor selecciona una especialidad'}, {multiple: true, class: 'form-control'}%>
+        <span class="help-inline">
+          <%= @usuario.errors[:especialista_id].any? ? @usuario.errors[:especialista_id].to_s[/\w([^"]*)/] : "" %></span>
+      </div>
+      </div>
         <div class="form-group text-center">
         <% if @usuario.errors.any? %>
             <%= pluralize(@usuario.errors.count, "error") %>
