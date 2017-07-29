@@ -18,56 +18,6 @@ ActiveRecord::Schema.define(version: 20180620043049) do
   create_table "agendas", force: :cascade do |t|
     t.date "fecha"
     t.text "comentario"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "hora_id"
-    t.integer "usuario_id"
-    t.integer "tratamiento_id"
-    t.integer "paciente_id"
-  end
-
-  create_table "agentes", force: :cascade do |t|
-    t.string "nombre"
-    t.string "rut"
-    t.integer "telefono"
-    t.string "correo"
-    t.string "dirrecion"
-    t.integer "numero"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "comuna_id"
-  end
-
-  create_table "areas", force: :cascade do |t|
-    t.string "especialidad"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "calendarios", force: :cascade do |t|
-    t.time "hora_el"
-    t.time "hora_sl"
-    t.time "hora_ema"
-    t.time "hora_sma"
-    t.time "hora_em"
-    t.time "hora_sm"
-    t.time "hora_ej"
-    t.time "hora_sj"
-    t.time "hora_ev"
-    t.time "hora_sv"
-    t.time "hora_es"
-    t.time "hora_ss"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "comunas", force: :cascade do |t|
-    t.string "nombre"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "dientes", force: :cascade do |t|
     t.boolean "d55"
     t.boolean "d54"
     t.boolean "d53"
@@ -122,7 +72,51 @@ ActiveRecord::Schema.define(version: 20180620043049) do
     t.boolean "d48"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "agenda_id"
+    t.integer "hora_id"
+    t.integer "usuario_id"
+    t.integer "tratamiento_id"
+    t.integer "paciente_id"
+  end
+
+  create_table "agentes", force: :cascade do |t|
+    t.string "nombre"
+    t.string "rut"
+    t.integer "telefono"
+    t.string "correo"
+    t.string "dirrecion"
+    t.integer "numero"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "comuna_id"
+  end
+
+  create_table "areas", force: :cascade do |t|
+    t.string "especialidad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "calendarios", force: :cascade do |t|
+    t.time "hora_el"
+    t.time "hora_sl"
+    t.time "hora_ema"
+    t.time "hora_sma"
+    t.time "hora_em"
+    t.time "hora_sm"
+    t.time "hora_ej"
+    t.time "hora_sj"
+    t.time "hora_ev"
+    t.time "hora_sv"
+    t.time "hora_es"
+    t.time "hora_ss"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comunas", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "especialista", force: :cascade do |t|
@@ -224,7 +218,6 @@ ActiveRecord::Schema.define(version: 20180620043049) do
   add_foreign_key "agendas", "tratamientos"
   add_foreign_key "agendas", "usuarios"
   add_foreign_key "agentes", "comunas"
-  add_foreign_key "dientes", "agendas"
   add_foreign_key "historia", "pacientes"
   add_foreign_key "historia", "tratamientos"
   add_foreign_key "insumos", "agentes"

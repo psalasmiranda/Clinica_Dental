@@ -1,17 +1,5 @@
-<script>
-  $(document).on("ready", function(){
-    $('.pieza').on("click", function(){
-      var id = $(this).attr("id");
-      if($.data(this,"seleccionado")== "no"){
-        $(this).attr("src", "/assets/diente"+id+".jpg");
-        $.data(this,"seleccionado","si");
-      }else{
-        $(this).attr("src", "/assets/"+"S"+"diente"+id+".jpg");
-        $.data(this,"seleccionado","no");
-      }
-    })
-  })
-</script>
+<%= javascript_include_tag "dienteJQuery", "data-turbolinks-track" => true  %>
+<%= content_tag "div", "",id: "contenidoOculto", data: {dientes: @agenda} %>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -32,7 +20,62 @@
     </tr>
   </table>
 <%= render 'piezas'%>
-<%= form_for(@agenda, :url => {:action => 'update_registro'}, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
+
+<%= form_for(@agenda, :url => {:action => 'update_registro'}, :html => {:role => 'form', class:'form-horizontal form1'}) do |f| %>
+  <div>
+    <%= f.hidden_field 'd55' %>
+    <%= f.hidden_field 'd54' %>
+    <%= f.hidden_field 'd53' %>
+    <%= f.hidden_field 'd52' %>
+    <%= f.hidden_field 'd51' %>
+    <%= f.hidden_field 'd61' %>
+    <%= f.hidden_field 'd62' %>
+    <%= f.hidden_field 'd63' %>
+    <%= f.hidden_field 'd64' %>
+    <%= f.hidden_field 'd65' %>
+    <%= f.hidden_field 'd85' %>
+    <%= f.hidden_field 'd84' %>
+    <%= f.hidden_field 'd83' %>
+    <%= f.hidden_field 'd82' %>
+    <%= f.hidden_field 'd81' %>
+    <%= f.hidden_field 'd71' %>
+    <%= f.hidden_field 'd72' %>
+    <%= f.hidden_field 'd73' %>
+    <%= f.hidden_field 'd74' %>
+    <%= f.hidden_field 'd75' %>
+    <%= f.hidden_field 'd18' %>
+    <%= f.hidden_field 'd17' %>
+    <%= f.hidden_field 'd16' %>
+    <%= f.hidden_field 'd15' %>
+    <%= f.hidden_field 'd14' %>
+    <%= f.hidden_field 'd13' %>
+    <%= f.hidden_field 'd12' %>
+    <%= f.hidden_field 'd11' %>
+    <%= f.hidden_field 'd21' %>
+    <%= f.hidden_field 'd22' %>
+    <%= f.hidden_field 'd23' %>
+    <%= f.hidden_field 'd24' %>
+    <%= f.hidden_field 'd25' %>
+    <%= f.hidden_field 'd26' %>
+    <%= f.hidden_field 'd27' %>
+    <%= f.hidden_field 'd28' %>
+    <%= f.hidden_field 'd38' %>
+    <%= f.hidden_field 'd37' %>
+    <%= f.hidden_field 'd36' %>
+    <%= f.hidden_field 'd35' %>
+    <%= f.hidden_field 'd34' %>
+    <%= f.hidden_field 'd33' %>
+    <%= f.hidden_field 'd32' %>
+    <%= f.hidden_field 'd31' %>
+    <%= f.hidden_field 'd41' %>
+    <%= f.hidden_field 'd42' %>
+    <%= f.hidden_field 'd43' %>
+    <%= f.hidden_field 'd44' %>
+    <%= f.hidden_field 'd45' %>
+    <%= f.hidden_field 'd46' %>
+    <%= f.hidden_field 'd47' %>
+    <%= f.hidden_field 'd48' %>
+  </div>
     <div class="col-md-6 col-md-offset-2">
       <div><strong>Fecha:</strong> <%= @agenda.fecha %></div>
       <div><strong>Hora:</strong> <%= @agenda.hora.bloque %></div>
