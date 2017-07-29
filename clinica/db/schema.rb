@@ -195,10 +195,26 @@ ActiveRecord::Schema.define(version: 20180620043049) do
     t.time "hora_entrada"
     t.time "hora_salida"
     t.date "fecha_ingreso"
+    t.boolean "Cariologia"
+    t.boolean "Endodoncia"
+    t.boolean "Gnatologia"
+    t.boolean "Implantologia_dental"
+    t.boolean "Odontogeriatria"
+    t.boolean "Odontologia_estetica"
+    t.boolean "Odontologia_forense"
+    t.boolean "Odontologia_preventiva"
+    t.boolean "Odontologia_restauradora"
+    t.boolean "Odontopediatria"
+    t.boolean "Periodoncia"
+    t.boolean "Radiologo_dentomaxilofacial"
+    t.boolean "Patologo_bucomaxilofacial"
+    t.boolean "Cirujano_maxilofacial"
+    t.boolean "Restauracion_dental"
+    t.boolean "Prostodoncista"
+    t.boolean "Ordotencista"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "grado_id"
-    t.integer "especialista_id"
   end
 
   add_foreign_key "agendas", "horas"
@@ -213,6 +229,5 @@ ActiveRecord::Schema.define(version: 20180620043049) do
   add_foreign_key "listados", "areas"
   add_foreign_key "listados", "usuarios"
   add_foreign_key "pacientes", "comunas"
-  add_foreign_key "usuarios", "especialista", column: "especialista_id"
   add_foreign_key "usuarios", "grados"
 end

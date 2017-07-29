@@ -14,6 +14,7 @@
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
+//= require bootstrap-select
 //= require_tree.
 $(document).ready(function () {
   var navListItems = $('div.setup-panel div a'),

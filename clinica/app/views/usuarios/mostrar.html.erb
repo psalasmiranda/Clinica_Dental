@@ -14,7 +14,8 @@
   <div class="panel-footer" align= lef:>Hora Entrada: <%= @usuario.hora_entrada.strftime('%R') %><br></div>
   <div class="panel-footer" align= left>Hora Salida: <%= @usuario.hora_salida.strftime('%R') %><br></div>
   <div class="panel-footer" align= left>Fecha registro: <%= @usuario.created_at.strftime('%x %R') %><br></div>
-
+  <div class="panel-footer" align= left>Especalidades: <% for listado in @usuario.listados %>
+    <%=@usurio.listado.especialidad%><p>, </p><%end%></div>
 </tr>
 </div>
 <%= link_to 'volver', volver_usuario_path %>
