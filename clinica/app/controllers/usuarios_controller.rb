@@ -16,6 +16,7 @@ class UsuariosController < ApplicationController
 
     def nuevo
       @usuario= Usuario.new
+      listado = @usuario.listados.build
       @grados= Grado.all
     end
 
