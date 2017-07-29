@@ -1,7 +1,11 @@
 class Usuario < ApplicationRecord
   has_secure_password validations: false
+<<<<<<< HEAD
   #belongs_to :calendario, foreign_key: :calendario_id
   #belongs_to :especialista, foreign_key: :especialista_id
+=======
+  has_many :especialista
+>>>>>>> 2a6a87c0598c9381c5328e649f615e9221d49acc
   validates :password, presence: {message: 'Llenado Obligatorio'},
                        length: {minimum: 6,
                        message: 'Tu contraseña debe contener al menos 6 caracteres'}
@@ -78,5 +82,7 @@ class Usuario < ApplicationRecord
   def name_full
     "#{nombre} #{ape_paterno}"
   end
+
+
 
 end

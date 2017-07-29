@@ -1,3 +1,5 @@
 class Especialista < ApplicationRecord
-  has_many :usuarios
+
+  belongs_to :usuario, foreign_key: :usuario_id
+  
 end

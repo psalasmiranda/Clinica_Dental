@@ -4,6 +4,9 @@ before_action { authenticate_user!("insumo_vista") }
   def index
     #@insumos= Insumo.all
     @insumos = Insumo.order("nombre").page(params[:page]).per(5)
+    if params[:search]
+    @insumos = Insumo.search(params[:search]).order("created_at DESC")
+    end
   end
 
 
