@@ -1,16 +1,11 @@
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+<script>
+$(document).on("ready",function(){
+    $('.selectpicker').selectpicker();
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
-
-<!-- (Optional) Latest compiled and minified JavaScript translation files -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script>
-<script>$(document).on("ready",funtion(){$('.selectpicker').selectpicker();})</script>
+})
+</script>
   <%= form_for(@usuario, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
-  <link href="jquery.multiselect.css" rel="stylesheet" type="text/css">
-  <script src="jquery.min.js"></script>
-  <script src="jquery.multiselect.js"></script>
+
       <div class="col-md-7 col-md-offset-2">
         <div class="form-group<%= @usuario.errors[:alias].any? ? " has-error" : "" %>">
           <%= f.label :Alias , class:'col-sm-2 control-label'%>
@@ -137,13 +132,15 @@
         <div class="form-group<%= @usuario.errors[:listado_id].any? ? " has-error" : "" %>">
         <%= f.label :Especialidades , class:'col-sm-4 control-label' %>
       <div class="col-sm-10">
+        <select class="selectpicker" multiple>
+          <option>Mustard</option>
+          <option>Ketchup</option>
+          <option>Relish</option>
+          </select>
+
         </div>
         </div>
-        <select class="selectpicker">
-        <option name="Cariologia", value="true">Cariologia</option>
-        <option>Ketchup</option>
-        <option>Relish</option>
-        </select>
+
       </div>
       </div>
         <div class="form-group text-center">
