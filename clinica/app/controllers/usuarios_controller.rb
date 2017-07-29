@@ -4,11 +4,9 @@ class UsuariosController < ApplicationController
     def index
       @usuarios= Usuario.all
       #se agrega where para que no muerte al usuario por defecto
-      #@usuarios = Usuario.where.not(alias: :root).order("cargo").page(params[:page]).per(5)
-      if params[:search]
-        @usuarios = Usuario.search(params[:search]).order("created_at DESC")
-      end
-      if params[:tipo]=='Medico'
+      @usuarios = Usuario.where.not(alias: :root).order("cargo").page(params[:page]).per(5)
+      
+      if params[:tipo]
         @usuarios = Usuario.where("tipo  LIKE ?", params[:tipo])
       end
    end
