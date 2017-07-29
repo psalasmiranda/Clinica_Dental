@@ -72,7 +72,7 @@ Rails.application.routes.draw do
   get 'insumos/', to: 'insumos#principal'
   #vista donde lista todos los insumos
   post 'insumos/Listar/', to: 'insumos#index', as: 'listar_insumo'
-  get 'insumos/Stock/', to: 'insumos#index', as: 'stock_insumo'
+
   #vista donde muestra la descripcion del insumo
   #-------------------------------------------------------------------------
   post 'insumos/Listar/:id',to:'insumos#mostrar', as: 'insumo'
