@@ -1,5 +1,14 @@
 class Usuario < ApplicationRecord
   has_secure_password validations: false
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  #belongs_to :calendario, foreign_key: :calendario_id
+  #belongs_to :especialista, foreign_key: :especialista_id
+=======
+  has_many :especialista
+>>>>>>> 2a6a87c0598c9381c5328e649f615e9221d49acc
+>>>>>>> ed1111d76ce7934286f29903dda7335d7b63cadb
   validates :password, presence: {message: 'Llenado Obligatorio'},
                        length: {minimum: 6,
                        message: 'Tu contraseña debe contener al menos 6 caracteres'}
@@ -77,8 +86,6 @@ class Usuario < ApplicationRecord
     "#{nombre} #{ape_paterno}"
   end
 
-  def self.search(search)
-  where("nombre  LIKE ?", "%#{search}%")
-  end
+
 
 end

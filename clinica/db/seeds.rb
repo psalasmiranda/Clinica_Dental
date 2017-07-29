@@ -7,7 +7,11 @@
 #   Character.create(:nombre => 'Luke', movie: movies.first)
 Grado.create(:rol => "Administradores")
 Especialista.create(:especialidad => "Odontologia general")
+<<<<<<< HEAD
 Usuario.create(:alias => "root",:nombre=>"qqq", :ape_paterno =>"qqq", :ape_materno=>"qqq", :rut=>"99999999-9",:telefono=>"954443267",:correo=>"qq@qq.cl",:cargo=>"qqq", :hora_entrada=>"01:00", :hora_salida=>"02:00", :password =>"123456" , :grado_id => 1)
+=======
+Usuario.create(:alias => "root",:nombre=>"qqq", :ape_paterno =>"qqq", :ape_materno=>"qqq", :rut=>"99999999-9",:telefono=>"954443267",:correo=>"qq@qq.cl",:cargo=>"qqq", :hora_entrada=>"01:00", :hora_salida=>"02:00",:tipo=>"Medico" ,:password =>"123456" , :grado_id => 1, :especialista_id => 1)
+>>>>>>> ed1111d76ce7934286f29903dda7335d7b63cadb
 Comuna.create(:nombre => "Santiago")
 Comuna.create(:nombre => "Cerrillos")
 Comuna.create(:nombre => "Cerro Navia")

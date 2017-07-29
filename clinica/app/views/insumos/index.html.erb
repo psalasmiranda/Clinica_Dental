@@ -5,7 +5,12 @@
   <a class="list-group-item active" >
     <font FACE= "roman" size= 12 align= center>Listado de Insumos</font>
   </a>
-
+  <br>
+  <div align= center>
+  <%= form_tag(listar_insumo_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Nombre Insumo" %>
+    <%= submit_tag "Filtrar" %></div>
+<% end %>
 <tr>
   <td align= center>Insumo</td>
   <td align= center>Stock Actual</td>
@@ -29,4 +34,3 @@
   <%end%>
 </div>
 </table>
-<%= paginate @insumos %>

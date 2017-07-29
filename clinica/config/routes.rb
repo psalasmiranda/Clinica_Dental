@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   post 'agendas/:id/registro_editar', to: 'agendas#registro_editar', as: 'editar_registro_agenda'
   put 'agendas/registro_editar/:id' ,to: 'agendas#update_registro'
   patch 'agendas/registro_editar/:id' ,to: 'agendas#update_registro'
+  #-------------------------------------------------------------------------
 
   get 'usuarios/', to: 'usuarios#principal'
   #vista donde lista todos el personal
@@ -56,8 +57,8 @@ Rails.application.routes.draw do
   post 'usuarios/Listar/:id',to:'usuarios#mostrar', as: 'usuario'
   get 'usuarios/Listar/:id',to:'usuarios#mostrar'
   #ruta para el volver de la descripcion del personal
-  get 'usuarios/Listar/', to: 'usuarios#index', as: 'volver_usuario'
-  #-------------------------------------------------------------------------
+  get 'usuarios/Listar/', to: 'usuarios#principal', as: 'volver_usuario'
+  #------------------------------------------------------------------------
   post 'usuarios/Listar/:id/Editar',to: 'usuarios#editar', as: 'editar_usuario'
   put 'usuarios/Listar/:id' ,to: 'usuarios#update'
   patch 'usuarios/Listar/:id' ,to: 'usuarios#update'
@@ -72,6 +73,7 @@ Rails.application.routes.draw do
   get 'insumos/', to: 'insumos#principal'
   #vista donde lista todos los insumos
   post 'insumos/Listar/', to: 'insumos#index', as: 'listar_insumo'
+
   #vista donde muestra la descripcion del insumo
   #-------------------------------------------------------------------------
   post 'insumos/Listar/:id',to:'insumos#mostrar', as: 'insumo'

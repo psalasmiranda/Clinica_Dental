@@ -19,7 +19,6 @@ class AgendasController < ApplicationController
 
     def registro_editar
     end
-
     def update_registro
         respond_to do |format|
           if @agenda.update(agenda_registro_params)
@@ -42,7 +41,6 @@ class AgendasController < ApplicationController
         @agenda = Agenda.create(agenda_params)
         respond_to do |format|
           if @agenda.save
-            Diente.create(:agenda_id => @agenda.id)
             format.html {redirect_to @agenda, notice: 'Fue creado con mucho exito'}
           else
             format.html {render :nuevo}
@@ -75,6 +73,14 @@ class AgendasController < ApplicationController
     end
 
     def agenda_registro_params
-      params.require(:agenda).permit(:comentario)
+      params.require(:agenda).permit(:comentario,
+      :d55, :d54, :d53, :d52, :d51, 
+      :d61, :d62, :d63, :d64, :d65,
+      :d85, :d84, :d83, :d82, :d81,
+      :d71, :d72, :d73, :d74, :d75,
+      :d18, :d17, :d16, :d15, :d14, :d13, :d12, :d11,
+      :d21, :d22, :d23, :d24, :d25, :d26, :d27, :d28,
+      :d38, :d37, :d36, :d35, :d34, :d33, :d32, :d31,
+      :d41, :d42, :d43, :d44, :d45, :d46, :d47, :d48)
     end
 end
