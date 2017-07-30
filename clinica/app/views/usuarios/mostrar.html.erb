@@ -15,17 +15,17 @@
   <div class="panel-footer" align= lef:>Hora Entrada: <%= @usuario.hora_entrada.strftime('%R') %><br></div>
   <div class="panel-footer" align= left>Hora Salida: <%= @usuario.hora_salida.strftime('%R') %><br></div>
   <div class="panel-footer" align= left>Fecha registro: <%= @usuario.created_at.strftime('%x %R') %><br></div>
-  <div class="panel-footer" align= left>Especalidades: <% if @usuario.Cariologia == "true" %>
-    <p>Cariologia, </p>%><%end%><% if @usuario.Endodoncia == "true" %>
-      <p>Endodoncia, </p><%end%><% if @usuario.Gnatologia == "true" %>
-        <p>Gnatologia, </p><%end%><% if @usuario.Implantologia_dental == "true" %>
-          <p>Implantologia_dental, </p><%end%><% if @usuario.Odontogeriatria == "true" %>
-            <p>Odontogeriatria, </p><%end%><% if @usuario.Odontologia_estetica == "true" %>
-              <p>Odontologia_estetica, </p><%end%><% if @usuario.Odontologia_forense == "true" %>
-                <p>Odontologia_forense, </p><%end%><% if @usuario.Odontologia_preventiva == "true" %>
-                  <p>Odontologia_preventiva, </p><%end%><% if @usuario.Odontologia_restauradora == "true" %>
-                    <p>Odontologia_restauradora, </p><%end%><% if @usuario.Odontopediatria == "true" %>
-                      <p>Odontopediatria, </p><%end%></div>
+  <div class="panel-footer" align= left>Especialidades: <h5><% if @usuario.Cariologia == true %>
+    Cariologia. <%end%><% if @usuario.Endodoncia == true %>
+      Endodoncia. <%end%><% if @usuario.Gnatologia == true %>
+        Gnatologia. <%end%><% if @usuario.Implantologia_dental == true %>
+          Implantologia dental. <%end%><% if @usuario.Odontogeriatria == true %>
+            Odontogeriatria. <%end%><% if @usuario.Odontologia_estetica == true %>
+              Odontologia estetica. <%end%><% if @usuario.Odontologia_forense == true %>
+                Odontologia forense. <%end%><% if @usuario.Odontologia_preventiva == true %>
+                  Odontologia preventiva. <%end%><% if @usuario.Odontologia_restauradora == true %>
+                    Odontologia restauradora. <%end%><% if @usuario.Odontopediatria == true %>
+                      Odontopediatria. <%end%><h5></div>
 </tr>
 </div>
 <%= link_to 'volver', volver_usuario_path %>
