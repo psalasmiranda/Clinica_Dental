@@ -5,7 +5,7 @@ class UsuariosController < ApplicationController
       @usuarios= Usuario.all
       #se agrega where para que no muerte al usuario por defecto
       @usuarios = Usuario.where.not(alias: :root).order("cargo").page(params[:page]).per(5)
-      
+
       if params[:tipo]
         @usuarios = Usuario.where("tipo  LIKE ?", params[:tipo])
       end
@@ -26,7 +26,7 @@ class UsuariosController < ApplicationController
         @usuario = Usuario.create(usuario_params)
         respond_to do |format|
           if @usuario.save
-            format.html {redirect_to @usuario, notice: 'Fue creado con mucho exito'}
+            format.html {redirect_to welcome_index_url, notice: 'Fue creado con mucho exito'}
           else
             format.html {render :nuevo}
           end

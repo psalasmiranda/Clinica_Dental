@@ -164,10 +164,25 @@
                 </div>
                 <div id="collapseSix" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <table class="table">
+                        <table class="table" >
                             <tr>
                                 <td>
-                                    <span class="glyphicon glyphicon-user text-warning"></span><%=link_to "Usuarios", usuarios_path%>
+                                    <span class="glyphicon glyphicon-list-alt text-primary"></span><%=link_to "Listar Especialista", listar_usuario_path(tipo: 'Medico'), method: :post %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-list-alt text-primary"></span><%=link_to "Listar Tecnico", listar_usuario_path(tipo: 'Tecnico'), method: :post %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-list-alt text-primary"></span><%=link_to "Listar Personal", listar_usuario_path(tipo: 'Otros'), method: :post %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-user text-warning"></span><%=link_to "Nuevo usuario", nuevo_usuario_path, method: :post%>
                                 </td>
                             </tr>
                             <tr>
