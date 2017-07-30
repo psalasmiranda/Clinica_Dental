@@ -7,6 +7,7 @@ before_action { authenticate_user!("insumo_vista") }
     if params[:search]
     @insumos = Insumo.search(params[:search]).order("created_at DESC")
     end
+    
   end
 
 
