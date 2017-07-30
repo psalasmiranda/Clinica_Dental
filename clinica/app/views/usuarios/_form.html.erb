@@ -1,10 +1,8 @@
 <%= stylesheet_link_tag "agenda_paso.css" %>
-<script>
-$(document).on("ready",function(){
-    $('.selectpicker').selectpicker();
-
-})
-</script>
+<%= javascript_include_tag "especialidadJQuery", "data-turbolinks-track" => true  %>
+<%# if boton == "Editar" %>
+    <%= content_tag "div", "", id: "2", data: {usuarioEditar: @usuario} %>
+<%# end %>
   <%= form_for(@usuario, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
 
 
@@ -152,23 +150,23 @@ $(document).on("ready",function(){
                <button id ="rut" class="btn btn-default nextBtn" type="button" >Agregar Especialidades</button>
              </div>
 
-             <%= f.hidden_field 'Cariologia', :value => "False" %>
-             <%= f.hidden_field 'Endodoncia', :value => "False" %>
-             <%= f.hidden_field 'Gnatologia', :value => "False" %>
-             <%= f.hidden_field 'Implantologia_dental', :value => "False" %>
-             <%= f.hidden_field 'Odontogeriatria', :value => "False" %>
-             <%= f.hidden_field 'Odontologia_estetica', :value => "False" %>
-             <%= f.hidden_field 'Odontologia_forense', :value => "False" %>
-             <%= f.hidden_field 'Odontologia_preventiva', :value => "False" %>
-             <%= f.hidden_field 'Odontologia_restauradora', :value => "False" %>
-             <%= f.hidden_field 'Odontopediatria', :value => "False" %>
-             <%= f.hidden_field 'Periodoncia', :value => "False" %>
-             <%= f.hidden_field 'Radiologo_dentomaxilofacial', :value => "False" %>
-             <%= f.hidden_field 'Patologo_bucomaxilofacial', :value => "False" %>
-             <%= f.hidden_field 'Cirujano_maxilofacial', :value => "False" %>
-             <%= f.hidden_field 'Restauracion_dental', :value => "False" %>
-             <%= f.hidden_field 'Prostodoncista', :value => "False" %>
-             <%= f.hidden_field 'Ordotencista', :value => "False" %>
+             <%= f.hidden_field 'Cariologia', :value => "false" %>
+             <%= f.hidden_field 'Endodoncia', :value => "false" %>
+             <%= f.hidden_field 'Gnatologia', :value => "false" %>
+             <%= f.hidden_field 'Implantologia_dental', :value => "false" %>
+             <%= f.hidden_field 'Odontogeriatria', :value => "false" %>
+             <%= f.hidden_field 'Odontologia_estetica', :value => "false" %>
+             <%= f.hidden_field 'Odontologia_forense', :value => "false" %>
+             <%= f.hidden_field 'Odontologia_preventiva', :value => "false" %>
+             <%= f.hidden_field 'Odontologia_restauradora', :value => "false" %>
+             <%= f.hidden_field 'Odontopediatria', :value => "false" %>
+             <%= f.hidden_field 'Periodoncia', :value => "false" %>
+             <%= f.hidden_field 'Radiologo_dentomaxilofacial', :value => "false" %>
+             <%= f.hidden_field 'Patologo_bucomaxilofacial', :value => "false" %>
+             <%= f.hidden_field 'Cirujano_maxilofacial', :value => "false" %>
+             <%= f.hidden_field 'Restauracion_dental', :value => "false" %>
+             <%= f.hidden_field 'Prostodoncista', :value => "false" %>
+             <%= f.hidden_field 'Ordotencista', :value => "false" %>
 
       </div>
     </div>
