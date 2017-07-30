@@ -29,7 +29,7 @@
           <div class="form-group<%= @agenda.errors[:paciente_id].any? ? " has-error" : "" %>">
             <%= f.label :Paciente , class:'col-sm-2 control-label'%>
           <div class="col-sm-8">
-            <%= f.collection_select :paciente_id, Paciente.all, :id, :rut , {include_blank: 'Por favor selecciona un paciente'}, {class: 'form-control'}%>
+            <%= f.collection_select :paciente_id, Paciente.all, :id, :name_full , {include_blank: 'Por favor selecciona un paciente'}, {class: 'form-control'}%>
             <span class="help-inline">
              <%= @agenda.errors[:paciente_id].any? ? @agenda.errors[:paciente_id].to_s[/\w([^"]*)/] : "" %></span>
           </div>
@@ -53,7 +53,7 @@
           <div class="form-group<%= @agenda.errors[:tratamiento_id].any? ? " has-error" : "" %>">
             <%= f.label "Tratamiento" , class:'col-sm-2 control-label'%>
           <div class="col-sm-8">
-            <%= f.collection_select :tratamiento_id, Tratamiento.all, :id, :nombre, {include_blank: 'Por favor selecciona un tratamiento'}, {class: 'form-control'}%>
+            <%= f.collection_select :tratamiento_id, Tratamiento.all, :id, :name_full, {include_blank: 'Por favor selecciona un tratamiento'}, {class: 'form-control'}%>
             <span class="help-inline">
              <%= @agenda.errors[:tratamiento_id].any? ? @agenda.errors[:tratamiento_id].to_s[/\w([^"]*)/] : "" %></span>
           </div>

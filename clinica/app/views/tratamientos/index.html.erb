@@ -6,13 +6,14 @@
 
 <tr>
   <td align= center>Nombre Tratamiento </td>
-
+  <td align= center>Previson</td>
 
 </tr>
 
     <% @tratamientos.each do |a| %>
         <tr>
           <td align= center><%= a.nombre%></td>
+          <td align= center><%= a.prevision%></td>
           <td><%= button_to 'Mostrar' , tratamiento_url(a), :class => "btn btn-primary" %></td>
           <td> <%= button_to 'Editar', editar_tratamiento_url(a), :class => "btn btn-primary" %></td>
           <td><%= button_to a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} do %>

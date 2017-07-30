@@ -66,7 +66,9 @@ class Paciente < ApplicationRecord
       end
     end
   end
-
+  def name_full
+    "#{rut} #{nombre} #{paterno}"
+  end
 
 
 end

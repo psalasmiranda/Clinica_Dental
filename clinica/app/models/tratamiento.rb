@@ -14,5 +14,8 @@ class Tratamiento < ApplicationRecord
   validates :costo, numericality: {only_integer: true, message: "Solo valores enteros"},length: {minimun:1, maximum:8, message: "El precio debe ser de 1 a 8 digitos"}
   validates :costo, numericality: {:greater_than_or_equal_to =>0, message: "No se aceptan valores negativos"}
 
+  def name_full
+    "#{nombre} #{prevision}"
+  end
 
 end

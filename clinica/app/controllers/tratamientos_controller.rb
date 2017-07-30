@@ -53,7 +53,7 @@ class TratamientosController < ApplicationController
     end
 
     def tratamiento_params
-      params.require(:tratamiento).permit(:nombre, :descripcion,:costo)
+      params.require(:tratamiento).permit(:nombre, :descripcion,:costo, :prevision)
     end
 
 end
