@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180620043049) do
+ActiveRecord::Schema.define(version: 20180620043050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,16 @@ ActiveRecord::Schema.define(version: 20180620043049) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "has_insumos", force: :cascade do |t|
+    t.integer "cantidad"
+    t.bigint "agenda_id"
+    t.bigint "insumo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["agenda_id"], name: "index_has_insumos_on_agenda_id"
+    t.index ["insumo_id"], name: "index_has_insumos_on_insumo_id"
+  end
+
   create_table "historia", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -216,6 +226,8 @@ ActiveRecord::Schema.define(version: 20180620043049) do
   add_foreign_key "agendas", "tratamientos"
   add_foreign_key "agendas", "usuarios"
   add_foreign_key "agentes", "comunas"
+  add_foreign_key "has_insumos", "agendas"
+  add_foreign_key "has_insumos", "insumos"
   add_foreign_key "historia", "pacientes"
   add_foreign_key "historia", "tratamientos"
   add_foreign_key "insumos", "agentes"

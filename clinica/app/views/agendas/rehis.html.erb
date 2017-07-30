@@ -1,0 +1,27 @@
+<div class="list-group" >
+  <a class="list-group-item active" >
+    <font FACE= "roman" size= 12 align= center>Historial</font>
+  </a>
+</div>
+
+<table class="table Active">
+  <tr>
+    <td align= center>Fecha</td>
+    <td align= center>Doctor</td>
+    <td align= center>Tratamiento</td>
+    <td align= center>Descripción</td>
+    <td align= center>Nombre</td>
+  </tr>
+    <% @horas.each do |a| %>
+        <tr>
+          <td align= center><%= a.fecha %></td>
+          <td align= center><%= a.usuario.nombre << " " <<  a.usuario.ape_paterno%></td>
+          <td align= center><%= a.tratamiento.nombre %></td>
+          <td align= center><%= a.comentario %></td>
+          <td align= center><%= a.paciente.nombre << " " <<  a.paciente.paterno%></td>
+
+
+        </tr>
+  <% end %>
+</table>
+<%= link_to 'volver', volver_age_path %>
