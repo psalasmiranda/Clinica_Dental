@@ -47,7 +47,12 @@ Rails.application.routes.draw do
   post 'agendas/:id/registro_editar', to: 'agendas#registro_editar', as: 'editar_registro_agenda'
   put 'agendas/registro_editar/:id' ,to: 'agendas#update_registro'
   patch 'agendas/registro_editar/:id' ,to: 'agendas#update_registro'
+  get 'agendas/registro_insumos' ,to: 'agendas#registro_insumos', as: 'editar_registro_insumos'
+  post 'agendas/registro_insumos' ,to: 'agendas#registro_insumos', as: 'cceditar_registro_insumos'
+  put 'agendas/registro_insumos/:id' ,to: 'agendas#update_registro_insumos'
+  patch 'agendas/registro_insumos/:id' ,to: 'agendas#update_registro_insumos'
   #-------------------------------------------------------------------------
+
 
   get 'usuarios/', to: 'usuarios#principal'
   #vista donde lista todos el personal
