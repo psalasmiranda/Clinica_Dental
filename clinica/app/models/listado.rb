@@ -1,2 +1,0 @@
-class Listado < ApplicationRecord
-end
