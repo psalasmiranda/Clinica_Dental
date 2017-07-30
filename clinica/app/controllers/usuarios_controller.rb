@@ -43,7 +43,7 @@ class UsuariosController < ApplicationController
       begin
           respond_to do |format|
           @usuario.destroy
-          format.html {redirect_to usuarios_url, notice: 'fue eliminado'}
+          format.html {redirect_to welcome_index_url, notice: 'fue eliminado'}
         end
       rescue
           respond_to do |format|

@@ -28,11 +28,17 @@ class AgendasController < ApplicationController
           end
         end
     end
+<<<<<<< HEAD
 
     def update_registro_insumos
         raise params.to_yaml
     end
 
+=======
+    def rehis
+      @horas= Agenda.where(paciente_id: params[:id])
+    end
+>>>>>>> 427564dbd6b1aff910e17812fc78d3114ca70cb6
     def nuevo
       @horas= Hora.all   #where(alias: :root)
       @agenda= Agenda.new

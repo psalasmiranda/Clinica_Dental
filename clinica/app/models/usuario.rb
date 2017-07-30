@@ -2,10 +2,10 @@ class Usuario < ApplicationRecord
   has_secure_password validations: false
   validates :password, presence: {message: 'Llenado Obligatorio'},
                        length: {minimum: 6,
-                       message: 'Tu contraseña debe contener al menos 6 caracteres'}
-  validates_confirmation_of :password, allow_blank: true, message: 'Contraseñas no coinciden'
+                       message: 'Tu contraseña debe contener al menos 6 caracteres'}, on: :crear
+  validates_confirmation_of :password, allow_blank: true, message: 'Contraseñas no coinciden', on: :crear
 
-  has_many :listados
+  #has_many :listados
   has_many :agendas, dependent: :restrict_with_exception #, dependent: :nullify destroy
   belongs_to :grado, foreign_key: :grado_id
 
@@ -46,7 +46,7 @@ class Usuario < ApplicationRecord
   validates :cargo, length: {minimum: 3, maximum: 20, :message => "El cargo debe tener entre 3 y 20 caracteres"}
 
 
-  validates :password, presence: {:message => "Llenado Obligatorio"}
+  validates :password, presence: {:message => "Llenado Obligatorio"}, on: :crear
 
   validates :hora_entrada, presence: {:message => "Llenado Obligatorio"}
   validates :hora_salida, presence: {:message => "Llenado Obligatorio"}

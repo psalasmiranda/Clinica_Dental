@@ -52,6 +52,9 @@ Rails.application.routes.draw do
   put 'agendas/registro_insumos/:id' ,to: 'agendas#update_registro_insumos'
   patch 'agendas/registro_insumos/:id' ,to: 'agendas#update_registro_insumos'
   #-------------------------------------------------------------------------
+  post 'agendas/:id/registro_editar/:id', to:'agendas#rehis', as: 'hist_usuario'
+  get 'agendas/registrpo/', to: 'agendas#registro', as: 'volver_age'
+
 
 
   get 'usuarios/', to: 'usuarios#principal'
