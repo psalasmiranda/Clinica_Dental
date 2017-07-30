@@ -15,8 +15,17 @@
   <div class="panel-footer" align= lef:>Hora Entrada: <%= @usuario.hora_entrada.strftime('%R') %><br></div>
   <div class="panel-footer" align= left>Hora Salida: <%= @usuario.hora_salida.strftime('%R') %><br></div>
   <div class="panel-footer" align= left>Fecha registro: <%= @usuario.created_at.strftime('%x %R') %><br></div>
-  <div class="panel-footer" align= left>Especalidades: <% for listado in @usuario.listados %>
-    <%=@usurio.listado.especialidad%><p>, </p><%end%></div>
+  <div class="panel-footer" align= left>Especalidades: <% if @usuario.Cariologia == "true" %>
+    <p>Cariologia, </p>%><%end%><% if @usuario.Endodoncia == "true" %>
+      <p>Endodoncia, </p><%end%><% if @usuario.Gnatologia == "true" %>
+        <p>Gnatologia, </p><%end%><% if @usuario.Implantologia_dental == "true" %>
+          <p>Implantologia_dental, </p><%end%><% if @usuario.Odontogeriatria == "true" %>
+            <p>Odontogeriatria, </p><%end%><% if @usuario.Odontologia_estetica == "true" %>
+              <p>Odontologia_estetica, </p><%end%><% if @usuario.Odontologia_forense == "true" %>
+                <p>Odontologia_forense, </p><%end%><% if @usuario.Odontologia_preventiva == "true" %>
+                  <p>Odontologia_preventiva, </p><%end%><% if @usuario.Odontologia_restauradora == "true" %>
+                    <p>Odontologia_restauradora, </p><%end%><% if @usuario.Odontopediatria == "true" %>
+                      <p>Odontopediatria, </p><%end%></div>
 </tr>
 </div>
 <%= link_to 'volver', volver_usuario_path %>

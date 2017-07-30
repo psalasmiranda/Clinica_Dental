@@ -4,6 +4,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.dual-list .list-group {
+    margin-top: 8px;
+}
+
+.list-left li, .list-right li {
+    cursor: pointer;
+}
+
+.list-arrows {
+    padding-top: 100px;
+}
+
+.list-arrows button {
+        margin-bottom: 20px;
+}
+
 .diente{
   text-align: center
 }
@@ -34,11 +50,11 @@ nav.navbar{
 .navbar .nav li a:hover{
   color: white;
 }*/
-//color de principal
-.well {
+//color de principal ya nose usa creo :P
+/*.well {
   background-color:#36667F;
   color: white;
-}
+}*/
 //cambiar tamaño de imagenes de banner de inicio
 .item {
       display: block;
