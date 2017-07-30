@@ -24,7 +24,7 @@ class UsuariosController < ApplicationController
         @usuario = Usuario.create(usuario_params)
         respond_to do |format|
           if @usuario.save
-            format.html {redirect_to @usuario, notice: 'Fue creado con mucho exito'}
+            format.html {redirect_to welcome_index_url, notice: 'Fue creado con mucho exito'}
           else
             format.html {render :nuevo}
           end
