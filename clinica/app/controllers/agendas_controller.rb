@@ -33,9 +33,6 @@ class AgendasController < ApplicationController
         raise params.to_yaml
     end
 
-    def rehis
-      @horas= Agenda.where(paciente_id: params[:id])
-    end
     def nuevo
       @horas= Hora.all   #where(alias: :root)
       @agenda= Agenda.new
