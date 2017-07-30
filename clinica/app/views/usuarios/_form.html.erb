@@ -21,7 +21,7 @@
     <div class="row setup-content" id="step-1">
       <div class="col-md-7 col-md-offset-2">
         <div class="col-md-12">
-          <h3 align=center>Datos del paciente</h3>
+          <h3 align=center>Datos del usuario</h3>
 
 
             <div class="form-group<%= @usuario.errors[:alias].any? ? " has-error" : "" %>">
@@ -174,7 +174,7 @@
     <div class="row setup-content" id="step-2">
       <div class="col-xs-6 col-md-offset-1">
         <div class="col-md-12">
-          <h3 align=center>Datos del paciente</h3>
+          <h3 align=center>Especialidades</h3>
           <%= render "especialidades" %>
 
           <button id ="rut" class="btn btn-default nextBtn btn-lg pull-right" type="button" >Volver</button>
