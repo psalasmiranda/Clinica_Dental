@@ -7,7 +7,8 @@
 <tr>
   <td align= center>Nombre Tratamiento </td>
   <td align= center>Previson</td>
-
+  <td align= center>Costo</td>
+  <td align= center>Descripcion</td>
 </tr>
  <div align= center>
    <%= form_tag(listar_tratamiento_path, :method => "get", id: "search-form") do %>
@@ -19,7 +20,8 @@
         <tr>
           <td align= center><%= a.nombre%></td>
           <td align= center><%= a.prevision%></td>
-          <td><%= button_to 'Mostrar' , tratamiento_url(a), :class => "btn btn-primary" %></td>
+          <td align= center><%= a.costo%></td>
+          <td align= center><%= a.descripcion%></td>
           <td> <%= button_to 'Editar', editar_tratamiento_url(a), :class => "btn btn-primary" %></td>
           <td><%= button_to a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} do %>
                 <span class="glyphicon glyphicon-trash"></span>
