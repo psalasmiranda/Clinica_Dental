@@ -50,10 +50,14 @@ class GastadosController < ApplicationController
     end
 
     def eliminar
+      @insumo = Insumo.find(@gastado.insumo_id)
+      stock = @insumo.cantidad + @gastado.cantidad
+      if Insumo.update(@gastado.insumo_id, :cantidad => stock)
         @gastado.destroy
         respond_to do |format|
           format.html {redirect_to volver_editar_registro_url(@gastado.agenda_id), notice: 'fue eliminado'}
         end
+      end
     end
 
     private
