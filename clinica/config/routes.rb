@@ -53,20 +53,14 @@ Rails.application.routes.draw do
   post 'agendas/:id/registro_insumos' ,to: 'agendas#registro_insumos', as: 'editar_registro_insumos'
   put 'agendas/registro_insumos/:id' ,to: 'agendas#update_registro_insumos'
   patch 'agendas/registro_insumos/:id' ,to: 'agendas#update_registro_insumos'
-<<<<<<< HEAD
   #-------------------------------------------------------------------------para historial joha
   post 'agendas/:id/registro_editar/:id', to:'agendas#rehis', as: 'hist_usuario'
   get 'agendas/registro/', to: 'agendas#registro', as: 'volver_age'
   #-------------------------------------------------------------------------
-=======
 
   #-------------------------------------------------------------------------para historial joha
   post 'agendas/:id/registro_editar/:id', to:'agendas#rehis', as: 'hist_usuario'
   get 'agendas/registro/', to: 'agendas#registro', as: 'volver_age'
-
-
-
->>>>>>> 5f48d8762a0ac0ca24bd14914fe63db6afb8b1e3
 
   get 'usuarios/', to: 'usuarios#principal'
   #vista donde lista todos el personal
