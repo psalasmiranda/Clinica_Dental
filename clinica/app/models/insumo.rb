@@ -1,5 +1,5 @@
 class Insumo < ApplicationRecord
-
+  has_many :gastados
   belongs_to :agente, foreign_key: :agente_id
   validates :nombre, presence: {:message => "Llenado Obligatorio"}
   validates :nombre, length: {minimum: 3, maximum: 20, :message => "El nombre debe tener entre 3 y 20 caracteres"}

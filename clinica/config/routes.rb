@@ -43,17 +43,19 @@ Rails.application.routes.draw do
   delete 'agendas/Listar/:id',to:'agendas#eliminar'
   #Para el registro en la agenda
   get 'agendas/registro', to: 'agendas#registro', as: 'registro_agenda'
-  #-------------------------------------------------------------------------
+  #-------------------------------------------------------------------------para registro historial
+
   post 'agendas/:id/registro_editar', to: 'agendas#registro_editar', as: 'editar_registro_agenda'
   put 'agendas/registro_editar/:id' ,to: 'agendas#update_registro'
   patch 'agendas/registro_editar/:id' ,to: 'agendas#update_registro'
-  get 'agendas/registro_insumos' ,to: 'agendas#registro_insumos', as: 'editar_registro_insumos'
-  post 'agendas/registro_insumos' ,to: 'agendas#registro_insumos', as: 'cceditar_registro_insumos'
+  #-------------------------------------------------------------------------para insumo
+  get 'agendas/:id/registro_insumos', to: 'agendas#registro_insumos', as: 'volver_editar_registro'
+  post 'agendas/:id/registro_insumos' ,to: 'agendas#registro_insumos', as: 'editar_registro_insumos'
   put 'agendas/registro_insumos/:id' ,to: 'agendas#update_registro_insumos'
   patch 'agendas/registro_insumos/:id' ,to: 'agendas#update_registro_insumos'
-  #-------------------------------------------------------------------------
+  #-------------------------------------------------------------------------para historial joha
   post 'agendas/:id/registro_editar/:id', to:'agendas#rehis', as: 'hist_usuario'
-  get 'agendas/registrpo/', to: 'agendas#registro', as: 'volver_age'
+  get 'agendas/registro/', to: 'agendas#registro', as: 'volver_age'
 
 
 
@@ -162,4 +164,25 @@ Rails.application.routes.draw do
   post 'grados', to: 'grados#crear'
   #------------------------------------------------------------------------
   delete 'grados/Listar/:id',to:'grados#eliminar'
+
+  get 'gastados/', to: 'gastados#principal'
+  #vista donde lista todos los insumos
+  post 'gastados/Listar/', to: 'gastados#index', as: 'listar_gastado'
+
+  #vista donde muestra la descripcion de lo gastado
+  #-------------------------------------------------------------------------
+  post 'gastados/Listar/:id',to:'gastados#mostrar', as: 'gastado'
+  get 'gastados/Listar/:id',to:'gastados#mostrar'
+  #ruta para el volver de la descripcion del insumo
+  get 'gastados/Listar/', to: 'gastados#index', as: 'volver_gastado'
+  #-------------------------------------------------------------------------n
+  post 'gastados/Listar/:id/Editar',to: 'gastados#editar', as: 'editar_gastado'
+  put 'gastados/Listar/:id' ,to: 'gastados#update'
+  patch 'gastados/Listar/:id' ,to: 'gastados#update'
+  #------------------------------------------------------n
+  post 'gastados/Nuevo', to: 'gastados#nuevo', as: 'nuevo_gastado'
+  post 'gastados', to: 'gastados#crear'
+  #------------------------------------------------------------------------
+  delete 'gastados/Listar/:id',to:'gastados#eliminar'
+
 end

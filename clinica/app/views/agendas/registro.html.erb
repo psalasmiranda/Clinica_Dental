@@ -25,6 +25,9 @@
           <td class="search"><%= button_to  editar_registro_agenda_url(a), :class => "btn btn-primary" do %>
                 <span class="glyphicon glyphicon-pencil"> Registrar</span>
             <% end %></td>
+            <td class="search"><%= button_to  editar_registro_insumos_url(a), :class => "btn btn-primary" do %>
+                  <span class="glyphicon glyphicon-inbox"> Insumos</span>
+              <% end %></td>
           <td class="search"><%= button_to  a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} do %>
                 <span class="glyphicon glyphicon-trash"></span>
             <% end %></td>

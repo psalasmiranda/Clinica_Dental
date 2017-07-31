@@ -108,6 +108,14 @@ ActiveRecord::Schema.define(version: 20180620043050) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "gastados", force: :cascade do |t|
+    t.integer "cantidad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "agenda_id"
+    t.integer "insumo_id"
+  end
+
   create_table "grados", force: :cascade do |t|
     t.string "rol"
     t.boolean "agenda_vista"
@@ -226,6 +234,8 @@ ActiveRecord::Schema.define(version: 20180620043050) do
   add_foreign_key "agendas", "tratamientos"
   add_foreign_key "agendas", "usuarios"
   add_foreign_key "agentes", "comunas"
+  add_foreign_key "gastados", "agendas"
+  add_foreign_key "gastados", "insumos"
   add_foreign_key "has_insumos", "agendas"
   add_foreign_key "has_insumos", "insumos"
   add_foreign_key "historia", "pacientes"

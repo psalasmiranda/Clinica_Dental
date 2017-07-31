@@ -1,5 +1,5 @@
 class AgendasController < ApplicationController
-  before_action :set_agenda, only: [ :mostrar, :editar, :update, :eliminar, :registro_editar, :update_registro]
+  before_action :set_agenda, only: [ :mostrar, :editar, :update, :eliminar,:registro_insumos, :update_registro_insumos , :registro_editar, :update_registro]
   before_action except: [:registro, :registro_editar, :update_registro] do
     authenticate_user!("agenda_vista")
   end
@@ -28,28 +28,24 @@ class AgendasController < ApplicationController
           end
         end
     end
-<<<<<<< HEAD
 
     def update_registro_insumos
-        raise params.to_yaml
+      @agenda.insumos = params[:insumos]
+      respond_to do |format|
+        format.html {redirect_to registro_agenda_url}
+      end
     end
 
-=======
-    def rehis
-      @horas= Agenda.where(paciente_id: params[:id])
+    def registro_insumos
+      @gastados = Gastado.all
     end
->>>>>>> 427564dbd6b1aff910e17812fc78d3114ca70cb6
+
     def nuevo
       @horas= Hora.all   #where(alias: :root)
       @agenda= Agenda.new
     end
 
     def editar
-    end
-
-    def registro_insumos
-      @agendas = Agenda.all
-      @insumos = Insumo.all
     end
 
     def crear
@@ -85,7 +81,7 @@ class AgendasController < ApplicationController
     end
 
     def agenda_params
-      params.require(:agenda).permit(:fecha, :usuario_id, :hora_id, :tratamiento_id, :paciente_id)
+      params.require(:agenda).permit(:fecha, :usuario_id, :hora_id, :tratamiento_id, :paciente_id, :insumos)
     end
 
     def agenda_registro_params
@@ -99,4 +95,5 @@ class AgendasController < ApplicationController
       :d38, :d37, :d36, :d35, :d34, :d33, :d32, :d31,
       :d41, :d42, :d43, :d44, :d45, :d46, :d47, :d48)
     end
+
 end

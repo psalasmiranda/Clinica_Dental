@@ -1,0 +1,31 @@
+<%= form_for(@gastado, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
+      <div class="col-md-8 col-md-offset-2">
+
+        <div class="form-group<%= @gastado.errors[:insumoid].any? ? " has-error" : "" %>">
+          <%= f.label "Insumo" , class:'col-sm-2 control-label'%>
+        <div class="col-sm-10">
+          <%= f.collection_select :insumo_id, Insumo.all, :id, :nombre, {include_blank: 'Por favor selecciona un proveedor'}, {class: 'form-control'} %>
+          <span class="help-inline">
+           <%= @gastado.errors[:insumoid].any? ? @gastado.errors[:insumoid].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+        </div>
+
+        <div class="form-group<%= @gastado.errors[:cantidad].any? ? " has-error" : "" %>">
+          <%= f.label :cantidad , class:'col-sm-2 control-label'%>
+        <div class="col-sm-3">
+          <%= f.number_field 'cantidad', {class:'form-control', min: 0} %>
+          <span class="help-inline">
+           <%= @gastado.errors[:cantidad].any? ? @gastado.errors[:cantidad].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+        </div>
+        <%= f.hidden_field 'agenda_id', :value => @variabe %>
+        <div class="form-group text-center">
+        <% if @gastado.errors.any? %>
+            <%= pluralize(@gastado.errors.count, "error") %>
+        <% end %>
+      </div>
+        <div class="col-sm-2 col-sm-offset-5">
+          <%= f.submit boton, class:'btn btn-primary'%>
+        </div>
+        </div>
+  <% end %>
