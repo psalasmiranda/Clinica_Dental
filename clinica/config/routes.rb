@@ -57,11 +57,6 @@ Rails.application.routes.draw do
   post 'agendas/:id/registro_editar/:id', to:'agendas#rehis', as: 'hist_usuario'
   get 'agendas/registro/', to: 'agendas#registro', as: 'volver_age'
   #-------------------------------------------------------------------------
-
-  #-------------------------------------------------------------------------para historial joha
-  post 'agendas/:id/registro_editar/:id', to:'agendas#rehis', as: 'hist_usuario'
-  get 'agendas/registro/', to: 'agendas#registro', as: 'volver_age'
-
   get 'usuarios/', to: 'usuarios#principal'
   #vista donde lista todos el personal
   post 'usuarios/Listar/', to: 'usuarios#index', as: 'listar_usuario'
