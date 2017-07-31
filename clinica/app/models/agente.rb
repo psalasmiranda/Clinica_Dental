@@ -13,7 +13,10 @@ class Agente < ApplicationRecord
   validates :telefono, length: {is: 9, message: "EL telefono debe tener 9 digitos"}
   validate :telefono_validacion
 
-
+  def self.search(search)
+  # Title is for the above case, the OP incorrectly had 'name'
+  where("nombre LIKE ?", "%#{search}%")
+  end
   validates :correo, presence: {:message => "Llenado Obligatorio"}
   validates :correo, format: {with: /[0-9A-Za-z^\#]+@.+\..+/i}, uniqueness: {case_sensitive: false}
   validates :correo, email: true

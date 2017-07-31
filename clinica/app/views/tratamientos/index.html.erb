@@ -1,12 +1,12 @@
-
-<div align= center>
+<br>
+<div align= right>
 
   <%= form_tag(listar_tratamiento_path, :method => "get", id: "search-form") do %>
   <%= text_field_tag :search, params[:search], placeholder: "Nombre Tratamiento" %>
    <%= submit_tag "Buscar", name: nil, class: "btn btn-primary btn-md" %>
 
   <% end %>
-</div>
+</div><br>
 <table class="table">
 <div class="list-group" >
   <a class="list-group-item active" >
@@ -15,7 +15,7 @@
 
 <tr>
   <td align= center>Nombre Tratamiento </td>
-  <td align= center>Prevision</td>
+  <td align= center>Previson</td>
 
 </tr>
 

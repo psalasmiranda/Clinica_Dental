@@ -1,12 +1,12 @@
-
-<div align= center>
+<br>
+<div align= right>
 
   <%= form_tag(listar_insumo_path, :method => "get", id: "search-form") do %>
   <%= text_field_tag :search, params[:search], placeholder: "Nombre Insumo" %>
    <%= submit_tag "Buscar", name: nil, class: "btn btn-primary btn-md" %>
 
   <% end %>
-</div>
+</div><br>
 
 <table class="table">
 <div class="list-group" >

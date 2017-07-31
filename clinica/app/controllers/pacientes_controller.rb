@@ -4,6 +4,9 @@ class PacientesController < ApplicationController
     def index
       #@pacientes= Paciente.all
       @pacientes = Paciente.order("nombre").page(params[:page]).per(5)
+      if params[:search]
+      @pacientes = Paciente.search(params[:search]).order("created_at DESC").page(params[:page]).per(3)
+      end
     end
 
     def mostrar
