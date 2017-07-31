@@ -4,6 +4,9 @@ class TratamientosController < ApplicationController
     def index
       #@tratamientos= Tratamiento.all
       @tratamientos = Tratamiento.order("nombre").page(params[:page]).per(5)
+      if params[:search]
+      @tratamientos = Tratamiento.search(params[:search]).order("created_at DESC")
+      end
     end
 
     def mostrar

@@ -18,4 +18,8 @@ class Tratamiento < ApplicationRecord
     "#{nombre} #{prevision}"
   end
 
+  def self.search(search)
+  # Title is for the above case, the OP incorrectly had 'name'
+  where("nombre LIKE ?", "%#{search}%")
+  end
 end

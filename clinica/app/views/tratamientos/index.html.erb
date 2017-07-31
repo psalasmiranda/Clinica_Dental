@@ -9,7 +9,12 @@
   <td align= center>Previson</td>
 
 </tr>
-
+ <div align= center>
+   <%= form_tag(listar_tratamiento_path, :method => "get", id: "search-form") do %>
+   <%= text_field_tag :search, params[:search], placeholder: "Nombre Tratamiento" %>
+   <%= submit_tag "Buscar" %>
+   <% end %>
+ </div>
     <% @tratamientos.each do |a| %>
         <tr>
           <td align= center><%= a.nombre%></td>
@@ -24,4 +29,3 @@
   <% end %>
   </tbody>
 </table>
-<%= paginate @tratamientos %>
