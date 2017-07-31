@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180620043050) do
+ActiveRecord::Schema.define(version: 20180620043049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,18 +90,13 @@ ActiveRecord::Schema.define(version: 20180620043050) do
     t.integer "comuna_id"
   end
 
-  create_table "areas", force: :cascade do |t|
-    t.string "especialidad"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "comunas", force: :cascade do |t|
     t.string "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "especialista", force: :cascade do |t|
     t.string "especialidad"
     t.datetime "created_at", null: false
@@ -116,6 +111,8 @@ ActiveRecord::Schema.define(version: 20180620043050) do
     t.integer "insumo_id"
   end
 
+=======
+>>>>>>> 8576447084009a771920238cdd593107f70b2112
   create_table "grados", force: :cascade do |t|
     t.string "rol"
     t.boolean "agenda_vista"
@@ -127,23 +124,6 @@ ActiveRecord::Schema.define(version: 20180620043050) do
     t.boolean "grado_vista"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "has_insumos", force: :cascade do |t|
-    t.integer "cantidad"
-    t.bigint "agenda_id"
-    t.bigint "insumo_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["agenda_id"], name: "index_has_insumos_on_agenda_id"
-    t.index ["insumo_id"], name: "index_has_insumos_on_insumo_id"
-  end
-
-  create_table "historia", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "paciente_id"
-    t.integer "tratamiento_id"
   end
 
   create_table "horas", force: :cascade do |t|
@@ -161,13 +141,6 @@ ActiveRecord::Schema.define(version: 20180620043050) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "agente_id"
-  end
-
-  create_table "listados", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "area_id"
-    t.integer "usuario_id"
   end
 
   create_table "pacientes", force: :cascade do |t|
@@ -188,6 +161,7 @@ ActiveRecord::Schema.define(version: 20180620043050) do
   create_table "tratamientos", force: :cascade do |t|
     t.string "nombre"
     t.text "descripcion"
+    t.string "prevision"
     t.integer "costo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -234,15 +208,16 @@ ActiveRecord::Schema.define(version: 20180620043050) do
   add_foreign_key "agendas", "tratamientos"
   add_foreign_key "agendas", "usuarios"
   add_foreign_key "agentes", "comunas"
+<<<<<<< HEAD
   add_foreign_key "gastados", "agendas"
   add_foreign_key "gastados", "insumos"
   add_foreign_key "has_insumos", "agendas"
   add_foreign_key "has_insumos", "insumos"
   add_foreign_key "historia", "pacientes"
   add_foreign_key "historia", "tratamientos"
+=======
+>>>>>>> 8576447084009a771920238cdd593107f70b2112
   add_foreign_key "insumos", "agentes"
-  add_foreign_key "listados", "areas"
-  add_foreign_key "listados", "usuarios"
   add_foreign_key "pacientes", "comunas"
   add_foreign_key "usuarios", "grados"
 end

@@ -36,10 +36,13 @@ class AgendasController < ApplicationController
       end
     end
 
+<<<<<<< HEAD
     def registro_insumos
       @gastados = Gastado.all
     end
 
+=======
+>>>>>>> 8576447084009a771920238cdd593107f70b2112
     def nuevo
       @horas= Hora.all   #where(alias: :root)
       @agenda= Agenda.new

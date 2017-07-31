@@ -5,7 +5,7 @@ class UsuariosController < ApplicationController
       @usuarios= Usuario.all
       #se agrega where para que no muerte al usuario por defecto
       @usuarios = Usuario.where.not(alias: :root).order("cargo").page(params[:page]).per(5)
-
+      
       if params[:tipo]
         @usuarios = Usuario.where("tipo  LIKE ?", params[:tipo])
       end

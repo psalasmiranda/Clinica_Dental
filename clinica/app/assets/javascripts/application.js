@@ -58,5 +58,10 @@ $(document).ready(function () {
           nextStepWizard.removeAttr('disabled').trigger('click');
   });
 
+  $('.backButton').click(function (e) {
+      var navListItem1 = $('div.setup-panel div a.uno');
+      navListItem1.trigger("click");
+  });
+
   $('div.setup-panel div a.btn-primary').trigger('click');
 });

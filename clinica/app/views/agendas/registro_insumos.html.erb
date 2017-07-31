@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="list-group" >
   <a class="list-group-item active" >
     <font FACE= "roman" size= 12 align= center>Insumos registrados</font>
@@ -24,3 +25,97 @@
   <%end%>
 </div>
 </table>
+=======
+HOLA
+
+agenda
+  fecha
+  hora
+
+agenda tiene muchos insumos
+
+insumo
+  nombre
+  cantidad
+
+insumo pertenece a muchas agendas
+
+HasInsumo
+  agenda
+  insumo
+
+
+***Relacionar las agendas con los insumo
+<%#= form_for(@agenda, :url => {:action => 'update_registro_insumos'}, :html => {:role => 'form', class:'form-horizontal form1'}) do |f| %>
+<#div class="field">
+  <%#= f.collection_select :agenda, :id, Agenda.all, :id, :fecha, {include_blank: 'Por favor selecciona una agenda'}, {class: 'form-control'}%>
+<#/div>
+<#div class="field">
+<label>Insumos </label>
+ <%# @insumos.each do |a| %>
+ <#div class="field">
+   <%#= check_box_tag "insumos[]", a.id%> <%#= a.nombre%>
+ <#/div>
+ <%#end%>
+ <%#= f.button_to "Aceptar"%>
+<#/div>
+<%# end %>
+<div class="page-header">
+  <div class="span10">
+    <h1>Lista Insumos</h1>
+    <div class="contextual">
+      <%= link_to(Agregar(), class: "btn btn-success") do %>
+        Agregar Insumo <i class="icon-plus icon-white"></i>
+      <% end %>
+    </div>
+  </div>
+
+<table class="table table-striped table-bordered table-condensed">
+<thead>
+  <tr>
+    <th></th>
+    <th colspan="1">Full Name</th>
+    <th colspan="1">DOB</th>
+    <th colspan="1">Sex</th>
+    <th colspan="1">Address</th>
+    <th>Act0ions</th>
+  </tr>
+</thead>
+<tbody
+  <tr>
+  <% unless @agendas.empty? %>
+    <% @agendas.each do |person| %>
+      <td><%= person.id %></td>
+      <td><%#= link_to person.nombre, person %></td>
+      <td>
+        <%# person.addresses.each do |f| %>
+          <%#= f.full_address %>
+        <%# end %>
+      </td>
+      <td><%#= link_to 'Edit', edit_person_path(person) %>
+        <%#= link_to(edit_person_path(person), class: "btn btn-small") do %>
+          Edit <i class="icon-edit icon-white"></i>
+        <%# end %>
+
+        <!-- This currently works but smells -->
+        <%#= link_to(person, class: "btn btn-small btn-danger", confirm: t_deletion_confirm(person, person.full_name), method: :delete, :title => t('EHM-G.destroy')) do %>
+          Destroy <i class="icon-trash icon-white"></i>
+        <%# end %>
+      </td>
+    <% end %>
+  <tr>
+  <% else %>
+    <td>Move along nothing to see here<td>
+  <% end %>
+</tr>
+</tbody>
+</table>
+
+<br />
+
+<%#= link_to 'New Person', new_person_path %>
+<%#= link_to(new_person_path, class: "btn btn-success") do %>
+  New Person <i class="icon-plus icon-white"></i>
+<%# end %>
+</div>
+>>>>>>> 8576447084009a771920238cdd593107f70b2112

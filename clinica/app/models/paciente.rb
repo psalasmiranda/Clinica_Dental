@@ -15,7 +15,10 @@ class Paciente < ApplicationRecord
   validates :materna, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
   validates :materna, length: {minimum: 3, maximum: 15, :message => "El apellido materno debe tener entre 3 y 15 caracteres"}
 
-
+  def self.search(search)
+  # Title is for the above case, the OP incorrectly had 'name'
+  where("rut LIKE ?", "%#{search}%")
+  end
   validates :paterno, presence: {:message => "LLenado Obligatorio"}
   validates :paterno, format:{with: /\A[a-zA-Z]+\z/,message: "Solo acepta letras"}
   validates :paterno, length: {minimum: 3, maximum: 15, :message => "El apellido paterno debe tener entre 3 y 15 caracteres"}
@@ -66,7 +69,9 @@ class Paciente < ApplicationRecord
       end
     end
   end
-
+  def name_full
+    "#{rut} #{nombre} #{paterno}"
+  end
 
 
 end

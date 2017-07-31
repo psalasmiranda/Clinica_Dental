@@ -4,6 +4,9 @@ class AgenteController < ApplicationController
   def index
     #@agentes= Agente.all
     @agentes = Agente.order("nombre").page(params[:page]).per(5)
+    if params[:search]
+    @agentes = Agente.search(params[:search]).order("created_at DESC").page(params[:page]).per(3)
+    end
   end
 
   def mostrar

@@ -20,7 +20,6 @@
     </tr>
   </table>
 <%= render 'piezas'%>
-<td> <%= button_to 'Historial', hist_usuario_url(@agenda.paciente_id), :class => "btn btn-primary" %></td>
 <%= form_for(@agenda, :url => {:action => 'update_registro'}, :html => {:role => 'form', class:'form-horizontal form1'}) do |f| %>
   <div>
     <%= f.hidden_field 'd55' %>
