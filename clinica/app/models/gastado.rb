@@ -1,8 +1,7 @@
 class Gastado < ApplicationRecord
   belongs_to :agenda, foreign_key: :agenda_id
   belongs_to :insumo, foreign_key: :insumo_id
-
-  after_create :cantidad_mayor
+  #after_create :cantidad_mayor
 
   validates :cantidad, presence: {:message => "Llenado Obligatorio"}
   validates :cantidad, numericality: {only_integer: true, message: "Solo numeros"}

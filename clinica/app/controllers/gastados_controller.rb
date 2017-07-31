@@ -15,8 +15,8 @@ class GastadosController < ApplicationController
     end
 
     def nuevo
-      @variabe = params[:motivo]
-      @gastado= Gastado.new
+        @variabe = params[:motivo]
+        @gastado= Gastado.new
     end
 
     def editar
@@ -27,8 +27,8 @@ class GastadosController < ApplicationController
         respond_to do |format|
         @insumo = Insumo.find(@gastado.insumo_id)
         stock = @insumo.cantidad - @gastado.cantidad
-        if Insumo.update(@gastado.insumo_id, :cantidad => stock)
-            if @gastado.save
+        if @gastado.save
+            if Insumo.update(@gastado.insumo_id, :cantidad => stock)
               format.html {redirect_to volver_editar_registro_url(@gastado.agenda_id), notice: 'Fue creado con mucho exito'}
             else
               format.html {render :nuevo}

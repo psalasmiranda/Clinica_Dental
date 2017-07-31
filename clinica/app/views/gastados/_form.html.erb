@@ -1,6 +1,10 @@
 <%= form_for(@gastado, :html => {:role => 'form', class:'form-horizontal'}) do |f| %>
       <div class="col-md-8 col-md-offset-2">
-
+        <% if @variabe.present? %>
+        <%= f.hidden_field :agenda_id, :value => @variabe %>
+        <% else %>
+        <%= f.hidden_field :agenda_id%>
+        <%end%>
         <div class="form-group<%= @gastado.errors[:insumoid].any? ? " has-error" : "" %>">
           <%= f.label "Insumo" , class:'col-sm-2 control-label'%>
         <div class="col-sm-10">
@@ -18,7 +22,7 @@
            <%= @gastado.errors[:cantidad].any? ? @gastado.errors[:cantidad].to_s[/\w([^"]*)/] : "" %></span>
         </div>
         </div>
-        <%= f.hidden_field 'agenda_id', :value => @variabe %>
+
         <div class="form-group text-center">
         <% if @gastado.errors.any? %>
             <%= pluralize(@gastado.errors.count, "error") %>
