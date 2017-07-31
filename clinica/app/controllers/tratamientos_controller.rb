@@ -3,11 +3,11 @@ class TratamientosController < ApplicationController
   before_action { authenticate_user!("tratamiento_vista") }
     def index
       #@tratamientos= Tratamiento.all
-      @tratamientos = Tratamiento.order("nombre").page(params[:page]).per(5)
+      @tratamientos = Tratamiento.order("nombre").page(params[:page]).per(3)
       if params[:search]
-      @tratamientos = Tratamiento.search(params[:search]).order("created_at DESC")
-      end
+      @tratamientos = Tratamiento.search(params[:search]).order("created_at DESC").page(params[:page]).per(3)
     end
+  end
 
     def mostrar
     end

@@ -5,9 +5,9 @@ before_action { authenticate_user!("insumo_vista") }
     #@insumos= Insumo.all
     @insumos = Insumo.order("nombre").page(params[:page]).per(5)
     if params[:search]
-    @insumos = Insumo.search(params[:search]).order("created_at DESC")
+    @insumos = Insumo.search(params[:search]).order("created_at DESC").page(params[:page]).per(3)
     end
-    
+
   end
 
 

@@ -1,3 +1,12 @@
+
+<div align= center>
+
+  <%= form_tag(listar_tratamiento_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Nombre Tratamiento" %>
+   <%= submit_tag "Buscar", name: nil, class: "btn btn-primary btn-md" %>
+
+  <% end %>
+</div>
 <table class="table">
 <div class="list-group" >
   <a class="list-group-item active" >
@@ -6,22 +15,15 @@
 
 <tr>
   <td align= center>Nombre Tratamiento </td>
-  <td align= center>Previson</td>
-  <td align= center>Costo</td>
-  <td align= center>Descripcion</td>
+  <td align= center>Prevision</td>
+
 </tr>
- <div align= center>
-   <%= form_tag(listar_tratamiento_path, :method => "get", id: "search-form") do %>
-   <%= text_field_tag :search, params[:search], placeholder: "Nombre Tratamiento" %>
-   <%= submit_tag "Buscar" %>
-   <% end %>
- </div>
+
     <% @tratamientos.each do |a| %>
         <tr>
           <td align= center><%= a.nombre%></td>
           <td align= center><%= a.prevision%></td>
-          <td align= center><%= a.costo%></td>
-          <td align= center><%= a.descripcion%></td>
+          <td><%= button_to 'Mostrar' , tratamiento_url(a), :class => "btn btn-primary" %></td>
           <td> <%= button_to 'Editar', editar_tratamiento_url(a), :class => "btn btn-primary" %></td>
           <td><%= button_to a, :class => "btn btn-danger", method: :delete, data: {confirm: 'Desea Continuar'} do %>
                 <span class="glyphicon glyphicon-trash"></span>
@@ -31,3 +33,4 @@
   <% end %>
   </tbody>
 </table>
+<%= paginate @tratamientos %>
