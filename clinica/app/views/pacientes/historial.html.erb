@@ -28,6 +28,7 @@
     <td align= center>Doctor</td>
     <td align= center>Tratamiento</td>
     <td align= center>Descripción</td>
+    <td align= center>Piezas tratadas</td>
   </tr>
     <% @horas.each do |a| %>
         <tr>
@@ -35,6 +36,58 @@
           <td align= center><%= a.usuario.nombre << " " <<  a.usuario.ape_paterno%></td>
           <td align= center><%= a.tratamiento.nombre %></td>
           <td align= center><%= a.comentario %></td>
+          <td align= center><% if a.d55 == true %>55 <%end%>
+                <% if a.d54 == true %>54 <%end%>
+                <% if a.d53 == true %>53 <%end%>
+                <% if a.d52 == true %>52 <%end%>
+                <% if a.d51 == true %>51 <%end%>
+                <% if a.d61 == true %>61 <%end%>
+                <% if a.d62 == true %>62 <%end%>
+                <% if a.d63 == true %>63 <%end%>
+                <% if a.d64 == true %>64 <%end%>
+                <% if a.d65 == true %>65 <%end%>
+                <% if a.d85 == true %>85 <%end%>
+                <% if a.d84 == true %>84 <%end%>
+                <% if a.d83 == true %>83 <%end%>
+                <% if a.d82 == true %>82 <%end%>
+                <% if a.d81 == true %>81 <%end%>
+                <% if a.d71 == true %>71 <%end%>
+                <% if a.d72 == true %>72 <%end%>
+                <% if a.d73 == true %>73 <%end%>
+                <% if a.d74 == true %>74 <%end%>
+                <% if a.d75 == true %>75 <%end%>
+                <% if a.d18 == true %>18 <%end%>
+                <% if a.d17 == true %>17 <%end%>
+                <% if a.d16 == true %>16 <%end%>
+                <% if a.d15 == true %>15 <%end%>
+                <% if a.d14 == true %>14 <%end%>
+                <% if a.d13 == true %>13 <%end%>
+                <% if a.d12 == true %>12 <%end%>
+                <% if a.d11 == true %>11 <%end%>
+                <% if a.d21 == true %>21 <%end%>
+                <% if a.d22 == true %>22 <%end%>
+                <% if a.d23 == true %>23 <%end%>
+                <% if a.d24 == true %>24 <%end%>
+                <% if a.d25 == true %>25 <%end%>
+                <% if a.d26 == true %>26 <%end%>
+                <% if a.d27 == true %>27 <%end%>
+                <% if a.d28 == true %>28 <%end%>
+                <% if a.d38 == true %>38 <%end%>
+                <% if a.d37 == true %>37 <%end%>
+                <% if a.d36 == true %>36 <%end%>
+                <% if a.d35 == true %>35 <%end%>
+                <% if a.d34 == true %>34 <%end%>
+                <% if a.d33 == true %>33 <%end%>
+                <% if a.d32 == true %>32 <%end%>
+                <% if a.d31 == true %>31 <%end%>
+                <% if a.d41 == true %>41 <%end%>
+                <% if a.d42 == true %>42 <%end%>
+                <% if a.d43 == true %>43 <%end%>
+                <% if a.d44 == true %>44 <%end%>
+                <% if a.d45 == true %>45 <%end%>
+                <% if a.d46 == true %>46 <%end%>
+                <% if a.d47 == true %>47 <%end%>
+                <% if a.d48 == true %>48 <%end%></td>
         </tr>
   <% end %>
 </table>
